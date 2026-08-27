@@ -1,0 +1,91 @@
+<!--
+  Desarrollo de Frontend (ICINF1107) · Semana 3
+  Esqueleto HTML con espacios en blanco — Taller guiado (09:50-10:30)
+
+  Cómo se usa en clase:
+  El docente proyecta este archivo en el editor de código y, en conjunto
+  con el curso, va reemplazando cada <div class="blank" data-n="N"> por
+  la etiqueta HTML semántica correcta -- por ejemplo:
+
+      <div class="blank" data-n="1"> ... </div>
+      se convierte en
+      <header> ... </header>
+
+  Al reemplazar la etiqueta, también se elimina el atributo class="blank"
+  data-n="N" (ya cumplió su función de marcar el bloque pendiente).
+  starter.css ya está enlazado: apenas se usa la etiqueta correcta,
+  aparece el borde de color y la etiqueta con su nombre.
+
+  Es la misma vista genérica (app ViajaFácil) que se trabajó en la
+  actividad individual en papel -- ideal para comparar respuestas.
+
+  Numeración de los 8 bloques pendientes:
+  1 header (cabecera)          5 article (destino 1)
+  2 nav (dentro de la cabecera) 6 article (destino 2)
+  3 section (banner principal)  7 aside (tu ubicación actual)
+  4 main (contenido principal)  8 footer (pie de página)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ViajaFácil — vista genérica (esqueleto)</title>
+<link rel="stylesheet" href="06_starter.css">
+</head>
+<body>
+
+  <!-- 1: agrupa el logo y la navegación -->
+  <header>
+    <div class="logo">ViajaFácil</div>
+
+    <!-- 2: bloque de navegación -->
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Destinos</a>
+      <a href="#">Guías</a>
+      <a href="#">Contacto</a>
+    </nav>
+  </header>
+
+  <!-- 3: banner principal, con el h1 del sitio -->
+  <section>
+    <h1>Viaja más, vive experiencias</h1>
+    <p>Consejos, guías y destinos para que tu próximo viaje sea inolvidable.</p>
+    <img src="https://static.vecteezy.com/system/resources/previews/050/495/638/non_2x/woman-standing-on-rocks-in-river-surrounded-by-mountains-forest-photo.jpeg" alt="Paisaje de montaña con viajero">
+    <a href="#" class="btn">Explora destinos</a>
+  </section>
+
+  <!-- 4: contenido principal, único por página -->
+  <main>
+
+    <!-- 5: destino independiente y autocontenido -->
+    <div class="blank" data-n="5">
+      <img src="https://www.outlooktravelmag.com/media/bali-1-1679062958.profileImage.2x-1536x884.webp" alt="">
+      <h2>Bali, Indonesia</h2>
+      <p>Playas, templos y arrozales en uno de los destinos más buscados de Asia.</p>
+    </div>
+
+    <!-- 6: destino independiente y autocontenido -->
+    <div class="blank" data-n="6">
+      <img src="https://www.nyctourism.com/_next/image/?url=https%3A%2F%2Fimages.ctfassets.net%2F1aemqu6a6t65%2Ff2K63ZhdxIW0o2nvcEXqo%2Fd26f4fc6174e3e9cee47b8a603b1efe5%2FSkyline-Brooklyn-NYC-Courtesy-Timelapse-Company.jpg&w=3840&q=75" alt="">
+      <h2>Nueva York, EE. UU.</h2>
+      <p>La ciudad que nunca duerme, ideal para los amantes de la vida urbana.</p>
+    </div>
+
+    <!-- 7: contenido secundario, relacionado con el principal -->
+    <div class="mapa" data-n="7">
+      <h2>Tu ubicación actual</h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcTqdWbD_bALc1WJCoT5ipS3NU8iytd2KkHvOXJ8RntQ&s=10" alt="Mapa con la ubicación actual del usuario">
+      <p>Descubre destinos y experiencias cerca de ti.</p>
+    </div>
+
+  </main>
+
+  <!-- 8: pie de página -->
+  <div class="blank" data-n="8">
+    <p>&copy; 2026 ViajaFácil</p>
+  </div>
+
+</body>
+</html>
