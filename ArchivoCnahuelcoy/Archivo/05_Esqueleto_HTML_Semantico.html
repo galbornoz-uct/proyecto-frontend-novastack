@@ -1,0 +1,175 @@
+<!--
+  Desarrollo de Frontend (ICINF1107) · Semana 3
+  Esqueleto HTML con espacios en blanco — Taller guiado (09:50-10:30)
+
+  Cómo se usa en clase:
+  El docente proyecta este archivo en el editor de código y, en conjunto
+  con el curso, va reemplazando cada <div class="blank" data-n="N"> por
+  la etiqueta HTML semántica correcta -- por ejemplo:
+
+      <div class="blank" data-n="1"> ... </div>
+      se convierte en
+      <header> ... </header>
+
+  Al reemplazar la etiqueta, también se elimina el atributo class="blank"
+  data-n="N" (ya cumplió su función de marcar el bloque pendiente).
+  starter.css ya está enlazado: apenas se usa la etiqueta correcta,
+  aparece el borde de color y la etiqueta con su nombre.
+
+  Es la misma vista genérica (portal de noticias) que se trabajó en la
+  actividad individual en papel -- ideal para comparar respuestas.
+
+  Numeración de los 8 bloques pendientes:
+  1 header (cabecera)          5 article (noticia 1)
+  2 nav (dentro de la cabecera) 6 article (noticia 2)
+  3 section (banner principal)  7 aside (más leídas)
+  4 main (contenido principal)  8 footer (pie de página)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal de Noticias — vista genérica (esqueleto)</title>
+<link rel="stylesheet" href="06_starter.css">
+</head>
+<body>
+
+  <!-- 1: agrupa el logo y la navegación -->
+
+  <header>
+    <div class="logo">EcoRuta</div>
+
+    <!-- 2: bloque de navegación -->
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Mapa</a></li>
+        <li><a href="#">Clima</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Guías de viaje</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 4: contenido principal, único por página -->
+  <main>
+
+    <!-- 3: banner principal, con el h1 del sitio -->
+    <section>
+      <h1>Explora la Araucanía</h1>
+
+      <form>
+        <label for="destino">¿Dónde quieres ir?</label>
+        <input
+          type="search"
+          id="destino"
+          name="destino"
+          placeholder="Busca un destino"
+        >
+        <button type="submit">Buscar</button>
+      </form>
+      <img
+        src="https://chile.travel/wp-content/uploads/2024/08/6bf4eec2-5-panoramas-imperdibles-de-la-region-de-la-araucania.jpg"
+        alt="Paisaje natural de la Araucanía"
+      >
+    </section>
+
+    <!-- 5: noticia independiente y autocontenida -->
+    <article>
+      <h2>Próximos eventos</h2>
+
+      <ul>
+        <li>
+          <h3>Maratón Glaciar</h3>
+          <a href="https://lastorres.com/circuitos-y-tours/experiencia-las-torres/">Más información: 24 de noviembre — Torres del Paine</a>
+        </li>
+        <li>
+          <h3>Patagonia Fest</h3>
+          <a href="https://patagonia-chile.com/">Más información: 2 de diciembre — Puerto Natales</a>
+        </li>
+        <li>
+          <h3>Trekking Guiado</h3>
+          <a href="https://www.trekkingchile.com/es/busqueda-de-guias/">Más información: 16 de diciembre — Senderos de la Araucanía</a>
+        </li>
+      </ul>
+
+      <a href="#">Ver todos los eventos</a>
+    </article>
+
+    <!-- 6: información detallada del clima -->
+    <article>
+      <h2>Clima detallado</h2>
+
+      <label for="ciudad">Ciudad</label>
+      <select id="ciudad" name="ciudad">
+        <option value="temuco">Temuco</option>
+        <option value="pucon">Pucón</option>
+        <option value="villarrica">Villarrica</option>
+      </select>
+
+      <p><strong>16 °C</strong></p>
+      <p>Parcialmente nublado</p>
+
+      <ul>
+        <li>Humedad: 65 %</li>
+        <li>Viento: 22 km/h</li>
+        <li>Sensación térmica: 14 °C</li>
+      </ul>
+
+      <h3>Pronóstico</h3>
+      <ul>
+        <li>Hoy: mínima 10 °C, máxima 14 °C</li>
+        <li>Mañana: mínima 10 °C, máxima 16 °C</li>
+        <li>Próximos días: lluvia ocasional</li>
+      </ul>
+    </article>
+
+    <!-- 7: contenido secundario, relacionado con el principal -->
+    <aside>
+      <section>
+        <h2>Explorar</h2>
+        <nav aria-label="Opciones para explorar">
+          <ul>
+            <li><a href="#">Destinos populares</a></li>
+            <li><a href="#">Actividades</a></li>
+            <li><a href="#">Guías de supervivencia</a></li>
+            <li><a href="#">Equipamiento recomendado</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section>
+        <h2>Servicios</h2>
+        <ul>
+          <li><a href="#">Alojamiento</a></li>
+          <li><a href="#">Transporte</a></li>
+        </ul>
+      </section>
+    </aside>
+
+  </main>
+
+  <!-- 8: pie de página -->
+  <footer>
+    <section>
+      <h2>Explora Araucanía</h2>
+      <p>
+        Descubre los secretos mejor guardados de la Araucanía.
+        Bosques de araucarias, volcanes y lagos te esperan.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contacto</h2>
+      <address>
+        <p>Correo: <a href="mailto:info@exploraaraucania.cl">info@exploraaraucania.cl</a></p>
+        <p>Teléfono: <a href="tel:+56925456799">+56 9 2545 6799</a></p>
+      </address>
+    </section>
+
+    <p>&copy; 2026 Explora Araucanía. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
