@@ -1,0 +1,736 @@
+/* ESTILOS GENERALES */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f2f2f2;
+    color: #222;
+}
+
+
+/* HEADER - MOBILE FIRST */
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px 20px;
+
+    background-color: white;
+}
+
+.logo {
+    font-size: 26px;
+    font-weight: bold;
+    color: #8b5e2e;
+}
+
+
+/* NAVEGACIÓN */
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    list-style: none;
+}
+
+header nav a {
+    text-decoration: none;
+
+    color: #333;
+
+    font-size: 15px;
+    font-weight: 500;
+}
+
+header nav a:hover {
+    color: #8b5e2e;
+}
+
+
+/* DISTRIBUCIÓN DEL CONTENIDO - MOBILE FIRST */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+
+/* BANNER PRINCIPAL */
+
+main > section:first-child {
+    grid-column: 1 / -1;
+
+    height: 420px;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 20px;
+
+    color: white;
+}
+
+main > section:first-child img {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    top: 0;
+    left: 0;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+/* CAPA OSCURA DEL BANNER */
+
+main > section:first-child::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.4);
+
+    z-index: 1;
+}
+
+main > section:first-child h1,
+main > section:first-child form {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* TITULO DEL BANNER */
+
+main > section:first-child h1 {
+    margin-left: 0;
+    margin-bottom: 20px;
+
+    font-size: 40px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    color: white;
+}
+
+
+/* BUSCADOR DEL BANNER */
+
+main > section:first-child form {
+    margin-left: 0;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    max-width: 500px;
+
+    background-color: white;
+
+    border-radius: 10px;
+
+    padding: 8px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+main > section:first-child form label {
+    display: none;
+}
+
+main > section:first-child form input {
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+
+    padding: 12px;
+
+    font-size: 15px;
+}
+
+main > section:first-child form button {
+    border: none;
+
+    background-color: #8b5e2e;
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+main > section:first-child form button:hover {
+    background-color: #6f491f;
+}
+
+
+/* TARJETA DE PRÓXIMOS EVENTOS */
+
+main > article:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
+
+    width: auto;
+
+    margin: 20px;
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+main > article:first-of-type h2 {
+    margin-bottom: 20px;
+
+    font-size: 24px;
+
+    color: #333;
+}
+
+
+/* EVENTOS INDIVIDUALES */
+
+main > article:first-of-type ul {
+    list-style: none;
+}
+
+main > article:first-of-type li {
+    margin-bottom: 12px;
+
+    padding: 14px;
+
+    background-color: #f7f4ee;
+
+    border-radius: 10px;
+
+    border: 1px solid #e4ded4;
+
+    transition: 0.2s;
+}
+
+main > article:first-of-type h3 {
+    margin-bottom: 5px;
+
+    font-size: 17px;
+
+    color: #2f3d36;
+}
+
+main > article:first-of-type li a {
+    font-size: 13px;
+
+    color: #8b5e2e;
+
+    text-decoration: none;
+}
+
+main > article:first-of-type li:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+
+/* BOTÓN VER TODOS LOS EVENTOS */
+
+main > article:first-of-type > a {
+    display: block;
+
+    margin-top: 10px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    background-color: #8b5e2e;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-weight: bold;
+    font-size: 14px;
+}
+
+main > article:first-of-type > a:hover {
+    background-color: #6f491f;
+}
+
+
+/* SECCIÓN EXPLORAR */
+
+main > aside {
+    grid-column: 1;
+    grid-row: 3;
+
+    margin: 20px;
+    padding: 25px;
+
+    background-color: #234b3d;
+    color: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+main > aside h2 {
+    margin-bottom: 15px;
+
+    font-size: 22px;
+
+    color: #f1d39a;
+}
+
+main > aside section {
+    margin-bottom: 25px;
+}
+
+main > aside section:last-child {
+    margin-bottom: 0;
+}
+
+main > aside ul {
+    list-style: none;
+}
+
+main > aside li {
+    margin-bottom: 10px;
+}
+
+main > aside a {
+    display: block;
+
+    padding: 12px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+}
+
+main > aside a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+/* TARJETA DEL CLIMA */
+
+main > article:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 4;
+
+    width: auto;
+
+    margin: 20px;
+    padding: 25px;
+
+    background-color: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+main > article:nth-of-type(2) h2 {
+    margin-bottom: 20px;
+
+    font-size: 24px;
+
+    color: #333;
+}
+
+main > article:nth-of-type(2) select {
+    width: 100%;
+
+    padding: 10px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    background-color: white;
+}
+
+main > article:nth-of-type(2) label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+
+/* TEMPERATURA */
+
+main > article:nth-of-type(2) > p:first-of-type {
+    margin-bottom: 5px;
+
+    font-size: 48px;
+    font-weight: bold;
+
+    color: #2f3d36;
+}
+
+main > article:nth-of-type(2) > p:nth-of-type(2) {
+    margin-bottom: 20px;
+
+    font-size: 16px;
+
+    color: #666;
+}
+
+
+/* DATOS DEL CLIMA */
+
+main > article:nth-of-type(2) > ul:first-of-type {
+    list-style: none;
+
+    margin-bottom: 20px;
+
+    padding: 15px;
+
+    background-color: #f7f4ee;
+
+    border-radius: 10px;
+}
+
+main > article:nth-of-type(2) > ul:first-of-type li {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    color: #555;
+}
+
+main > article:nth-of-type(2) > ul:first-of-type li:last-child {
+    margin-bottom: 0;
+}
+
+
+/* PRONÓSTICO */
+
+main > article:nth-of-type(2) h3 {
+    margin-bottom: 12px;
+
+    font-size: 18px;
+
+    color: #333;
+}
+
+main > article:nth-of-type(2) > ul:last-of-type {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 10px;
+
+    list-style: none;
+}
+
+main > article:nth-of-type(2) > ul:last-of-type li {
+    padding: 12px;
+
+    background-color: #f7f4ee;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #555;
+}
+
+
+/* FOOTER - MOBILE FIRST */
+
+footer {
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding: 35px 20px;
+
+    background-color: #173d31;
+
+    color: white;
+}
+
+footer h2 {
+    margin-bottom: 12px;
+
+    color: #f1d39a;
+
+    font-size: 22px;
+}
+
+footer p {
+    margin-bottom: 8px;
+
+    color: #e0e0e0;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+}
+
+footer a {
+    color: white;
+
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #f1d39a;
+}
+
+footer address {
+    font-style: normal;
+}
+
+footer > p:last-child {
+    grid-column: 1 / -1;
+
+    margin-top: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* =================================
+   TABLET
+   ================================= */
+
+@media (min-width: 768px) {
+
+    /* HEADER */
+
+    header {
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        padding: 20px 30px;
+    }
+
+    header nav ul {
+        gap: 20px;
+    }
+
+
+    /* BANNER */
+
+    main > section:first-child {
+        height: 480px;
+
+        padding: 40px;
+    }
+
+    main > section:first-child h1 {
+        font-size: 50px;
+    }
+
+    main > section:first-child form {
+        width: 500px;
+    }
+
+
+    /* CONTENIDO */
+
+    main {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    main > section:first-child {
+        grid-column: 1 / -1;
+    }
+
+
+    /* EVENTOS */
+
+    main > article:first-of-type {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: auto;
+
+        margin: 30px 15px 30px 30px;
+    }
+
+
+    /* CLIMA */
+
+    main > article:nth-of-type(2) {
+        grid-column: 2;
+        grid-row: 2;
+
+        width: auto;
+
+        margin: 30px 30px 30px 15px;
+    }
+
+
+    /* EXPLORAR */
+
+    main > aside {
+        grid-column: 1 / -1;
+        grid-row: 3;
+
+        margin: 0 30px 30px;
+    }
+
+
+    /* PRONÓSTICO */
+
+    main > article:nth-of-type(2) > ul:last-of-type {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        grid-template-columns: 2fr 1fr;
+
+        gap: 40px;
+
+        padding: 40px 40px;
+    }
+}
+
+
+/* =================================
+   ESCRITORIO
+   ================================= */
+
+@media (min-width: 1100px) {
+
+    /* HEADER */
+
+    header {
+        padding: 20px 50px;
+    }
+
+    header nav ul {
+        gap: 30px;
+    }
+
+
+    /* BANNER */
+
+    main > section:first-child {
+        height: 520px;
+
+        padding: 0;
+    }
+
+    main > section:first-child h1 {
+        margin-left: 60px;
+
+        font-size: 60px;
+    }
+
+    main > section:first-child form {
+        margin-left: 60px;
+
+        width: 500px;
+    }
+
+
+    /* DISTRIBUCIÓN PRINCIPAL */
+
+    main {
+        grid-template-columns: 420px 1fr 420px;
+    }
+
+
+    /* EVENTOS */
+
+    main > article:first-of-type {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: 360px;
+
+        margin: 30px 0 30px 60px;
+    }
+
+
+    /* EXPLORAR */
+
+    main > aside {
+        grid-column: 2;
+        grid-row: 2;
+
+        margin: 30px;
+    }
+
+
+    /* CLIMA */
+
+    main > article:nth-of-type(2) {
+        grid-column: 3;
+        grid-row: 2;
+
+        width: 360px;
+
+        margin: 30px 60px 30px 0;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+        padding: 40px 60px;
+    }
+}
