@@ -1,25 +1,7 @@
 /* ============================================================
-   starter.css — Desarrollo de Frontend (ICINF1107) · Semana 3
-   Hoja de estilos "visualizadora".
-
-   Los equipos SOLO enlazan este archivo (no lo escriben ni lo
-   modifican hoy): <link rel="stylesheet" href="starter.css">
-
-   Qué hace:
-   1) Un reset básico y tipografía por defecto, para que la página
-      se vea ordenada desde el primer momento.
-   2) Un borde de color distinto y una etiqueta con el nombre de
-      cada elemento semántico (header, nav, main, section, article,
-      aside, footer), para que la estructura HTML se vuelva visible
-      sin escribir una sola línea de CSS.
-   3) Un estilo genérico para los bloques ".blank" del esqueleto de
-      la mini-clase: mientras sean <div class="blank">, se ven como
-      una caja gris pendiente; en cuanto se reemplazan por la
-      etiqueta semántica correcta, toman el color que les
-      corresponde más abajo.
-
-   No es necesario entender cada línea hoy — a partir de la semana 4
-   (CSS moderno y responsivo) se explica en profundidad.
+   VIAJAFÁCIL
+   CSS basado en el HTML entregado
+   NO modificar HTML
    ============================================================ */
 
 /* ---------- 1) Reset básico y tipografía ---------- */
