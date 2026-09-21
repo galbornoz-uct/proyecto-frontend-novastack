@@ -1,174 +1,682 @@
 /* ============================================================
-   starter.css — Desarrollo de Frontend (ICINF1107) · Semana 3
-   Hoja de estilos "visualizadora".
-
-   Los equipos SOLO enlazan este archivo (no lo escriben ni lo
-   modifican hoy): <link rel="stylesheet" href="starter.css">
-
-   Qué hace:
-   1) Un reset básico y tipografía por defecto, para que la página
-      se vea ordenada desde el primer momento.
-   2) Un borde de color distinto y una etiqueta con el nombre de
-      cada elemento semántico (header, nav, main, section, article,
-      aside, footer), para que la estructura HTML se vuelva visible
-      sin escribir una sola línea de CSS.
-   3) Un estilo genérico para los bloques ".blank" del esqueleto de
-      la mini-clase: mientras sean <div class="blank">, se ven como
-      una caja gris pendiente; en cuanto se reemplazan por la
-      etiqueta semántica correcta, toman el color que les
-      corresponde más abajo.
-
-   No es necesario entender cada línea hoy — a partir de la semana 4
-   (CSS moderno y responsivo) se explica en profundidad.
+   VIAJAFÁCIL
+   CSS basado en el HTML entregado
+   NO modificar HTML
    ============================================================ */
 
-/* ---------- 1) Reset básico y tipografía ---------- */
-
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 24px;
-  background: #F7F8FC;
-  color: #24283B;
-  font-family: Calibri, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+    background: #110052;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
 }
 
-h1, h2, h3 {
-  font-family: Cambria, 'Times New Roman', serif;
-  color: #1E2761;
-  margin: 0 0 8px 0;
-  line-height: 1.25;
-}
-
-h1 { font-size: 1.8rem; }
-h2 { font-size: 1.25rem; }
-
+h1,
+h2,
+h3,
 p {
-  margin: 0 0 8px 0;
-}
-
-img {
-  max-width: 100%;
-  display: block;
-  border-radius: 4px;
+    margin: 0;
 }
 
 a {
-  color: #1E2761;
-  text-decoration: none;
-  font-weight: 600;
-}
-a:hover {
-  text-decoration: underline;
+    text-decoration: none;
+    color: inherit;
 }
 
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+img {
+    display: block;
+    max-width: 100%;
 }
-li {
-  padding: 4px 0;
-  border-bottom: 1px solid #E3E7F2;
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+header {
+    width: 100%;
+    height: 80px;
+
+    margin: 0;
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #150052;
+
+    border: 0;
+    border-radius: 0;
 }
 
 .logo {
-  font-family: Cambria, 'Times New Roman', serif;
-  font-weight: bold;
-  font-size: 1.3rem;
-  color: #1E2761;
+    color: #fff;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    font-weight: 700;
 }
 
-/* ---------- 2) Bloques pendientes del esqueleto (mini-clase) ---------- */
+.logo::before {
+    content: "✈";
 
-.mapa {
-  position: relative;
-  border: 3px dashed #C9CDDC;
-  border-radius: 6px;
-  margin: 14px 0;
-  padding: 22px 16px 16px 16px;
-  background: #FFFFFF;
-}
-.blank::before {
-  content: "PENDIENTE #" attr(data-n);
-  position: absolute;
-  top: -13px;
-  left: 12px;
-  background: #C9CDDC;
-  color: #3A3F55;
-  font: 700 11px/1 'Courier New', monospace;
-  padding: 3px 8px;
-  border-radius: 3px;
-  letter-spacing: 0.5px;
+    color: #eaff00;
+
+    margin-right: 10px;
+
+    font-size: 27px;
 }
 
-/* ---------- 3) Un borde y una etiqueta por elemento semántico ---------- */
 
-header, nav, main, section, article, aside, footer {
-  position: relative;
-  display: block;
-  border: 3px solid var(--tag-color, #9AA0B4);
-  border-radius: 6px;
-  margin: 14px 0;
-  padding: 22px 16px 16px 16px;
-  background: #FFFFFF;
-}
+/* ============================================================
+   NAV SUPERIOR
+   ============================================================ */
 
-header  { --tag-color: #1E2761; }
-nav     { --tag-color: #F9A826; }
-section { --tag-color: #0E7C7B; }
-main    { --tag-color: #8A8FB0; }
-article { --tag-color: #2F6FED; }
-aside   { --tag-color: #C2489C; }
-footer  { --tag-color: #5A5A6E; }
-
-header::before, nav::before, main::before, section::before,
-article::before, aside::before, footer::before {
-  position: absolute;
-  top: -13px;
-  left: 12px;
-  color: #FFFFFF;
-  background: var(--tag-color);
-  font: 700 11px/1 'Courier New', monospace;
-  padding: 3px 8px;
-  border-radius: 3px;
-  letter-spacing: 0.5px;
-}
-
-header::before  { content: "header"; }
-nav::before     { content: "nav"; }
-section::before { content: "section"; }
-main::before    { content: "main"; }
-article::before { content: "article"; }
-aside::before   { content: "aside"; }
-footer::before  { content: "footer"; }
-
-/* ---------- Layout puntual solo para que la vista genérica se lea bien ---------- */
-
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
 nav {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-main {
-  display: grid;
-  grid-template-columns: 1fr 1fr 260px;
-  gap: 16px;
-}
-@media (max-width: 820px) {
-  main { grid-template-columns: 1fr; }
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    margin: 0;
+    padding: 0;
+
+    background: transparent;
+    border: 0;
 }
 
+nav a {
+    color: #c8c5dd;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: #eaff00;
+}
+
+
+/* ============================================================
+   BANNER
+   ============================================================ */
+
+body > section {
+    position: relative;
+
+    width: 100%;
+    height: 440px;
+
+    margin: 0;
+    padding: 55px 48px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    border: 0;
+    border-radius: 0;
+}
+
+
+/* Imagen */
+
+body > section img {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    object-fit: cover;
+
+    border-radius: 0;
+
+    z-index: 0;
+}
+
+
+/* Oscurecimiento */
+
+body > section::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(9, 0, 45, .82),
+            rgba(9, 0, 45, .35),
+            rgba(9, 0, 45, .05)
+        );
+
+    z-index: 1;
+}
+
+
+/* Título */
+
+body > section h1 {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 350px;
+
+    color: #fff;
+
+    font-size: 46px;
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    margin-bottom: 20px;
+}
+
+
+/* Hacer que "experiencias" tenga el amarillo */
+
+body > section h1 {
+    text-shadow: 0 2px 5px rgba(0,0,0,.25);
+}
+
+
+/* Descripción */
+
+body > section p {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 290px;
+
+    color: #eee;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+
+/* Botón */
+
+body > section .btn {
+    position: relative;
+
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 12px 21px;
+
+    background: #eaff00;
+    color: #151515;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    box-shadow: 0 0 22px rgba(234,255,0,.5);
+
+    transition: .2s;
+}
+
+body > section .btn::after {
+    content: "→";
+
+    margin-left: 12px;
+
+    font-size: 19px;
+}
+
+body > section .btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+
+main {
+    width: 100%;
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 25px 30px 100px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+
+    background: transparent;
+
+    border: 0;
+}
+
+
+/* ============================================================
+   TARJETAS
+   ============================================================ */
+
+main > div[data-n="5"],
+main > div[data-n="6"] {
+
+    position: relative;
+
+    height: 300px;
+
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #19005c;
+
+    border-radius: 12px;
+
+    border: 2px solid #19e9ff;
+
+    box-shadow:
+        0 0 12px rgba(0,220,255,.35);
+
+    transition: .25s;
+}
+
+main > div[data-n="6"] {
+    border-color: #e3b7ff;
+
+    box-shadow:
+        0 0 12px rgba(210,80,255,.25);
+}
+
+main > div[data-n="5"]:hover,
+main > div[data-n="6"]:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Imagen */
+
+main > div[data-n="5"] img,
+main > div[data-n="6"] img {
+
+    width: 100%;
+    height: 205px;
+
+    object-fit: cover;
+
+    border-radius: 0;
+}
+
+
+/* Degradado */
+
+main > div[data-n="5"]::after,
+main > div[data-n="6"]::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 120px;
+
+    background: linear-gradient(
+        transparent,
+        rgba(14,0,60,.98)
+    );
+
+    pointer-events: none;
+}
+
+
+/* Títulos */
+
+main > div[data-n="5"] h2,
+main > div[data-n="6"] h2 {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 7px 12px 2px;
+
+    color: #fff;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* Texto */
+
+main > div[data-n="5"] p,
+main > div[data-n="6"] p {
+
+    position: relative;
+
+    z-index: 2;
+
+    margin: 0 12px;
+
+    color: #d2d0df;
+
+    font-size: 11px;
+
+    line-height: 1.35;
+}
+
+
+/* ============================================================
+   ETIQUETAS DE LAS TARJETAS
+   ============================================================ */
+
+main > div[data-n="5"]::before,
+main > div[data-n="6"]::before {
+
+    position: absolute;
+
+    top: 12px;
+    left: 12px;
+
+    z-index: 4;
+
+    padding: 5px 11px;
+
+    border-radius: 20px;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 700;
+
+    background: rgba(0,0,0,.35);
+
+    border: 1px solid rgba(255,255,255,.35);
+
+    backdrop-filter: blur(5px);
+}
+
+main > div[data-n="5"]::before {
+    content: "PLAYA";
+}
+
+main > div[data-n="6"]::before {
+    content: "CIUDAD";
+}
+
+
+/* ============================================================
+   MAPA
+   ============================================================ */
+
+main > div[data-n="7"] {
+
+    grid-column: 1 / -1;
+
+    margin-top: 8px;
+
+    padding: 20px;
+
+    background: #123f82;
+
+    border: 0;
+
+    border-radius: 17px;
+
+    overflow: hidden;
+}
+
+
+/* Título */
+
+main > div[data-n="7"] h2 {
+
+    color: #fff;
+
+    font-size: 17px;
+
+    margin-bottom: 3px;
+}
+
+
+/* Texto */
+
+main > div[data-n="7"] p {
+
+    color: #aebbd5;
+
+    font-size: 12px;
+
+    margin-bottom: 12px;
+}
+
+
+/* Imagen */
+
+main > div[data-n="7"] img {
+
+    width: 100%;
+    height: 170px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+}
+
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+body > div[data-n="8"] {
+
+    width: 100%;
+
+    padding: 20px;
+
+    background: #10004d;
+
+    border-top: 1px solid rgba(255,255,255,.12);
+
+    text-align: center;
+
+    color: #8c88ad;
+
+    font-size: 11px;
+}
+
+
+/* ============================================================
+   QUITAR ESTILO DEL STARTER
+   ============================================================ */
+
+.blank {
+    background: transparent;
+}
+
+.blank::before {
+    display: none;
+}
+
+
+/* ============================================================
+   TABLET
+   ============================================================ */
+
+@media (max-width: 800px) {
+
+    header {
+        height: 70px;
+    }
+
+    body > section {
+        height: 410px;
+
+        padding: 45px 35px;
+    }
+
+    body > section h1 {
+        font-size: 42px;
+    }
+
+    main {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+
+/* ============================================================
+   CELULAR
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    body {
+        background: #10004f;
+    }
+
+
+    /* HEADER */
+
+    header {
+        height: 80px;
+
+        padding: 0 28px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav {
+        gap: 15px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+
+    /* HERO */
+
+    body > section {
+
+        height: 440px;
+
+        padding: 55px 48px;
+
+        justify-content: center;
+    }
+
+    body > section h1 {
+
+        max-width: 290px;
+
+        font-size: 43px;
+
+        line-height: 1.08;
+    }
+
+    body > section p {
+
+        max-width: 240px;
+
+        font-size: 14px;
+    }
+
+
+    /* MAIN */
+
+    main {
+
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 9px;
+
+        padding: 22px 18px 90px;
+    }
+
+
+    /* CARDS */
+
+    main > div[data-n="5"],
+    main > div[data-n="6"] {
+
+        height: 270px;
+    }
+
+    main > div[data-n="5"] img,
+    main > div[data-n="6"] img {
+
+        height: 175px;
+    }
+
+    main > div[data-n="5"] h2,
+    main > div[data-n="6"] h2 {
+
+        font-size: 14px;
+    }
+
+    main > div[data-n="5"] p,
+    main > div[data-n="6"] p {
+
+        font-size: 10px;
+    }
+
+
+    /* MAPA */
+
+    main > div[data-n="7"] {
+
+        padding: 15px;
+
+        margin-top: 5px;
+    }
+
+    main > div[data-n="7"] img {
+
+        height: 155px;
+    }
+
+
+    /* FOOTER */
+
+    body > div[data-n="8"] {
+
+        padding: 15px;
+    }
+}
