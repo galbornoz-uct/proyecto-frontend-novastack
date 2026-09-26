@@ -5,8 +5,8 @@
 | Nombre | Rol ágil |
 |---|---|
 | Gonzalo Albornoz | Developers |
-| Rodrigo Sevilla |Scrum Master  |
-| Carlos Nahuelcoy |Product owner  |
+| Rodrigo Sevilla | Scrum Master  |
+| Carlos Nahuelcoy | Product Owner  |
 | Matias Salinas | QA/Tester |
 | Francisco Larenas | Developers |
 
