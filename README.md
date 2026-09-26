@@ -31,7 +31,7 @@ npm install
 npm run dev
 ```
 
-## Estado del proyecto
+## Estado del proyecto:
 
 - Sprint actual: Sprint 0 (Kickoff)
 - Última actualización: (fecha)
