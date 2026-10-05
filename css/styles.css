@@ -730,3 +730,74 @@ footer > p:last-child {
         padding: 40px 60px;
     }
 }
+
+/* =========================================
+   ESTILOS PARA LA SECCIÓN DE LUGARES CERCANOS
+   ========================================= */
+
+/* Caja principal de la sección */
+.seccion-lugares-bonita {
+  background-color: #f0f7f4; /* Fondo verde muy suavecito */
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #dce8e3;
+  margin: 30px 0;
+}
+
+.seccion-lugares-bonita h2 {
+  color: #2e7d32; /* Verde bosque */
+  margin-top: 0;
+}
+
+/* Grilla para que las tarjetas se pongan una al lado de la otra en PC */
+.grid-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  list-style: none; /* Quita los puntos feos de la lista */
+  padding: 0;
+  margin-top: 20px;
+}
+
+/* Diseño individual de cada tarjeta */
+.tarjeta {
+  background-color: #ffffff;
+  border-left: 6px solid #4caf50; /* Borde verde lateral */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra elegante */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse (Hover) */
+.tarjeta:hover {
+  transform: translateY(-5px); /* Levanta la tarjeta */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12); /* Sombra más fuerte */
+}
+
+/* Títulos de las tarjetas */
+.tarjeta h3 {
+  color: #1b5e20;
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+}
+
+/* Etiqueta naranja de la distancia */
+.tarjeta .distancia {
+  color: #d84315; 
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  background-color: #ffecd2; /* Fondo naranjo claro */
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Texto de la descripción */
+.tarjeta p:last-child {
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
