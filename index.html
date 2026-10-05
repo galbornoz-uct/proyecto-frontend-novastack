@@ -1,29 +1,6 @@
 <!--
   Desarrollo de Frontend (ICINF1107) · Semana 3
   Esqueleto HTML con espacios en blanco — Taller guiado (09:50-10:30)
-
-  Cómo se usa en clase:
-  El docente proyecta este archivo en el editor de código y, en conjunto
-  con el curso, va reemplazando cada <div class="blank" data-n="N"> por
-  la etiqueta HTML semántica correcta -- por ejemplo:
-
-      <div class="blank" data-n="1"> ... </div>
-      se convierte en
-      <header> ... </header>
-
-  Al reemplazar la etiqueta, también se elimina el atributo class="blank"
-  data-n="N" (ya cumplió su función de marcar el bloque pendiente).
-  starter.css ya está enlazado: apenas se usa la etiqueta correcta,
-  aparece el borde de color y la etiqueta con su nombre.
-
-  Es la misma vista genérica (portal de noticias) que se trabajó en la
-  actividad individual en papel -- ideal para comparar respuestas.
-
-  Numeración de los 8 bloques pendientes:
-  1 header (cabecera)          5 article (noticia 1)
-  2 nav (dentro de la cabecera) 6 article (noticia 2)
-  3 section (banner principal)  7 aside (más leídas)
-  4 main (contenido principal)  8 footer (pie de página)
 -->
 <!DOCTYPE html>
 <html lang="es">
@@ -36,7 +13,6 @@
 <body>
 
   <!-- 1: agrupa el logo y la navegación -->
-
   <header>
     <div class="logo">EcoRuta</div>
 
@@ -74,6 +50,33 @@
         alt="Paisaje natural de la Araucanía"
       >
     </section>
+
+    <!-- 👇 AQUÍ ESTÁ LO NUEVO: Lugares cercanos a la zona del usuario 👇 -->
+    <!-- 👇 SECCIÓN DE LUGARES CON NUEVO DISEÑO 👇 -->
+    <section class="seccion-lugares-bonita">
+      <h2>🌲 Lugares cercanos a tu ubicación (Temuco)</h2>
+      <p>Según tu ubicación actual, estos son los puntos de interés más cercanos:</p>
+      
+      <ul class="grid-tarjetas">
+        <li class="tarjeta">
+          <h3>🏞️ Cerro Ñielol</h3>
+          <p class="distancia">📍 A 2.5 km de tu ubicación</p>
+          <p>Monumento natural ubicado en la zona urbana, ideal para senderismo y vista panorámica.</p>
+        </li>
+        <li class="tarjeta">
+          <h3>🏛️ Museo Regional</h3>
+          <p class="distancia">📍 A 3.8 km de tu ubicación</p>
+          <p>Exhibe el patrimonio cultural y la historia mapuche de la región.</p>
+        </li>
+        <li class="tarjeta">
+          <h3>🪵 Pabellón Araucanía</h3>
+          <p class="distancia">📍 A 4.1 km de tu ubicación</p>
+          <p>Centro cultural y arquitectónico imperdible a los pies del Cerro Ñielol.</p>
+        </li>
+      </ul>
+    </section>
+    <!-- 👆 FIN SECCIÓN DE LUGARES 👆 -->
+    <!-- 👆 FIN DE LO NUEVO 👆 -->
 
     <!-- 5: noticia independiente y autocontenida -->
     <article>
