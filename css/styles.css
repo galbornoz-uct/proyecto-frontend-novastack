@@ -810,3 +810,32 @@ footer > p:last-child {
   border-radius: 8px;
   margin-bottom: 12px;
 }
+/* Contenedor relativo para posicionar la etiqueta sobre la imagen */
+.imagen-contenedor {
+  position: relative;
+  width: 100%;
+}
+
+/* Estilos de las etiquetas de categoría */
+.etiqueta {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Color verde para Paisajes */
+.etiqueta.paisaje {
+  background-color: #2e7d32;
+}
+
+/* Color azul para Puntos de Interés */
+.etiqueta.punto-interes {
+  background-color: #1976d2;
+}
