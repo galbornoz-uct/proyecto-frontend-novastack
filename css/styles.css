@@ -1,122 +1,177 @@
-/* ESTILOS GENERALES */
+/* CSS DE LA PAGINA */
+/* COLORES GENERALES */
+:root {
+    --verde: #21533f;
+    --verde-oscuro: #153d30;
+    --verde-claro: #e4f1e6;
+    --turquesa: #087f83;
+    --dorado: #f2be62;
+    --cafe: #92591f;
+    --coral: #c45c42;
+    --crema: #fff9ef;
+    --blanco: #fff;
+    --texto: #24382f;
+    --texto-suave: #52665d;
+    --borde: #e7e5dd;
+    --sombra: 0 8px 24px rgba(21, 61, 48, .12);
+}
 
+/* DISPOSITIVOS - MOBILE FIRST */
+/* 1. MOBILE */
+/* ESTILOS GENERALES */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f2f2f2;
-    color: #222;
+html {
+    scroll-behavior: smooth;
 }
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--crema);
+    color: var(--texto);
+}
 
-/* MOVIL - HEADER */
+a, button, input, select {
+    font: inherit;
+}
 
+:focus-visible {
+    outline: 3px solid var(--turquesa);
+    outline-offset: 3px;
+}
+
+/* HEADER */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    gap: 15px;
-
-    padding: 18px 20px;
-
-    background-color: white;
+    gap: 14px;
+    padding: 16px 20px;
+    background-color: var(--crema);
+    border-bottom: 3px solid var(--dorado);
+    box-shadow: 0 3px 16px rgba(21, 61, 48, .10);
 }
 
 .logo {
-    font-size: 26px;
+    color: var(--verde-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
     font-weight: bold;
-    color: #8b5e2e;
+    letter-spacing: -1px;
+    transition: color .25s ease, transform .25s ease;
 }
 
+.logo::before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 12px;
+    background-color: var(--turquesa);
+    border-radius: 12px 0 12px 0;
+    transform: rotate(-25deg);
+}
 
-/* NAVEGACIÓN */
+.logo:hover {
+    color: var(--cafe);
+    transform: translateY(-2px);
+}
+
+/* NAVEGACION */
+header nav {
+    width: 100%;
+}
 
 header nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
-    gap: 15px;
-
+    gap: 4px;
     list-style: none;
 }
 
 header nav a {
+    position: relative;
+    display: block;
+    padding: 10px 12px;
+    color: var(--verde-oscuro);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
+    transition: color .25s ease, background-color .25s ease, transform .25s ease;
+}
 
-    color: #333;
+header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 12px;
+    width: 0;
+    height: 2px;
+    background-color: var(--turquesa);
+    transition: width .25s ease;
+}
 
-    font-size: 15px;
-    font-weight: 500;
+header nav a:hover,
+header nav a[aria-current="page"] {
+    color: var(--turquesa);
+    background-color: var(--verde-claro);
 }
 
 header nav a:hover {
-    color: #8b5e2e;
+    transform: translateY(-2px);
 }
 
+header nav a:hover::after,
+header nav a[aria-current="page"]::after {
+    width: calc(100% - 24px);
+}
 
-/* MOVIL - CONTENIDO */
-
+/* CONTENIDO PRINCIPAL */
 main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "banner" "eventos" "mapa" "explorar" "clima";
+    gap: 18px;
+    padding: 0 14px 24px;
 }
 
-
 /* BANNER PRINCIPAL */
-
 main > section:first-child {
-    grid-column: 1 / -1;
-
-    height: 420px;
-
+    grid-area: banner;
     position: relative;
-    overflow: hidden;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    padding: 20px;
-
-    color: white;
+    height: 390px;
+    margin: 0 -14px;
+    padding: 30px 24px;
+    overflow: hidden;
+    color: var(--blanco);
 }
 
 main > section:first-child img {
     position: absolute;
-
+    inset: 0;
     width: 100%;
     height: 100%;
-
-    top: 0;
-    left: 0;
-
     object-fit: cover;
-
     z-index: 0;
 }
 
-
-/* CAPA OSCURA DEL BANNER */
-
 main > section:first-child::before {
     content: "";
-
     position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-color: rgba(0, 0, 0, 0.4);
-
+    inset: 0;
+    background: linear-gradient(90deg, rgba(11, 38, 30, .84), rgba(11, 38, 30, .44) 65%, rgba(11, 38, 30, .20));
     z-index: 1;
 }
 
@@ -124,105 +179,110 @@ main > section:first-child h1,
 main > section:first-child form {
     position: relative;
     z-index: 2;
+    animation: aparecer .65s ease both;
 }
-
-
-/* TITULO DEL BANNER */
 
 main > section:first-child h1 {
-    margin-left: 0;
-    margin-bottom: 20px;
-
-    font-size: 40px;
-
+    max-width: 780px;
+    margin-bottom: 24px;
+    color: var(--blanco);
     font-family: Georgia, "Times New Roman", serif;
-
-    color: white;
+    font-size: clamp(38px, 7vw, 64px);
+    line-height: 1.12;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .28);
 }
 
+main > section:first-child h1 span {
+    color: var(--dorado);
+}
+
+main > section:first-child h1::after {
+    content: "";
+    display: block;
+    width: 72px;
+    height: 4px;
+    margin-top: 16px;
+    background-color: var(--dorado);
+    border-radius: 4px;
+}
 
 /* BUSCADOR DEL BANNER */
-
 main > section:first-child form {
-    margin-left: 0;
-
     display: flex;
     align-items: center;
-
     width: 100%;
-    max-width: 500px;
-
-    background-color: white;
-
-    border-radius: 10px;
-
-    padding: 8px;
-
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    max-width: 600px;
+    padding: 7px;
+    background-color: var(--blanco);
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .24);
+    animation-delay: .12s;
 }
 
 main > section:first-child form label {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 main > section:first-child form input {
     flex: 1;
     min-width: 0;
-
+    padding: 13px;
+    color: var(--texto);
     border: none;
-    outline: none;
-
-    padding: 12px;
-
+    background: transparent;
     font-size: 15px;
 }
 
 main > section:first-child form button {
+    flex-shrink: 0;
+    padding: 13px 18px;
+    background-color: var(--cafe);
+    color: var(--blanco);
     border: none;
-
-    background-color: #8b5e2e;
-    color: white;
-
-    padding: 12px 20px;
-
-    border-radius: 8px;
-
+    border-radius: 10px;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color .25s ease, transform .25s ease;
 }
 
 main > section:first-child form button:hover {
-    background-color: #6f491f;
+    background-color: var(--verde);
+    transform: translateY(-2px);
 }
 
+/* TARJETAS GENERALES */
+main > article,
+main > .mapa-principal {
+    min-width: 0;
+    align-self: start;
+    padding: 22px;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+}
+
+main > article h2,
+main > .mapa-principal h2 {
+    margin-bottom: 18px;
+    color: var(--verde-oscuro);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+}
 
 /* PROXIMOS EVENTOS */
-
 main > article:first-of-type {
-    grid-column: 1;
-    grid-row: 2;
-
-    width: auto;
-
-    margin: 20px;
-    padding: 25px;
-
-    background-color: white;
-
-    border-radius: 15px;
-
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    grid-area: eventos;
+    border-top: 5px solid var(--coral);
 }
-
-main > article:first-of-type h2 {
-    margin-bottom: 20px;
-
-    font-size: 24px;
-
-    color: #333;
-}
-
-
-/* EVENTOS */
 
 main > article:first-of-type ul {
     list-style: none;
@@ -230,303 +290,273 @@ main > article:first-of-type ul {
 
 main > article:first-of-type li {
     margin-bottom: 12px;
-
     padding: 14px;
-
-    background-color: #f7f4ee;
-
-    border-radius: 10px;
-
-    border: 1px solid #e4ded4;
-
-    transition: 0.2s;
-}
-
-main > article:first-of-type h3 {
-    margin-bottom: 5px;
-
-    font-size: 17px;
-
-    color: #2f3d36;
-}
-
-main > article:first-of-type li a {
-    font-size: 13px;
-
-    color: #8b5e2e;
-
-    text-decoration: none;
+    background-color: #fff6ed;
+    border: 1px solid #f0ded1;
+    border-radius: 12px;
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 
 main > article:first-of-type li:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(196, 92, 66, .15);
 }
 
+main > article:first-of-type h3 {
+    margin-bottom: 6px;
+    color: var(--texto);
+    font-size: 17px;
+}
 
-/* BOTON EVENTOS */
+main > article:first-of-type li a {
+    color: #92501b;
+    font-size: 13px;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+main > article:first-of-type li a:hover {
+    text-decoration: underline;
+}
 
 main > article:first-of-type > a {
     display: block;
-
-    margin-top: 10px;
-
-    padding: 12px;
-
-    text-align: center;
-
-    background-color: #8b5e2e;
-    color: white;
-
-    text-decoration: none;
-
-    border-radius: 8px;
-
-    font-weight: bold;
+    margin-top: 12px;
+    padding: 13px;
+    background-color: var(--cafe);
+    color: var(--blanco);
+    border-radius: 10px;
     font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .25s ease, transform .25s ease;
 }
 
 main > article:first-of-type > a:hover {
-    background-color: #6f491f;
+    background-color: var(--verde);
+    transform: translateY(-2px);
 }
 
+/* MAPA - PROXIMAMENTE */
+main > .mapa-principal {
+    grid-area: mapa;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    padding: 30px 24px;
+    border-top: 5px solid var(--turquesa);
+    background: linear-gradient(145deg, #fff, #e8f4ef);
+    text-align: center;
+    scroll-margin-top: 110px;
+}
 
-/* EXPLORAR */
+main > .mapa-principal h2 {
+    margin-bottom: 12px;
+}
 
+main > .mapa-principal p {
+    max-width: 460px;
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+/* EXPLORAR Y SERVICIOS */
 main > aside {
-    grid-column: 1;
-    grid-row: 3;
-
-    margin: 20px;
-    padding: 25px;
-
-    background-color: #234b3d;
-    color: white;
-
-    border-radius: 15px;
-
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    grid-area: explorar;
+    min-width: 0;
+    align-self: start;
+    padding: 24px;
+    background: linear-gradient(145deg, var(--verde), var(--verde-oscuro));
+    color: var(--blanco);
+    border-radius: 18px;
+    box-shadow: var(--sombra);
 }
 
 main > aside h2 {
     margin-bottom: 15px;
-
-    font-size: 22px;
-
-    color: #f1d39a;
+    color: var(--dorado);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
 }
 
-main > aside section {
-    margin-bottom: 25px;
+main > aside section + section {
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .18);
 }
 
-main > aside section:last-child {
-    margin-bottom: 0;
-}
-
-main > aside ul {
+main > aside .explorar-grid,
+main > aside .servicios-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
     list-style: none;
 }
 
 main > aside li {
-    margin-bottom: 10px;
+    min-width: 0;
 }
 
 main > aside a {
-    display: block;
-
-    padding: 12px;
-
-    background-color: rgba(255, 255, 255, 0.1);
-
-    color: white;
-
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 72px;
+    padding: 13px 15px;
+    background-color: rgba(255, 255, 255, .13);
+    color: var(--blanco);
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 10px;
     text-decoration: none;
-
-    border-radius: 8px;
+    transition: background-color .25s ease, transform .25s ease;
 }
 
 main > aside a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, .23);
+    transform: translateY(-3px);
 }
 
+main > aside strong,
+main > aside small {
+    display: block;
+}
+
+main > aside strong {
+    color: var(--blanco);
+    font-size: 15px;
+}
+
+main > aside small {
+    margin-top: 5px;
+    color: #dce9e2;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+main > aside .servicios-grid a {
+    min-height: 62px;
+    justify-content: center;
+    text-align: center;
+}
 
 /* CLIMA */
-
 main > article:nth-of-type(2) {
-    grid-column: 1;
-    grid-row: 4;
-
-    width: auto;
-
-    margin: 20px;
-    padding: 25px;
-
-    background-color: white;
-
-    border-radius: 15px;
-
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-main > article:nth-of-type(2) h2 {
-    margin-bottom: 20px;
-
-    font-size: 24px;
-
-    color: #333;
-}
-
-main > article:nth-of-type(2) select {
-    width: 100%;
-
-    padding: 10px;
-
-    margin-bottom: 20px;
-
-    border: 1px solid #ccc;
-
-    border-radius: 8px;
-
-    background-color: white;
+    grid-area: clima;
+    border-top: 5px solid var(--dorado);
 }
 
 main > article:nth-of-type(2) label {
     display: block;
-
     margin-bottom: 8px;
-
+    color: var(--texto);
     font-weight: bold;
-
-    color: #555;
 }
 
+main > article:nth-of-type(2) select {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 12px;
+    background-color: var(--blanco);
+    color: var(--texto);
+    border: 1px solid #cbd7cd;
+    border-radius: 9px;
+}
 
 /* TEMPERATURA */
-
 main > article:nth-of-type(2) > p:first-of-type {
     margin-bottom: 5px;
-
+    color: var(--verde-oscuro);
     font-size: 48px;
     font-weight: bold;
-
-    color: #2f3d36;
 }
 
 main > article:nth-of-type(2) > p:nth-of-type(2) {
     margin-bottom: 20px;
-
+    color: var(--texto-suave);
     font-size: 16px;
-
-    color: #666;
 }
 
-
 /* DATOS DEL CLIMA */
-
 main > article:nth-of-type(2) > ul:first-of-type {
-    list-style: none;
-
     margin-bottom: 20px;
-
     padding: 15px;
-
-    background-color: #f7f4ee;
-
-    border-radius: 10px;
+    background-color: var(--verde-claro);
+    border-radius: 12px;
+    list-style: none;
 }
 
 main > article:nth-of-type(2) > ul:first-of-type li {
     margin-bottom: 8px;
-
+    color: var(--texto);
     font-size: 14px;
-
-    color: #555;
 }
 
 main > article:nth-of-type(2) > ul:first-of-type li:last-child {
     margin-bottom: 0;
 }
 
-
 /* PRONOSTICO */
-
 main > article:nth-of-type(2) h3 {
     margin-bottom: 12px;
-
+    color: var(--verde-oscuro);
     font-size: 18px;
-
-    color: #333;
 }
 
 main > article:nth-of-type(2) > ul:last-of-type {
     display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 10px;
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
     list-style: none;
 }
 
 main > article:nth-of-type(2) > ul:last-of-type li {
-    padding: 12px;
-
-    background-color: #f7f4ee;
-
+    min-width: 0;
+    padding: 10px 6px;
+    background-color: #f3f9f8;
+    color: var(--texto-suave);
+    border: 1px solid #dfefec;
     border-radius: 10px;
-
-    text-align: center;
-
     font-size: 12px;
-
-    color: #555;
+    text-align: center;
+    overflow-wrap: anywhere;
 }
 
-
 /* FOOTER */
-
 footer {
     display: grid;
-
     grid-template-columns: 1fr;
-
-    gap: 30px;
-
-    padding: 35px 20px;
-
-    background-color: #173d31;
-
-    color: white;
+    gap: 28px;
+    padding: 35px 24px;
+    background: linear-gradient(140deg, var(--verde-oscuro), #102c26);
+    color: var(--blanco);
 }
 
 footer h2 {
     margin-bottom: 12px;
-
-    color: #f1d39a;
-
+    color: var(--dorado);
+    font-family: Georgia, "Times New Roman", serif;
     font-size: 22px;
 }
 
 footer p {
     margin-bottom: 8px;
-
-    color: #e0e0e0;
-
+    color: #e2eee7;
     font-size: 14px;
-
     line-height: 1.6;
 }
 
 footer a {
-    color: white;
-
+    color: var(--blanco);
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #f1d39a;
+    color: var(--dorado);
+    text-decoration: underline;
 }
 
 footer address {
@@ -535,198 +565,135 @@ footer address {
 
 footer > p:last-child {
     grid-column: 1 / -1;
-
-    margin-top: 20px;
+    margin-top: 16px;
     padding-top: 20px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-
-    text-align: center;
-
+    border-top: 1px solid rgba(255, 255, 255, .25);
     font-size: 13px;
+    text-align: center;
 }
 
+/* ANIMACIONES Y ACCESIBILIDAD */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
-/* TABLET */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
 
+/* 2. TABLET */
 @media (min-width: 768px) {
-
     /* HEADER */
-
     header {
         flex-direction: row;
-
         justify-content: space-between;
+        padding: 16px 30px;
+    }
 
-        padding: 20px 30px;
+    header nav {
+        width: auto;
     }
 
     header nav ul {
-        gap: 20px;
+        gap: 6px;
     }
 
-
-    /* BANNER */
+    /* CONTENIDO Y BANNER */
+    main {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-areas: "banner banner" "eventos clima" "mapa mapa" "explorar explorar";
+        gap: 20px;
+        padding: 0 24px 32px;
+    }
 
     main > section:first-child {
-        height: 480px;
-
+        height: 460px;
+        margin: 0 -24px;
         padding: 40px;
     }
 
-    main > section:first-child h1 {
-        font-size: 50px;
+    /* MAPA Y EXPLORAR */
+    main > .mapa-principal {
+        min-height: 330px;
     }
 
-    main > section:first-child form {
-        width: 500px;
+    main > aside .explorar-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-
-    /* CONTENIDO */
-
-    main {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    main > section:first-child {
+    main > aside .explorar-grid li:last-child {
         grid-column: 1 / -1;
     }
 
-
-    /* EVENTOS */
-
-    main > article:first-of-type {
-        grid-column: 1;
-        grid-row: 2;
-
-        width: auto;
-
-        margin: 30px 15px 30px 30px;
+    main > aside .servicios-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
-
-    /* CLIMA */
-
-    main > article:nth-of-type(2) {
-        grid-column: 2;
-        grid-row: 2;
-
-        width: auto;
-
-        margin: 30px 30px 30px 15px;
-    }
-
-
-    /* EXPLORAR */
-
-    main > aside {
-        grid-column: 1 / -1;
-        grid-row: 3;
-
-        margin: 0 30px 30px;
-    }
-
-
-    /* PRONOSTICO */
-
-    main > article:nth-of-type(2) > ul:last-of-type {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
 
     /* FOOTER */
-
     footer {
         grid-template-columns: 2fr 1fr;
-
         gap: 40px;
-
-        padding: 40px 40px;
+        padding: 40px;
     }
 }
 
-
-/* ESCRITORIO */
-
+/* 3. COMPUTADOR */
 @media (min-width: 1100px) {
-
     /* HEADER */
-
     header {
-        padding: 20px 50px;
+        padding: 17px 50px;
     }
 
     header nav ul {
-        gap: 30px;
+        gap: 12px;
     }
 
+    header nav a {
+        padding: 11px 15px;
+        font-size: 15px;
+    }
 
-    /* BANNER */
+    header nav a::after {
+        left: 15px;
+    }
+
+    header nav a:hover::after,
+    header nav a[aria-current="page"]::after {
+        width: calc(100% - 30px);
+    }
+
+    /* CONTENIDO Y BANNER */
+    main {
+        grid-template-columns: minmax(245px, 340px) minmax(0, 1fr) minmax(245px, 340px);
+        grid-template-areas: "banner banner banner" "eventos mapa clima" "eventos explorar clima";
+        gap: 24px;
+        padding: 0 48px 45px;
+    }
 
     main > section:first-child {
-        height: 520px;
-
-        padding: 0;
+        height: 500px;
+        margin: 0 -48px;
+        padding: 60px;
     }
 
-    main > section:first-child h1 {
-        margin-left: 60px;
-
-        font-size: 60px;
+    /* MAPA Y EXPLORAR */
+    main > .mapa-principal {
+        min-height: 320px;
     }
-
-    main > section:first-child form {
-        margin-left: 60px;
-
-        width: 500px;
-    }
-
-
-    /* DISTRIBUCIÓN PRINCIPAL */
-
-    main {
-        grid-template-columns: 420px 1fr 420px;
-    }
-
-
-    /* EVENTOS */
-
-    main > article:first-of-type {
-        grid-column: 1;
-        grid-row: 2;
-
-        width: 360px;
-
-        margin: 30px 0 30px 60px;
-    }
-
-
-    /* EXPLORAR */
-
-    main > aside {
-        grid-column: 2;
-        grid-row: 2;
-
-        margin: 30px;
-    }
-
-
-    /* CLIMA */
-
-    main > article:nth-of-type(2) {
-        grid-column: 3;
-        grid-row: 2;
-
-        width: 360px;
-
-        margin: 30px 60px 30px 0;
-    }
-
 
     /* FOOTER */
-
     footer {
-        padding: 40px 60px;
+        padding: 45px 60px;
     }
 }

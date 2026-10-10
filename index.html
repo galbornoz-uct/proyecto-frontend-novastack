@@ -2,178 +2,188 @@
 <!--
   Página: Inicio - EcoRuta Temuco
 
-  Este HTML corresponde a la página principal del sitio.
-  Presenta la información más importante de EcoRuta
-  y permite acceder a las páginas de eventos, clima,
-  destinos turísticos y guías de viaje.
+  Página principal del sitio EcoRuta.
+  Presenta eventos, clima, mapa turístico, destinos
+  y servicios de La Araucanía.
 
   La información detallada se encuentra en la carpeta pages.
 -->
 
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EcoRuta Temuco</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRuta Temuco</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-
-  <header>
-    <div class="logo">EcoRuta</div>
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="pages/explorar.html#mapa">Mapa</a></li>
-        <li><a href="pages/clima.html">Clima</a></li>
-        <li><a href="pages/eventos.html">Eventos</a></li>
-        <li><a href="pages/guias.html">Guías de viaje</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-
-    <section>
-      <h1>Explora la Araucanía</h1>
-
-      <form>
-        <label for="destino">¿Dónde quieres ir?</label>
-        <input
-          type="search"
-          id="destino"
-          name="destino"
-          placeholder="Busca un destino"
-        >
-        <button type="submit">Buscar</button>
-      </form>
-
-      <img
-        src="https://chile.travel/wp-content/uploads/2024/08/6bf4eec2-5-panoramas-imperdibles-de-la-region-de-la-araucania.jpg"
-        alt="Paisaje natural de la Araucanía"
-      >
-    </section>
-
-    <article>
-      <h2>Próximos eventos</h2>
-
-      <ul>
-        <li>
-          <h3>Maratón Glaciar</h3>
-          <a href="https://lastorres.com/circuitos-y-tours/experiencia-las-torres/">
-            Más información: 24 de noviembre — Torres del Paine
-          </a>
-        </li>
-
-        <li>
-          <h3>Patagonia Fest</h3>
-          <a href="https://patagonia-chile.com/">
-            Más información: 2 de diciembre — Puerto Natales
-          </a>
-        </li>
-
-        <li>
-          <h3>Trekking Guiado</h3>
-          <a href="https://www.trekkingchile.com/es/busqueda-de-guias/">
-            Más información: 16 de diciembre — Senderos de la Araucanía
-          </a>
-        </li>
-      </ul>
-
-      <a href="pages/eventos.html">Ver todos los eventos</a>
-    </article>
-
-    <article>
-      <h2>Clima detallado</h2>
-
-      <label for="ciudad">Ciudad</label>
-      <select id="ciudad" name="ciudad">
-        <option value="temuco">Temuco</option>
-        <option value="pucon">Pucón</option>
-        <option value="villarrica">Villarrica</option>
-      </select>
-
-      <p><strong>16 °C</strong></p>
-      <p>Parcialmente nublado</p>
-
-      <ul>
-        <li>Humedad: 65 %</li>
-        <li>Viento: 22 km/h</li>
-        <li>Sensación térmica: 14 °C</li>
-      </ul>
-
-      <h3>Pronóstico</h3>
-      <ul>
-        <li>Hoy: mínima 10 °C, máxima 14 °C</li>
-        <li>Mañana: mínima 10 °C, máxima 16 °C</li>
-        <li>Próximos días: lluvia ocasional</li>
-      </ul>
-    </article>
-
-    <aside>
-      <section>
-        <h2>Explorar</h2>
-
-        <nav aria-label="Opciones para explorar">
-          <ul>
-            <li><a href="pages/explorar.html#destinos">Destinos populares</a></li>
-            <li><a href="pages/explorar.html#actividades">Actividades</a></li>
-            <li><a href="pages/guias.html">Guías de supervivencia</a></li>
-            <li><a href="pages/guias.html">Equipamiento recomendado</a></li>
-            <li><a href="pages/emprendimientos.html">Emprendimientos locales</a></li>
-          </ul>
+    <header>
+        <div class="logo">EcoRuta</div>
+        <nav aria-label="Navegación principal">
+            <ul>
+                <li><a href="index.html" aria-current="page">Inicio</a></li>
+                <li><a href="#mapa">Mapa</a></li>
+                <li><a href="pages/clima.html">Clima</a></li>
+                <li><a href="pages/eventos.html">Eventos</a></li>
+                <li><a href="pages/guias.html">Guías de viaje</a></li>
+            </ul>
         </nav>
-      </section>
+    </header>
 
-      <section>
-        <h2>Servicios</h2>
-      <ul>
-        <li><a href="pages/explorar.html#servicios">Alojamiento</a></li>
-        <li><a href="pages/explorar.html#servicios">Transporte</a></li>
-      </ul>
+    <main>
+        <section>
+            <h1>Explora la <span>Araucanía</span></h1>
+            <form role="search">
+                <label for="destino">¿Dónde quieres ir?</label>
+                <input type="search" id="destino" name="destino" placeholder="Busca un destino">
+                <button type="submit">Buscar</button>
+            </form>
+            <img src="https://chile.travel/wp-content/uploads/2024/08/6bf4eec2-5-panoramas-imperdibles-de-la-region-de-la-araucania.jpg" alt="Paisaje natural de La Araucanía">
+        </section>
 
-      </section>
-    </aside>
+        <article>
+            <h2>Próximos eventos</h2>
+            <ul>
+                <li>
+                    <h3>Maratón Glaciar</h3>
+                    <a href="https://lastorres.com/circuitos-y-tours/experiencia-las-torres/">
+                        Más información: 24 de noviembre — Torres del Paine
+                    </a>
+                </li>
+                <li>
+                    <h3>Patagonia Fest</h3>
+                    <a href="https://patagonia-chile.com/">
+                        Más información: 2 de diciembre — Puerto Natales
+                    </a>
+                </li>
+                <li>
+                    <h3>Trekking Guiado</h3>
+                    <a href="https://www.trekkingchile.com/es/busqueda-de-guias/">
+                        Más información: 16 de diciembre — Senderos de La Araucanía
+                    </a>
+                </li>
+            </ul>
+            <a href="pages/eventos.html">Ver todos los eventos</a>
+        </article>
 
-  </main>
+        <article>
+            <h2>Clima detallado</h2>
+            <label for="ciudad">Ciudad</label>
+            <select id="ciudad" name="ciudad">
+                <option value="temuco">Temuco</option>
+                <option value="pucon">Pucón</option>
+                <option value="villarrica">Villarrica</option>
+            </select>
 
-  <footer>
-    <section>
-      <h2>Explora Araucanía</h2>
+            <p><strong>16 °C</strong></p>
+            <p>Parcialmente nublado</p>
 
-      <p>
-        Descubre los secretos mejor guardados de la Araucanía.
-        Bosques de araucarias, volcanes y lagos te esperan.
-      </p>
-    </section>
+            <ul>
+                <li>Humedad: 65 %</li>
+                <li>Viento: 22 km/h</li>
+                <li>Sensación térmica: 14 °C</li>
+            </ul>
 
-    <section>
-      <h2>Contacto</h2>
+            <h3>Pronóstico</h3>
+            <ul>
+                <li>Hoy: mínima 10 °C, máxima 14 °C</li>
+                <li>Mañana: mínima 10 °C, máxima 16 °C</li>
+                <li>Próximos días: lluvia ocasional</li>
+            </ul>
+        </article>
 
-      <address>
-        <p>
-          Correo:
-          <a href="mailto:info@exploraaraucania.cl">
-            info@exploraaraucania.cl
-          </a>
-        </p>
+        <section class="mapa-principal" id="mapa">
+            <h2>Mapa de La Araucanía</h2>
+            <p>Próximamente podrás explorar destinos turísticos, rutas y emprendimientos locales en nuestro mapa interactivo.</p>
+        </section>
 
-        <p>
-          Teléfono:
-          <a href="tel:+56925456799">
-            +56 9 2545 6799
-          </a>
-        </p>
-      </address>
-    </section>
+        <aside>
+            <section>
+                <h2>Explorar La Araucanía</h2>
+                <nav aria-label="Explorar La Araucanía">
+                    <ul class="explorar-grid">
+                        <li>
+                            <a href="pages/explorar.html#destinos">
+                                <span>
+                                    <strong>Destinos populares</strong>
+                                    <small>Lugares para visitar</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/explorar.html#actividades">
+                                <span>
+                                    <strong>Rutas y senderos</strong>
+                                    <small>Recorridos y naturaleza</small>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/emprendimientos.html">
+                                <span>
+                                    <strong>Emprendimientos locales</strong>
+                                    <small>Productos y negocios de la región</small>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
 
-    <p>&copy; 2026 Explora Araucanía. Todos los derechos reservados.</p>
-  </footer>
+            <section>
+                <h2>Servicios para tu viaje</h2>
+                <nav aria-label="Servicios turísticos">
+                    <ul class="servicios-grid">
+                        <li>
+                            <a href="pages/explorar.html#servicios">
+                                <strong>Alojamiento</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/explorar.html#servicios">
+                                <strong>Transporte</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="pages/explorar.html#servicios">
+                                <strong>Dónde comer</strong>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </section>
+        </aside>
+    </main>
 
+    <footer>
+        <section>
+            <h2>Explora Araucanía</h2>
+            <p>
+                Descubre los secretos mejor guardados de La Araucanía.
+                Bosques de araucarias, volcanes y lagos te esperan.
+            </p>
+        </section>
+
+        <section>
+            <h2>Contacto</h2>
+            <address>
+                <p>
+                    Correo:
+                    <a href="mailto:info@exploraaraucania.cl">
+                        info@exploraaraucania.cl
+                    </a>
+                </p>
+                <p>
+                    Teléfono:
+                    <a href="tel:+56925456799">
+                        +56 9 2545 6799
+                    </a>
+                </p>
+            </address>
+        </section>
+
+        <p>&copy; 2026 Explora Araucanía. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
