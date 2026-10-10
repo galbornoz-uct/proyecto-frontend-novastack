@@ -41,4 +41,4 @@ npm run dev
 Enlace al tablero: https://trello.com/invite/b/6a7dd7a0cd940a8f9eef4fc6/ATTIfb61c4ed37dbd34946499f680740b7c172A6E824/trabajo-frontend-novastack
 ## Enlace de despliegue 
 
-(agregar enlace una vez desplegado)
+https://galbornoz-uct.github.io/proyecto-frontend-novastack/
