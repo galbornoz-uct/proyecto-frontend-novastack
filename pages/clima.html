@@ -1,0 +1,88 @@
+
+<!--
+  Página: Clima - EcoRuta Temuco
+
+  Este HTML está destinado a mostrar las condiciones
+  climáticas de diferentes ciudades de La Araucanía,
+  permitiendo consultar la temperatura, humedad,
+  velocidad del viento y sensación térmica.
+
+  También contará con un pronóstico del tiempo
+  para los próximos días, ayudando a los turistas
+  a planificar sus viajes y actividades según
+  las condiciones climáticas de cada zona.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima - EcoRuta Temuco</title>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">EcoRuta</div>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="clima.html">Clima</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section>
+      <h1>Clima en La Araucanía</h1>
+      <p>Consulta las condiciones climáticas de tu destino.</p>
+    </section>
+
+    <section>
+      <h2>Seleccionar ciudad</h2>
+
+      <label for="ciudad">Ciudad</label>
+      <select id="ciudad" name="ciudad">
+        <option value="temuco">Temuco</option>
+        <option value="pucon">Pucón</option>
+        <option value="villarrica">Villarrica</option>
+      </select>
+    </section>
+
+    <section>
+      <h2>Clima actual</h2>
+
+      <p><strong>16 °C</strong></p>
+      <p>Parcialmente nublado</p>
+
+      <ul>
+        <li>Humedad: 65 %</li>
+        <li>Viento: 22 km/h</li>
+        <li>Sensación térmica: 14 °C</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Pronóstico</h2>
+
+      <ul>
+        <li>Hoy: mínima 10 °C, máxima 14 °C</li>
+        <li>Mañana: mínima 10 °C, máxima 16 °C</li>
+        <li>Próximos días: lluvia ocasional</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 EcoRuta Temuco.</p>
+  </footer>
+
+</body>
+</html>
