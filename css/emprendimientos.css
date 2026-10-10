@@ -1,0 +1,308 @@
+
+/* ECORUTA - EMPRENDIMIENTOS LOCALES */
+/* CSS DE LA PAGINA */
+
+/* COLORES */
+:root {
+    --verde: #24483b;
+    --verde-oscuro: #19392e;
+    --cafe: #8b5e3c;
+    --beige: #f8f5ef;
+    --texto: #303a32;
+}
+/* ESTILOS GENERALES */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--beige);
+    color: var(--texto);
+}
+a {
+    color: inherit;
+}
+a:focus-visible {
+    outline: 3px solid #bd8443;
+    outline-offset: 4px;
+}
+/* ENCABEZADO */
+header {
+    background-color: #fffdf9;
+    padding: 20px 25px;
+    display: flex;
+    gap: 20px;
+}
+.logo {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+}
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+}
+header nav a {
+    text-decoration: none;
+    color: var(--verde-oscuro);
+    font-weight: bold;
+    font-size: 15px;
+}
+header nav a:hover {
+    color: var(--cafe);
+}
+/* BANNER PRINCIPAL */
+main > section:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-image:
+        linear-gradient(90deg, rgba(10, 27, 22, 0.85), rgba(10, 27, 22, 0.38) 65%, rgba(10, 27, 22, 0.12)),
+        url("../img/emprendimientos/banner-emprendimientos.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+main > section:first-of-type h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 58px);
+    margin: 0 0 15px;
+    max-width: 850px;
+    line-height: 1.1;
+}
+main > section:first-of-type p {
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 650px;
+    margin: 0;
+}
+/* CONTENIDO PRINCIPAL */
+main > section:not(:first-of-type) {
+    width: min(1160px, calc(100% - 36px));
+    margin: 40px auto;
+}
+main h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 34px);
+    color: var(--verde-oscuro);
+}
+/* EMPRENDIMIENTOS DISPONIBLES */
+main > section:nth-of-type(2) {
+    display: grid;
+    gap: 22px;
+}
+main > section:nth-of-type(2) > h2,
+main > section:nth-of-type(2) > p {
+    grid-column: 1 / -1;
+    margin: 0;
+}
+main > section:nth-of-type(2) > p {
+    color: #686b65;
+    line-height: 1.6;
+}
+/* TARJETAS */
+article {
+    background-color: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e9e1d8;
+    padding: 24px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+/* ESPACIO PARA IMAGENES */
+article::before {
+    content: "ARTESANÍAS";
+    display: flex;
+    align-items: flex-end;
+    height: 160px;
+    margin: -24px -24px 22px;
+    padding: 18px 24px;
+    background:
+        radial-gradient(circle at 80% 20%, #b98a5a, transparent 48%),
+        linear-gradient(135deg, #8b5e3c, #3c5845);
+    color: white;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+article:nth-of-type(2)::before {
+    content: "GASTRONOMÍA";
+    background:
+        radial-gradient(circle at 80% 20%, #e4b77f, transparent 48%),
+        linear-gradient(135deg, #536e4d, #8b5e3c);
+}
+
+/* IMAGEN RAICES DEL ÑIELOL */
+article:first-of-type::before {
+    background-image:
+        linear-gradient(0deg, rgba(0, 0, 0, 0.45), transparent 65%),
+        url("../img/emprendimientos/raices-del-nielol.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* IMAGEN SABORES DEL VOLCAN */
+article:nth-of-type(2)::before {
+    background-image:
+        linear-gradient(0deg, rgba(0, 0, 0, 0.45), transparent 65%),
+        url("../img/emprendimientos/sabores-del-volcan.png");
+    background-size: cover;
+    background-position: center;
+}
+
+/* INFORMACION DE LAS TARJETAS */
+article h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    color: var(--verde-oscuro);
+    margin: 0 0 15px;
+}
+article p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 9px 0;
+}
+/* UBICACION */
+article p:first-of-type {
+    color: #666;
+}
+/* PRECIOS */
+article p:nth-of-type(3) {
+    color: #844b29;
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 16px;
+}
+/* CONTACTO */
+article p:nth-of-type(4) {
+    border-top: 1px solid #e8ddd0;
+    padding-top: 15px;
+    margin-top: 16px;
+}
+/* UBICACION DE EMPRENDIMIENTOS */
+main > section:nth-of-type(3) {
+    background: linear-gradient(120deg, #ffffff, #e4ece3);
+    border-radius: 16px;
+    border: 1px solid #e2e7dc;
+}
+main > section:nth-of-type(3) h2 {
+    margin-top: 0;
+}
+main > section:nth-of-type(3) p {
+    line-height: 1.7;
+    max-width: 650px;
+}
+main > section:nth-of-type(3) a {
+    display: inline-block;
+    background-color: var(--cafe);
+    color: white;
+    padding: 14px 24px;
+    margin-top: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+main > section:nth-of-type(3) a:hover {
+    background-color: #694329;
+}
+
+/* UBICACION DE EMPRENDIMIENTOS */
+main > section:nth-of-type(3) {
+    background-image:
+        linear-gradient(90deg, rgba(10, 27, 22, 0.85), rgba(10, 27, 22, 0.25)),
+        url("../img/emprendimientos/ubicacion-emprendimientos.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 16px;
+    border: 1px solid #e2e7dc;
+    color: white;
+}
+main > section:nth-of-type(3) h2 {
+    margin-top: 0;
+    color: white;
+}
+main > section:nth-of-type(3) p {
+    line-height: 1.7;
+    max-width: 650px;
+    color: white;
+}
+
+/* PIE DE PAGINA */
+footer {
+    background-color: var(--verde-oscuro);
+    color: white;
+    text-align: center;
+    padding: 26px 20px;
+    margin-top: 50px;
+}
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+/* ========================================
+   DISPOSITIVOS - MOBILE FIRST
+   ======================================== */
+/* 1. MOBILE - MENOS DE 700PX */
+header {
+    flex-direction: column;
+    align-items: center;
+}
+header nav ul {
+    justify-content: center;
+}
+main > section:first-of-type {
+    min-height: 270px;
+    padding: 45px 25px;
+}
+main > section:nth-of-type(2) {
+    grid-template-columns: 1fr;
+}
+main > section:nth-of-type(3) {
+    padding: 30px 25px;
+}
+/* 2. TABLET - DESDE 700PX */
+@media (min-width: 700px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 5%;
+    }
+    main > section:first-of-type {
+        min-height: 320px;
+        padding: 50px 7%;
+    }
+    main > section:nth-of-type(2) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    main > section:nth-of-type(3) {
+        padding: 45px;
+    }
+}
+/* 3. COMPUTADOR - DESDE 1100PX */
+@media (min-width: 1100px) {
+    main > section:first-of-type {
+        min-height: 350px;
+    }
+}
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+    article,
+    main > section:nth-of-type(3) a {
+        transition: none;
+    }
+}
