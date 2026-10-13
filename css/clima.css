@@ -103,11 +103,6 @@ select:focus-visible {
 .portada {
   padding: 90px 48px 80px;
   background-color: var(--verde-oscuro);
-  background-image:
-    linear-gradient(rgba(20, 45, 35, 0.65), rgba(20, 45, 35, 0.65)),
-    url("../img/clima/portada-clima.jpg");
-  background-size: cover;
-  background-position: center;
   color: var(--blanco);
 }
 
