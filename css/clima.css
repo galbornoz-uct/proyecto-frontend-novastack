@@ -1,0 +1,337 @@
+/*EcoRuta - Apartado de Clima */
+
+:root {
+  --crema: #fdf6ec;
+  --blanco: #ffffff;
+  --verde-oscuro: #1d4638;
+  --verde-medio: #3d6455;
+  --verde-claro: #e6f2ec;
+  --turquesa: #127c7c;
+  --dorado: #e9b64f;
+  --cafe: #8b5a1e;
+  --oxido: #c4573a;
+  --texto: #2b2b2b;
+  --texto-suave: #5b5b5b;
+  --borde: #e8dcc8;
+
+  --fuente-titulos: "Libre Baskerville", Georgia, serif;
+  --fuente-texto: "Inter", "Segoe UI", Arial, sans-serif;
+
+  --radio: 16px;
+  --sombra: 0 6px 20px rgba(60, 40, 10, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  background-color: var(--crema);
+  color: var(--texto);
+  line-height: 1.5;
+}
+
+/* ===== Encabezado ===== */
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 48px;
+  background-color: var(--crema);
+  border-bottom: 3px solid var(--dorado);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--fuente-titulos);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+}
+
+.logo-hoja {
+  width: 8px;
+  height: 16px;
+  background-color: var(--turquesa);
+  border-radius: 50% 0;
+  transform: rotate(20deg);
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--verde-oscuro);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background-color: var(--verde-claro);
+}
+
+.menu a.activo {
+  background-color: var(--verde-claro);
+  color: var(--turquesa);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.menu a:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 2px;
+}
+
+/* ===== Portada ===== */
+.portada {
+  padding: 90px 48px 80px;
+  background-color: var(--verde-oscuro);
+  background-image:
+    linear-gradient(rgba(20, 45, 35, 0.65), rgba(20, 45, 35, 0.65)),
+    url("../img/clima/portada-clima.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--blanco);
+}
+
+.portada h1 {
+  font-family: var(--fuente-titulos);
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  line-height: 1.15;
+  max-width: 18ch;
+}
+
+.linea-dorada {
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 18px 0;
+  background-color: var(--dorado);
+  border-radius: 2px;
+}
+
+.portada p {
+  font-size: 1.1rem;
+  max-width: 50ch;
+  color: #dbe8e1;
+}
+
+/* ===== Contenedor de tarjetas ===== */
+.contenedor {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    "ciudad actual"
+    "pronostico pronostico";
+  gap: 24px;
+  max-width: 1200px;
+  margin: -28px auto 48px;
+  padding: 0 24px;
+}
+
+.tarjeta {
+  background-color: var(--blanco);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 28px;
+  border-top: 5px solid var(--dorado);
+}
+
+.tarjeta h2 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.4rem;
+  color: var(--verde-oscuro);
+  margin-bottom: 18px;
+}
+
+.tarjeta-ciudad     { grid-area: ciudad;     border-top-color: var(--oxido); }
+.tarjeta-actual     { grid-area: actual;     border-top-color: var(--turquesa); }
+.tarjeta-pronostico { grid-area: pronostico; border-top-color: var(--dorado); }
+
+/* ===== Selector de ciudad ===== */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--verde-oscuro);
+}
+
+select {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  color: var(--texto);
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.nota {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+/* ===== Clima actual ===== */
+.actual-principal {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 22px;
+}
+
+.icono-grande {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.icono-dia {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+.temperatura {
+  font-size: 4.5rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--verde-oscuro);
+}
+
+.temperatura span {
+  font-size: 2rem;
+  vertical-align: top;
+  margin-left: 4px;
+}
+
+.estado {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+.lugar {
+  color: var(--texto-suave);
+}
+
+.detalles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  list-style: none;
+}
+
+.detalles li {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+  background-color: var(--verde-claro);
+  border-radius: 10px;
+}
+
+.detalle-nombre {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.detalle-valor {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--verde-oscuro);
+}
+
+/* ===== Pronóstico ===== */
+.pronostico {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  list-style: none;
+}
+
+.dia {
+  padding: 20px;
+  background-color: var(--verde-oscuro);
+  background-image:
+    linear-gradient(rgba(20, 45, 35, 0.45), rgba(20, 45, 35, 0.75)),
+    url("../img/clima/fondo-pronostico.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--blanco);
+  border-radius: 12px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.dia h3 {
+  font-family: var(--fuente-titulos);
+  font-size: 1.1rem;
+  color: var(--dorado);
+  margin-bottom: 6px;
+}
+
+.dia-estado {
+  color: #dbe8e1;
+  margin-bottom: 10px;
+}
+
+.dia-temps {
+  font-size: 1.1rem;
+}
+
+.dia-temps strong {
+  font-size: 1.5rem;
+}
+
+/* ===== Pie de página ===== */
+.pie {
+  padding: 24px 48px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borde);
+}
+
+/* ===== Responsive (tablet y celular) ===== */
+@media (max-width: 800px) {
+  .encabezado,
+  .portada {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contenedor {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "ciudad"
+      "actual"
+      "pronostico";
+  }
+
+  .detalles,
+  .pronostico {
+    grid-template-columns: 1fr;
+  }
+}
