@@ -333,3 +333,49 @@ select {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===== Tablet (hasta 1024 px) ===== */
+@media (max-width: 1024px) {
+  .encabezado,
+  .portada {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  .temperatura {
+    font-size: 4rem;
+  }
+}
+
+/* ===== Celular pequeño (hasta 480 px) ===== */
+@media (max-width: 480px) {
+  .encabezado {
+    justify-content: center;
+    padding: 12px 16px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu a {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+  }
+
+  .portada {
+    padding: 56px 16px 64px;
+  }
+
+  .contenedor {
+    padding: 0 16px;
+  }
+
+  .tarjeta {
+    padding: 20px;
+  }
+
+  .temperatura {
+    font-size: 3.2rem;
+  }
+}
