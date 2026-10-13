@@ -839,3 +839,92 @@ footer > p:last-child {
 .etiqueta.punto-interes {
   background-color: #1976d2;
 }
+
+
+/* CORRECCIÓN RESPONSIVE - ECORUTA */
+
+/* CELULAR */
+main > .seccion-lugares-bonita {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin: 20px;
+    min-width: 0;
+}
+
+.grid-tarjetas {
+    grid-template-columns:
+        repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+}
+
+main > article:first-of-type {
+    grid-row: 3;
+}
+
+main > article:nth-of-type(2) {
+    grid-row: 4;
+}
+
+main > .mapa-principal {
+    grid-column: 1 / -1;
+    grid-row: 5;
+    margin: 20px;
+    min-width: 0;
+}
+
+main > aside {
+    grid-row: 6;
+}
+
+/* TABLET */
+@media (min-width: 768px) {
+    main > article:first-of-type,
+    main > article:nth-of-type(2) {
+        grid-row: 3;
+    }
+
+    main > .mapa-principal {
+        grid-row: 4;
+    }
+
+    main > aside {
+        grid-row: 5;
+    }
+}
+
+/* COMPUTADOR */
+@media (min-width: 1100px) {
+    main > article:first-of-type,
+    main > aside,
+    main > article:nth-of-type(2) {
+        grid-row: 3;
+    }
+
+    main > .mapa-principal {
+        grid-row: 4;
+    }
+}
+
+
+#btn-ubicacion {
+    background-color: #2e7d32;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+#btn-ubicacion:hover {
+    background-color: #1b5e20;
+}
+
+#btn-ubicacion:focus-visible {
+    outline: 3px solid #173d31;
+    outline-offset: 3px;
+}
+
+#btn-ubicacion:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
