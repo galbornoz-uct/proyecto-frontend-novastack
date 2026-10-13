@@ -15,16 +15,18 @@
 
 :root {
     /* Colores tomados de la página principal */
-    --crema: #fdf6ec;
+    --crema: #fff9ef;
+    --verde: #21533f;
+    --cafe: #92591f;
     --blanco: #ffffff;
-    --verde-oscuro: #1d4638;
-    --verde-claro: #e6f2ec;
-    --turquesa: #127c7c;
-    --dorado: #e9b64f;
-    --oxido: #c4573a;
-    --texto: #2b2b2b;
-    --texto-suave: #5b5b5b;
-    --borde: #e8dcc8;
+    --verde-oscuro: #153d30;
+    --verde-claro: #e4f1e6;
+    --turquesa: #087f83;
+    --dorado: #f2be62;
+    --oxido: #c45c42;
+    --texto: #24382f;
+    --texto-suave: #52665d;
+    --borde: #e7e5dd;
 
     /* Fuentes */
     --fuente-titulos: "Libre Baskerville", Georgia, serif;
@@ -32,7 +34,7 @@
 
     /* Medidas comunes */
     --radio: 16px;
-    --sombra: 0 6px 20px rgba(60, 40, 10, 0.08);
+    --sombra: 0 6px 20px rgba(21, 61, 48, 0.12);
 }
 
 
@@ -70,6 +72,7 @@ body {
 }
 
 .logo {
+    transition: color .25s ease, transform .25s ease;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -93,30 +96,27 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 6px;
+    gap: 4px;
     list-style: none;
 }
 
 .menu a {
+    position: relative;
     display: block;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    padding: 10px 12px;
     color: var(--verde-oscuro);
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
     text-decoration: none;
+    transition: color .25s ease, background-color .25s ease, transform .25s ease;
 }
 
 .menu a:hover {
-    background-color: var(--verde-claro);
-}
-
-/* Página actual (Clima) */
-.menu a.activo {
-    background-color: var(--verde-claro);
     color: var(--turquesa);
-    text-decoration: underline;
-    text-underline-offset: 5px;
+    background-color: var(--verde-claro);
+    transform: translateY(-2px);
 }
 
 /* Borde visible al navegar con teclado */
@@ -179,6 +179,7 @@ select:focus-visible {
 }
 
 .tarjeta {
+    transition: transform .25s ease, box-shadow .25s ease;
     padding: 20px;
     background-color: var(--blanco);
     border-radius: var(--radio);
@@ -313,6 +314,7 @@ select {
 /* Tarjeta de cada día con la foto del atardecer de fondo.
    La capa verde encima ayuda a que el texto se lea bien. */
 .dia {
+    transition: transform .25s ease, box-shadow .25s ease;
     padding: 20px;
     background-color: var(--verde-oscuro);
     background-image:
@@ -359,11 +361,12 @@ select {
    ========================================= */
 
 .pie {
+    background: linear-gradient(140deg, var(--verde-oscuro), #102c26);
     padding: 24px 16px;
     text-align: center;
     font-size: 0.9rem;
-    color: var(--texto-suave);
-    border-top: 1px solid var(--borde);
+    color: #e2eee7;
+    border-top: 1px solid var(--dorado);
 }
 
 
@@ -377,12 +380,7 @@ select {
         padding: 14px 28px;
     }
 
-    .menu a {
-        padding: 8px 16px;
-        font-size: 0.95rem;
-    }
-
-    .portada {
+.portada {
         padding: 80px 28px 72px;
     }
 
@@ -448,5 +446,64 @@ select {
 
     .temperatura {
         font-size: 4.5rem;
+    }
+}
+
+/* EFECTOS DEL LOGO, MENÚ Y TARJETAS */
+.logo:hover {
+    color: var(--cafe);
+    transform: translateY(-2px);
+}
+.menu a::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 12px;
+    width: 0;
+    height: 2px;
+    background-color: var(--turquesa);
+    transition: width .25s ease;
+}
+.menu a:hover::after {
+    width: calc(100% - 24px);
+}
+.tarjeta:hover,
+.dia:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--sombra);
+}
+/* NAVEGACIÓN RESPONSIVE */
+@media (min-width: 768px) {
+    .menu {
+        gap: 6px;
+    }
+}
+@media (min-width: 1100px) {
+    .menu {
+        gap: 12px;
+    }
+    .menu a {
+        padding: 11px 15px;
+        font-size: 15px;
+    }
+    .menu a::after {
+        left: 15px;
+    }
+    .menu a:hover::after {
+        width: calc(100% - 30px);
+    }
+}
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .logo:hover,
+    header nav a:hover,
+    .tarjeta:hover,
+    .dia:hover {
+        transform: none;
     }
 }

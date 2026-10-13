@@ -9,11 +9,13 @@
 
 /* COLORES GENERALES */
 :root {
-    --verde: #24483b;
-    --verde-oscuro: #19392e;
-    --cafe: #8b5e3c;
-    --beige: #f8f5ef;
-    --texto: #303a32;
+    --verde: #21533f;
+    --verde-oscuro: #153d30;
+    --cafe: #92591f;
+    --beige: #fff9ef;
+    --texto: #24382f;
+    --verde-claro: #e4f1e6;
+    --turquesa: #087f83;
 }
 
 /* ESTILOS GENERALES */
@@ -30,7 +32,7 @@ a {
     color: inherit;
 }
 a:focus-visible {
-    outline: 3px solid #bd8443;
+    outline: 3px solid #087f83;
     outline-offset: 4px;
 }
 
@@ -41,7 +43,7 @@ header {
     align-items: center;
     gap: 20px;
     padding: 20px 25px;
-    background-color: #fffdf9;
+    background-color: #fff9ef;
 }
 .logo {
     font-family: Georgia, serif;
@@ -53,19 +55,27 @@ header nav ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 4px;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 header nav a {
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: bold;
+    position: relative;
+    display: block;
+    padding: 10px 12px;
     color: var(--verde-oscuro);
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .25s ease, background-color .25s ease, transform .25s ease;
 }
 header nav a:hover {
-    color: var(--cafe);
+    color: var(--turquesa);
+    background-color: var(--verde-claro);
+    transform: translateY(-2px);
 }
 
 /* BANNER PRINCIPAL */
@@ -75,7 +85,7 @@ header nav a:hover {
     justify-content: center;
     min-height: 270px;
     padding: 45px 25px;
-    background: linear-gradient(120deg, #19392e, #3c7054);
+    background: linear-gradient(120deg, #153d30, #21533f);
     color: white;
 }
 .banner-servicios h1 {
@@ -108,7 +118,7 @@ header nav a:hover {
 }
 .aviso {
     font-size: 14px;
-    color: #686b65;
+    color: #52665d;
 }
 
 /* MOSTRAR SERVICIO SELECCIONADO */
@@ -126,15 +136,15 @@ main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
 .tarjetas-servicios article {
     padding: 24px;
     background-color: white;
-    border: 1px solid #e9e1d8;
+    border: 1px solid #e7e5dd;
     border-top: 5px solid var(--verde);
     border-radius: 14px;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 18px rgba(21, 61, 48, 0.12);
+    transition: transform .25s ease, box-shadow .25s ease;
 }
 .tarjetas-servicios article:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(21, 61, 48, 0.16);
 }
 .tarjetas-servicios h3 {
     font-family: Georgia, serif;
@@ -155,7 +165,7 @@ main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
 .tarjetas-servicios p:last-child {
     padding-top: 15px;
     margin-top: 16px;
-    border-top: 1px solid #e8ddd0;
+    border-top: 1px solid #e7e5dd;
 }
 #transporte .tarjetas-servicios article {
     border-top-color: var(--cafe);
@@ -165,7 +175,7 @@ main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
 #gastronomia {
     padding: 30px 25px;
     background: linear-gradient(120deg, #e4f1e6, #ffffff);
-    border: 1px solid #dce8dc;
+    border: 1px solid #e7e5dd;
     border-radius: 16px;
 }
 .enlace-gastronomia {
@@ -177,7 +187,7 @@ main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
     border-radius: 30px;
     text-decoration: none;
     font-weight: bold;
-    transition: background-color 0.2s ease;
+    transition: background-color .25s ease, transform .25s ease;
 }
 .enlace-gastronomia:hover {
     background-color: var(--verde-oscuro);
@@ -185,6 +195,7 @@ main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
 
 /* PIE DE PAGINA */
 footer {
+    background-image: linear-gradient(140deg, var(--verde-oscuro), #102c26);
     padding: 26px 20px;
     margin-top: 50px;
     background-color: var(--verde-oscuro);
@@ -227,10 +238,63 @@ footer p {
     }
 }
 
+
+/* EFECTOS COMPARTIDOS */
+.logo {
+    transition: color .25s ease, transform .25s ease;
+}
+.logo:hover {
+    color: var(--cafe);
+    transform: translateY(-2px);
+}
+header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 12px;
+    width: 0;
+    height: 2px;
+    background-color: var(--turquesa);
+    transition: width .25s ease;
+}
+header nav a:hover::after {
+    width: calc(100% - 24px);
+}
+.enlace-gastronomia:hover {
+    transform: translateY(-2px);
+}
+/* NAVEGACIÓN RESPONSIVE */
+@media (min-width: 768px) {
+    header nav ul {
+        gap: 6px;
+    }
+}
+@media (min-width: 1100px) {
+    header nav ul {
+        gap: 12px;
+    }
+    header nav a {
+        padding: 11px 15px;
+        font-size: 15px;
+    }
+    header nav a::after {
+        left: 15px;
+    }
+    header nav a:hover::after {
+        width: calc(100% - 30px);
+    }
+}
 /* ACCESIBILIDAD */
 @media (prefers-reduced-motion: reduce) {
-    .tarjetas-servicios article,
-    .enlace-gastronomia {
-        transition: none;
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+    .logo:hover,
+    header nav a:hover,
+    article:hover,
+    .enlace-gastronomia:hover {
+        transform: none;
     }
 }
