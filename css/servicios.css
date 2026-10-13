@@ -1,0 +1,231 @@
+
+/*
+  Página: Servicios turísticos - EcoRuta Temuco
+
+  Este CSS define el diseño de servicios.html.
+  Incluye alojamiento, transporte y gastronomía.
+  Utiliza diseño responsive con enfoque Mobile First.
+*/
+
+/* COLORES GENERALES */
+:root {
+    --verde: #24483b;
+    --verde-oscuro: #19392e;
+    --cafe: #8b5e3c;
+    --beige: #f8f5ef;
+    --texto: #303a32;
+}
+
+/* ESTILOS GENERALES */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--beige);
+    color: var(--texto);
+}
+a {
+    color: inherit;
+}
+a:focus-visible {
+    outline: 3px solid #bd8443;
+    outline-offset: 4px;
+}
+
+/* ENCABEZADO Y NAVEGACION */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 25px;
+    background-color: #fffdf9;
+}
+.logo {
+    font-family: Georgia, serif;
+    font-size: 34px;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+}
+header nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+header nav a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--verde-oscuro);
+}
+header nav a:hover {
+    color: var(--cafe);
+}
+
+/* BANNER PRINCIPAL */
+.banner-servicios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 270px;
+    padding: 45px 25px;
+    background: linear-gradient(120deg, #19392e, #3c7054);
+    color: white;
+}
+.banner-servicios h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(32px, 5vw, 58px);
+    line-height: 1.1;
+    margin: 0 0 15px;
+}
+.banner-servicios p {
+    max-width: 650px;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* SECCIONES DE SERVICIOS */
+.seccion-servicios {
+    width: min(1160px, calc(100% - 36px));
+    margin: 40px auto;
+}
+.seccion-servicios h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 34px);
+    color: var(--verde-oscuro);
+    margin: 0 0 12px;
+}
+.seccion-servicios > p {
+    line-height: 1.6;
+    margin: 0 0 12px;
+}
+.aviso {
+    font-size: 14px;
+    color: #686b65;
+}
+
+/* TARJETAS DE ALOJAMIENTO Y TRANSPORTE */
+.tarjetas-servicios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 24px;
+}
+.tarjetas-servicios article {
+    padding: 24px;
+    background-color: white;
+    border: 1px solid #e9e1d8;
+    border-top: 5px solid var(--verde);
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tarjetas-servicios article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+.tarjetas-servicios h3 {
+    font-family: Georgia, serif;
+    font-size: 23px;
+    color: var(--verde-oscuro);
+    margin: 0 0 18px;
+}
+.tarjetas-servicios p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 10px 0;
+}
+.tarjetas-servicios p:nth-of-type(3) {
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--cafe);
+}
+.tarjetas-servicios p:last-child {
+    padding-top: 15px;
+    margin-top: 16px;
+    border-top: 1px solid #e8ddd0;
+}
+#transporte .tarjetas-servicios article {
+    border-top-color: var(--cafe);
+}
+
+/* GASTRONOMIA */
+#gastronomia {
+    padding: 30px 25px;
+    background: linear-gradient(120deg, #e4f1e6, #ffffff);
+    border: 1px solid #dce8dc;
+    border-radius: 16px;
+}
+.enlace-gastronomia {
+    display: inline-block;
+    padding: 14px 24px;
+    margin-top: 12px;
+    background-color: var(--verde);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+.enlace-gastronomia:hover {
+    background-color: var(--verde-oscuro);
+}
+
+/* PIE DE PAGINA */
+footer {
+    padding: 26px 20px;
+    margin-top: 50px;
+    background-color: var(--verde-oscuro);
+    color: white;
+    text-align: center;
+}
+footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* RESPONSIVE - MOBILE FIRST */
+
+/* TABLET - DESDE 700PX */
+@media (min-width: 700px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 5%;
+    }
+    header nav ul {
+        justify-content: flex-end;
+    }
+    .banner-servicios {
+        min-height: 320px;
+        padding: 50px 7%;
+    }
+    .tarjetas-servicios {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    #gastronomia {
+        padding: 45px;
+    }
+}
+
+/* COMPUTADOR - DESDE 1100PX */
+@media (min-width: 1100px) {
+    .banner-servicios {
+        min-height: 350px;
+    }
+}
+
+/* ACCESIBILIDAD */
+@media (prefers-reduced-motion: reduce) {
+    .tarjetas-servicios article,
+    .enlace-gastronomia {
+        transition: none;
+    }
+}
