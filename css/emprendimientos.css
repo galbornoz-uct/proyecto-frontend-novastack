@@ -175,6 +175,22 @@ article p {
     line-height: 1.6;
     margin: 9px 0;
 }
+
+
+/* SUSTENTABILIDAD */
+article .sustentabilidad {
+    padding: 10px 12px;
+    background-color: #e4f1e6;
+    border-radius: 8px;
+    color: var(--verde-oscuro);
+    font-weight: bold;
+}
+
+/* NAVEGACION A EMPRENDIMIENTOS */
+article[id] {
+    scroll-margin-top: 30px;
+}
+
 /* UBICACION */
 article p:first-of-type {
     color: #666;
