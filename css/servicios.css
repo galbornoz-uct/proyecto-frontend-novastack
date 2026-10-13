@@ -111,6 +111,11 @@ header nav a:hover {
     color: #686b65;
 }
 
+/* MOSTRAR SERVICIO SELECCIONADO */
+main:has(.seccion-servicios:target) .seccion-servicios:not(:target) {
+    display: none;
+}
+
 /* TARJETAS DE ALOJAMIENTO Y TRANSPORTE */
 .tarjetas-servicios {
     display: grid;
