@@ -120,18 +120,13 @@ header nav a::after {
     transition: width .25s ease;
 }
 
-header nav a:hover,
-header nav a[aria-current="page"] {
+header nav a:hover {
     color: var(--turquesa);
     background-color: var(--verde-claro);
-}
-
-header nav a:hover {
     transform: translateY(-2px);
 }
 
-header nav a:hover::after,
-header nav a[aria-current="page"]::after {
+header nav a:hover::after {
     width: calc(100% - 24px);
 }
 
@@ -438,9 +433,16 @@ main > aside small {
 }
 
 main > aside .servicios-grid a {
+    transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
     min-height: 62px;
     justify-content: center;
     text-align: center;
+}
+
+main > aside .servicios-grid a:hover {
+    background-color: rgba(255, 255, 255, .23);
+    border-color: var(--dorado);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, .18);
 }
 
 /* CLIMA */
@@ -590,6 +592,10 @@ footer > p:last-child {
         transition: none !important;
         scroll-behavior: auto !important;
     }
+    header nav a:hover,
+    main > aside .servicios-grid a:hover {
+        transform: none;
+    }
 }
 
 /* 2. TABLET */
@@ -615,6 +621,11 @@ footer > p:last-child {
         grid-template-areas: "banner banner" "eventos clima" "mapa mapa" "explorar explorar";
         gap: 20px;
         padding: 0 24px 32px;
+    }
+
+    main > article:first-of-type,
+    main > article:nth-of-type(2) {
+        align-self: stretch;
     }
 
     main > section:first-child {
@@ -668,8 +679,7 @@ footer > p:last-child {
         left: 15px;
     }
 
-    header nav a:hover::after,
-    header nav a[aria-current="page"]::after {
+    header nav a:hover::after {
         width: calc(100% - 30px);
     }
 
