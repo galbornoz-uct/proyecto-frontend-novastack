@@ -201,16 +201,14 @@ select {
 }
 
 .icono-grande {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
+  font-size: 4rem;
+  line-height: 1;
 }
 
 .icono-dia {
   display: block;
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
+  font-size: 2.4rem;
+  line-height: 1;
   margin-bottom: 8px;
 }
 
