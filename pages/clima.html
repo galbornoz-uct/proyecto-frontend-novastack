@@ -1,0 +1,131 @@
+<!--
+    Página: Clima - EcoRuta Temuco
+
+    Muestra el clima "actual" y el pronóstico de las
+    principales ciudades de La Araucanía.
+
+    Los datos son de ejemplo. Próximamente se podrá
+    consultar el clima actualizado en tiempo real.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima en La Araucanía | EcoRuta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/clima.css">
+</head>
+<body>
+
+    <!-- ===== Encabezado y navegación (igual a la página principal) ===== -->
+    <header class="encabezado">
+        <a href="../index.html" class="logo">
+            <span class="logo-hoja" aria-hidden="true"></span>
+            EcoRuta
+        </a>
+        <nav aria-label="Navegación principal">
+            <ul class="menu">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#mapa">Mapa</a></li>
+                <li><a href="clima.html" class="activo" aria-current="page">Clima</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="guias.html">Guías de viaje</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ===== Portada ===== -->
+        <section class="portada">
+            <h1>Clima en La Araucanía</h1>
+            <span class="linea-dorada" aria-hidden="true"></span>
+            <p>Consulta las condiciones climáticas de tu destino antes de salir.</p>
+        </section>
+
+        <div class="contenedor">
+
+            <!-- ===== Selector de ciudad ===== -->
+            <section class="tarjeta tarjeta-ciudad">
+                <h2>Seleccionar ciudad</h2>
+                <label for="ciudad">Ciudad</label>
+                <select id="ciudad" name="ciudad">
+                    <option value="temuco" selected>Temuco</option>
+                    <option value="pucon">Pucón</option>
+                    <option value="villarrica">Villarrica</option>
+                    <option value="cunco">Cunco</option>
+                    <option value="curacautin">Curacautín</option>
+                    <option value="angol">Angol</option>
+                    <option value="lonquimay">Lonquimay</option>
+                    <option value="melipeuco">Melipeuco</option>
+                    <option value="carahue">Carahue</option>
+                </select>
+                <p class="nota">Datos de ejemplo. Próximamente podrás consultar el clima actualizado en tiempo real.</p>
+            </section>
+
+            <!-- ===== Clima actual ===== -->
+            <section class="tarjeta tarjeta-actual">
+                <h2>Clima actual</h2>
+                <div class="actual-principal">
+                    <span class="icono-grande" role="img" aria-label="Parcialmente nublado">⛅</span>
+                    <p class="temperatura">16<span>°C</span></p>
+                    <div>
+                        <p class="estado">Parcialmente nublado</p>
+                        <p class="lugar">Temuco, hoy</p>
+                    </div>
+                </div>
+
+                <ul class="detalles">
+                    <li>
+                        <span class="detalle-nombre">Humedad</span>
+                        <span class="detalle-valor">65 %</span>
+                    </li>
+                    <li>
+                        <span class="detalle-nombre">Viento</span>
+                        <span class="detalle-valor">22 km/h</span>
+                    </li>
+                    <li>
+                        <span class="detalle-nombre">Sensación térmica</span>
+                        <span class="detalle-valor">14 °C</span>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- ===== Pronóstico ===== -->
+            <section class="tarjeta tarjeta-pronostico">
+                <h2>Pronóstico</h2>
+                <ul class="pronostico">
+                    <li class="dia">
+                        <h3>Hoy</h3>
+                        <span class="icono-dia" aria-hidden="true">☁️</span>
+                        <p class="dia-estado">Nublado</p>
+                        <p class="dia-temps"><strong>17°</strong> / 10°</p>
+                    </li>
+                    <li class="dia">
+                        <h3>Mañana</h3>
+                        <span class="icono-dia" aria-hidden="true">☀️</span>
+                        <p class="dia-estado">Despejado</p>
+                        <p class="dia-temps"><strong>16°</strong> / 10°</p>
+                    </li>
+                    <li class="dia">
+                        <h3>Próximos días</h3>
+                        <span class="icono-dia" aria-hidden="true">🌧️</span>
+                        <p class="dia-estado">Lluvia ocasional</p>
+                        <p class="dia-temps"><strong>13°</strong> / 8°</p>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ===== Pie de página ===== -->
+    <footer class="pie">
+        <p>&copy; 2026 EcoRuta Temuco.</p>
+    </footer>
+
+</body>
+</html>
