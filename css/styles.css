@@ -905,3 +905,15 @@ main > aside {
     opacity: 0.7;
     cursor: wait;
 }
+
+/* Foco visible al navegar con teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+#btn-ubicacion:focus-visible {
+    outline: 3px solid #173d31;
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px #ffffff;
+}
