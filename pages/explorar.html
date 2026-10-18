@@ -1,125 +1,206 @@
-
-<!--
-  Página: Explorar - EcoRuta Temuco
-
-  Este HTML está destinado a mostrar los diferentes
-  destinos turísticos de La Araucanía, incluyendo
-  lugares populares, actividades y servicios disponibles.
-
-  También contará con un mapa interactivo que permitirá
-  a los usuarios conocer la ubicación de los destinos,
-  explorar lugares de interés y descubrir las actividades
-  que pueden realizar en cada zona.
--->
-
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Explorar - EcoRuta Temuco</title>
+  <meta name="description" content="Catálogo de destinos, rutas y lugares de interés de La Araucanía en EcoRuta Temuco.">
+  <title>Explorar La Araucanía | EcoRuta Temuco</title>
+  <link rel="stylesheet" href="../css/explorar.css">
 </head>
-
 <body>
+  <header class="encabezado">
+    <a class="logo" href="../index.html">EcoRuta</a>
 
-  <header>
-    <div class="logo">EcoRuta</div>
-
-    <nav>
-      <ul>
+    <nav aria-label="Navegación principal">
+      <ul class="navegacion">
         <li><a href="../index.html">Inicio</a></li>
-        <li><a href="explorar.html">Explorar</a></li>
+        <li><a href="../index.html#mapa">Mapa</a></li>
         <li><a href="clima.html">Clima</a></li>
         <li><a href="eventos.html">Eventos</a></li>
+        <li><a href="explorar.html" aria-current="page">Guías de viaje</a></li>
       </ul>
     </nav>
   </header>
-
   <main>
-
-    <section>
-      <h1>Explora La Araucanía</h1>
-      <p>
-        Descubre destinos turísticos, actividades
-        y servicios de nuestra región.
-      </p>
+    <section class="presentacion" aria-labelledby="titulo">
+      <p class="etiqueta">Catálogo turístico · La Araucanía</p>
+      <h1 id="titulo">Un lugar para empezar tu próxima salida</h1>
+      <p>Descubre destinos, rutas y lugares de interés de la región. Compara alternativas y reúne lo necesario para planificar tu viaje.</p>
+      <nav aria-label="Secciones del catálogo">
+        <ul class="accesos">
+          <li><a class="boton boton-dorado" href="#destinos">Destinos populares</a></li>
+          <li><a class="boton boton-claro" href="#lugares">Lugares de interés</a></li>
+          <li><a class="boton boton-claro" href="#actividades">Rutas y actividades</a></li>
+        </ul>
+      </nav>
     </section>
-
-    <section id="destinos">
-      <h2>Destinos populares</h2>
-
-      <article>
-        <h3>Pucón</h3>
-        <p>
-          Conoce sus lagos, volcanes y paisajes naturales.
-        </p>
-      </article>
-
-      <article>
-        <h3>Villarrica</h3>
-        <p>
-          Descubre sus playas, cultura y atractivos turísticos.
-        </p>
-      </article>
-
-      <article>
-        <h3>Parque Nacional Conguillío</h3>
-        <p>
-          Explora sus senderos, bosques y paisajes volcánicos.
-        </p>
-      </article>
-    </section>
-
-    <section id="actividades">
-      <h2>Actividades</h2>
-
-      <ul>
-        <li>Senderismo</li>
-        <li>Ciclismo</li>
-        <li>Camping</li>
-        <li>Turismo sustentable</li>
-      </ul>
-    </section>
-
-    <section id="mapa">
-      <h2>Mapa turístico</h2>
-
-      <p>
-        Aquí se incorporará un mapa interactivo
-        con los destinos turísticos de La Araucanía.
-      </p>
-    </section>
-
-    <section id="servicios">
-      <h2>Servicios turísticos</h2>
-
-      <ul>
-        <li>Alojamiento</li>
-        <li>Transporte</li>
-        <li>Guías turísticos</li>
-        <li>Equipamiento recomendado</li>
-      </ul>
-    </section>
-
-    <section id="emprendimientos">
-      <h2>Emprendimientos locales</h2>
-
-      <p>
-        Conoce emprendimientos de La Araucanía,
-        sus productos y rangos de precios.
-      </p>
-
-      <a href="emprendimientos.html">
-        Ver emprendimientos locales
-      </a>
-    </section>
-
+    <div class="contenido-catalogo">
+      <aside class="aviso" aria-label="Estado de la información">
+        <strong>Planifica con información confirmada.</strong> Los horarios, tarifas, accesos y recorridos que no han sido verificados se indican como pendientes. Confírmalos con la administración del lugar antes de viajar.
+      </aside>
+      <section id="destinos" aria-labelledby="titulo-destinos">
+        <p class="etiqueta">Elige tu destino</p>
+        <h2 id="titulo-destinos">Destinos populares</h2>
+        <p>Conoce los destinos contemplados en EcoRuta y compara sus propuestas.</p>
+        <div class="catalogo">
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Destino</p>
+          <h3>Pucón</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Pucón, La Araucanía.</p>
+          <p>Conoce sus lagos, volcanes y paisajes naturales.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Destino</p>
+          <h3>Villarrica</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Villarrica, La Araucanía.</p>
+          <p>Descubre sus playas, cultura y atractivos turísticos.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Área natural</p>
+          <h3>Parque Nacional Conguillío</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> La Araucanía. Acceso específico pendiente de confirmar.</p>
+          <p>Explora sus senderos, bosques y paisajes volcánicos.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        </div>
+      </section>
+      <section id="lugares" aria-labelledby="titulo-lugares">
+        <p class="etiqueta">Naturaleza y cultura</p>
+        <h2 id="titulo-lugares">Lugares de interés en Temuco</h2>
+        <p>Opciones para conocer la ciudad, tomadas de los lugares ya publicados en Inicio.</p>
+        <div class="catalogo">
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Naturaleza</p>
+          <h3>Cerro Ñielol</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
+          <p>Monumento natural con senderos y vistas panorámicas.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Cultura</p>
+          <h3>Museo Regional de la Araucanía</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
+          <p>Un espacio para conocer el patrimonio cultural y la historia regional.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Cultura</p>
+          <h3>Pabellón Araucanía</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
+          <p>Espacio cultural y arquitectónico a los pies del Cerro Ñielol.</p>
+          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
+        </article>
+        </div>
+        <p class="enlace-seccion"><a class="boton" href="../index.html">Ver lugares y consultar distancias en Inicio</a></p>
+      </section>
+      <section id="actividades" aria-labelledby="titulo-actividades">
+        <p class="etiqueta">Explora a tu ritmo</p>
+        <h2 id="titulo-actividades">Rutas y actividades</h2>
+        <p>Las rutas están pendientes de completar. Estas fichas no representan itinerarios habilitados ni recorridos oficiales.</p>
+        <div class="catalogo catalogo-rutas">
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Ruta pendiente</p>
+          <h3>Recorrido de senderismo por definir</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Pendiente de confirmar.</p>
+          <p>Recorrido a pie. La ficha se completará cuando exista información verificada.</p>
+          <p class="pendiente">Nombre del recorrido, trazado, distancia, duración y dificultad: pendientes de confirmar.</p>
+        </article>
+        <article class="tarjeta" tabindex="0">
+          <p class="etiqueta">Ruta pendiente</p>
+          <h3>Recorrido de ciclismo por definir</h3>
+          <p class="ubicacion"><strong>Ubicación:</strong> Pendiente de confirmar.</p>
+          <p>Recorrido en bicicleta. El itinerario y sus condiciones todavía no están confirmados.</p>
+          <p class="pendiente">Nombre del recorrido, trazado, distancia, duración y dificultad: pendientes de confirmar.</p>
+        </article>
+        </div>
+        <p class="otras-actividades"><strong>Otras actividades contempladas:</strong> camping y turismo sustentable. Lugares habilitados y prestadores pendientes de confirmar.</p>
+      </section>
+      <section class="panel" id="guias-turisticos" aria-labelledby="titulo-guias">
+        <p class="etiqueta">Recorre la región</p>
+        <h2 id="titulo-guias">Guías turísticos disponibles</h2>
+        <p>La información de guías y la disponibilidad de sus recorridos están pendientes de confirmar. Esta ficha aún no corresponde a un servicio confirmado.</p>
+        <div class="detalle-guias">
+          <article class="ficha-guia" tabindex="0" aria-labelledby="nombre-guia">
+            <h3 id="nombre-guia">Nombre del guía (por definir)</h3>
+            <dl class="datos-guia">
+              <div><dt>Zona</dt><dd>Por definir</dd></div>
+              <div><dt>Recorrido</dt><dd>Por definir</dd></div>
+              <div><dt>Actividad</dt><dd>Por definir</dd></div>
+              <div><dt>Duración</dt><dd>Por definir</dd></div>
+              <div><dt>Contacto</dt><dd>Por definir</dd></div>
+            </dl>
+          </article>
+          <section aria-labelledby="titulo-zonas">
+            <h3 id="titulo-zonas">Zonas de recorrido</h3>
+            <p>Zonas contempladas en el proyecto; recorridos y guías pendientes de confirmar.</p>
+            <ul class="zonas-guia">
+              <li>Temuco</li>
+              <li>Pucón</li>
+              <li>Villarrica</li>
+              <li>Melipeuco</li>
+              <li>Parque Nacional Conguillío</li>
+            </ul>
+          </section>
+        </div>
+      </section>
+      <section class="panel" aria-labelledby="titulo-planificar">
+        <p class="etiqueta">Antes de salir</p>
+        <h2 id="titulo-planificar">Prepara tu próxima salida</h2>
+        <ol class="pasos">
+          <li><h3>Elige y confirma</h3><p>Revisa el destino y confirma los accesos, tarifas y horarios con sus responsables.</p></li>
+          <li><h3>Organiza tu viaje</h3><p>Consulta el clima y prepara tu transporte y equipamiento.</p><a href="clima.html">Consultar sección de clima →</a></li>
+          <li><h3>Cuida el entorno</h3><p>Respeta la señalización, utiliza senderos habilitados y lleva tus residuos de regreso.</p></li>
+        </ol>
+      </section>
+      <div class="complementos">
+        <section class="panel" id="mapa" aria-labelledby="titulo-mapa">
+          <h2 id="titulo-mapa">Ubicación de los recorridos</h2>
+          <p>El mapa interactivo y las ubicaciones de los recorridos están pendientes de implementación.</p>
+          <a class="boton" href="../index.html#mapa">Ver mapa turístico</a>
+        </section>
+        <section class="panel" id="servicios" aria-labelledby="titulo-servicios">
+          <h2 id="titulo-servicios">Servicios turísticos</h2>
+          <ul><li>Alojamiento</li><li>Transporte</li><li>Guías turísticos</li><li>Equipamiento recomendado</li></ul>
+          <a href="servicios.html">Consultar servicios →</a>
+        </section>
+        <section class="panel" id="emprendimientos" aria-labelledby="titulo-emprendimientos">
+          <h2 id="titulo-emprendimientos">Emprendimientos locales</h2>
+          <p>Conoce emprendimientos de La Araucanía, sus productos y rangos de precios.</p>
+          <a href="emprendimientos.html">Ver emprendimientos locales →</a>
+        </section>
+      </div>
+    </div>
   </main>
-
   <footer>
-    <p>&copy; 2026 EcoRuta Temuco.</p>
-  </footer>
+        <section>
+            <h2>Explora Araucanía</h2>
+            <p>
+                Descubre los secretos mejor guardados de La Araucanía.
+                Bosques de araucarias, volcanes y lagos te esperan.
+            </p>
+        </section>
 
+        <section>
+            <h2>Contacto</h2>
+            <address>
+                <p>
+                    Correo:
+                    <a href="mailto:info@exploraaraucania.cl">
+                        info@exploraaraucania.cl
+                    </a>
+                </p>
+                <p>
+                    Teléfono:
+                    <a href="tel:+56925456799">
+                        +56 9 2545 6799
+                    </a>
+                </p>
+            </address>
+        </section>
+
+        <p>&copy; 2026 Explora Araucanía. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
