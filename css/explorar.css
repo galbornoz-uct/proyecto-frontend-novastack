@@ -62,8 +62,7 @@ a:hover {
 }
 
 /*accesibilidad*/
-a:focus-visible,
-.tarjeta:focus-visible {
+a:focus-visible {
     outline: 3px solid var(--verde-oscuro);
     outline-offset: 4px;
     box-shadow: 0 0 0 7px var(--blanco);
@@ -152,10 +151,6 @@ a:focus-visible,
 .navegacion a:hover::after,
 .navegacion a:focus-visible::after {
   width: calc(100% - 24px);
-}
-
-.navegacion a[aria-current="page"] {
-  background: var(--verde-claro);
 }
 
 /* Botones */
@@ -300,43 +295,12 @@ section { scroll-margin-top: 24px; }
 .pasos h3 { color: var(--verde-oscuro); }
 .complementos a, .pasos a { display: inline-block; padding-block: 8px; font-weight: 600; }
 
-/* Guías y zonas de recorrido */
-.detalle-guias {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: 24px;
-  margin-top: 24px;
-}
-
-.ficha-guia {
-  min-width: 0;
-  padding: 24px;
-  border-left: 4px solid var(--turquesa);
-  border-radius: 12px;
-  background: var(--crema);
-}
-
-.ficha-guia:focus-visible {
-  outline: 3px solid var(--verde-oscuro);
-  outline-offset: 4px;
-}
-
-.detalle-guias h3 { color: var(--verde-oscuro); }
-.datos-guia { margin-bottom: 0; }
-.datos-guia > div { padding-block: 10px; border-bottom: 1px solid var(--borde); }
-.datos-guia > div:last-child { border-bottom: 0; }
-.datos-guia dt { font-weight: 600; }
-.datos-guia dd { margin: 4px 0 0; color: var(--texto-suave); }
-.zonas-guia { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
-.zonas-guia li { padding: 14px 18px; border-radius: 10px; background: var(--verde-claro); font-weight: 600; }
-
 /* TABLET - DESDE 700PX */
 @media (min-width: 700px) {
   .encabezado { flex-direction: row; justify-content: space-between; padding: 14px 28px; }
   .presentacion { padding: 80px 28px 72px; }
   .contenido-catalogo { padding: 0 24px; }
   .catalogo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .detalle-guias { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pasos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   footer { grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px; }
 }
