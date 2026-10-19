@@ -8,14 +8,74 @@ main.pagina-eventos {
   padding: 0;
 }
 
-/* HERO / BANNER */
+
+
 .pagina-eventos > .eventos-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: auto;
   min-height: 390px;
   margin: 0;
   padding: 65px 22px;
+  overflow: hidden;
+  color: var(--blanco);
   background: var(--verde-oscuro);
 }
+
+
+.pagina-eventos > .eventos-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.pagina-eventos > .eventos-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 38, 30, .84),
+    rgba(11, 38, 30, .44) 65%,
+    rgba(11, 38, 30, .20)
+  );
+  z-index: 1;
+}
+
+
+.pagina-eventos > .eventos-hero h1 {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-bottom: 17px;
+  color: var(--blanco);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1.12;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+}
+
+.pagina-eventos > .eventos-hero h1 span {
+  color: var(--dorado);
+}
+
+
+.pagina-eventos > .eventos-hero h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 16px;
+  background-color: var(--dorado);
+  border-radius: 4px;
+}
+
 
 .pagina-eventos .eventos-hero-contenido {
   position: relative;
@@ -267,4 +327,14 @@ main.pagina-eventos {
   .pagina-eventos .eventos-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+}
+.pagina-eventos .evento-aviso {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
 }
