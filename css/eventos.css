@@ -8,8 +8,6 @@ main.pagina-eventos {
   padding: 0;
 }
 
-
-
 .pagina-eventos > .eventos-hero {
   position: relative;
   display: flex;
@@ -96,11 +94,6 @@ main.pagina-eventos {
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .02em;
-}
-
-.pagina-eventos > .eventos-hero h1 {
-  max-width: 760px;
-  margin-bottom: 17px;
 }
 
 .pagina-eventos .eventos-hero-contenido > p {
