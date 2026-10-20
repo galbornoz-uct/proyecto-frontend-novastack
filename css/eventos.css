@@ -1,0 +1,333 @@
+/* EVENTOS - ECORUTA TEMUCO
+   Estilos exclusivos de pages/eventos.html.
+   Este archivo se carga DESPUÉS de css/styles.css. */
+
+/* Evita que el grid general de index.html controle esta página. */
+main.pagina-eventos {
+  display: block;
+  padding: 0;
+}
+
+.pagina-eventos > .eventos-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: auto;
+  min-height: 390px;
+  margin: 0;
+  padding: 65px 22px;
+  overflow: hidden;
+  color: var(--blanco);
+  background: var(--verde-oscuro);
+}
+
+
+.pagina-eventos > .eventos-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+
+.pagina-eventos > .eventos-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(11, 38, 30, .84),
+    rgba(11, 38, 30, .44) 65%,
+    rgba(11, 38, 30, .20)
+  );
+  z-index: 1;
+}
+
+
+.pagina-eventos > .eventos-hero h1 {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-bottom: 17px;
+  color: var(--blanco);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1.12;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .28);
+}
+
+.pagina-eventos > .eventos-hero h1 span {
+  color: var(--dorado);
+}
+
+
+.pagina-eventos > .eventos-hero h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 16px;
+  background-color: var(--dorado);
+  border-radius: 4px;
+}
+
+
+.pagina-eventos .eventos-hero-contenido {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.pagina-eventos .eventos-etiqueta-hero {
+  display: inline-block;
+  margin-bottom: 17px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255, 255, 255, .42);
+  border-radius: 100px;
+  background: rgba(21, 61, 48, .55);
+  color: var(--blanco);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.pagina-eventos .eventos-hero-contenido > p {
+  max-width: 610px;
+  margin: 0 0 26px;
+  color: var(--blanco);
+  font-size: clamp(15px, 2.1vw, 18px);
+  line-height: 1.7;
+}
+
+.pagina-eventos .eventos-hero-boton {
+  display: inline-block;
+  padding: 13px 20px;
+  border-radius: 10px;
+  background: var(--dorado);
+  color: var(--verde-oscuro);
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.pagina-eventos .eventos-hero-boton:hover {
+  transform: translateY(-2px);
+  background: #ffe0a0;
+}
+
+/* SECCIÓN DE EVENTOS */
+.pagina-eventos .eventos-contenido {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 48px 18px 70px;
+  scroll-margin-top: 115px;
+}
+
+.pagina-eventos .eventos-encabezado {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.pagina-eventos .eventos-sobretitulo {
+  margin-bottom: 7px;
+  color: var(--coral);
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.pagina-eventos .eventos-encabezado h2 {
+  margin-bottom: 10px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 4vw, 39px);
+}
+
+.pagina-eventos .eventos-encabezado p:not(.eventos-sobretitulo) {
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.pagina-eventos .eventos-cantidad {
+  padding: 9px 13px;
+  border-radius: 999px;
+  background: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* TARJETAS: MOBILE FIRST */
+.pagina-eventos .eventos-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.pagina-eventos .eventos-grid > li {
+  min-width: 0;
+}
+
+.pagina-eventos .evento-tarjeta {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: 18px;
+  background: var(--blanco);
+  box-shadow: var(--sombra);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.pagina-eventos .evento-tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 32px rgba(21, 61, 48, .18);
+}
+
+.pagina-eventos .evento-imagen {
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+  background: var(--verde-claro);
+}
+
+.pagina-eventos .evento-imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pagina-eventos .evento-categoria {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: var(--verde-oscuro);
+  color: var(--blanco);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pagina-eventos .evento-detalle {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 23px;
+}
+
+.pagina-eventos .evento-fecha {
+  margin-bottom: 13px;
+  padding: 7px 10px;
+  border-radius: 7px;
+  background: #fff2e2;
+  color: #814219;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.pagina-eventos .evento-detalle h3 {
+  margin-bottom: 12px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.pagina-eventos .evento-ubicacion {
+  margin-bottom: 15px;
+  color: var(--turquesa);
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pagina-eventos .evento-descripcion {
+  margin-bottom: 22px;
+  color: var(--texto-suave);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.pagina-eventos .evento-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 45px;
+  margin-top: auto;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--verde);
+  color: var(--blanco);
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.pagina-eventos .evento-boton:hover {
+  background: var(--verde-oscuro);
+  transform: translateY(-2px);
+}
+
+.pagina-eventos .eventos-nota {
+  margin-top: 24px;
+  color: var(--texto-suave);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (min-width: 700px) {
+  .pagina-eventos > .eventos-hero {
+    min-height: 440px;
+    padding: 75px 42px;
+  }
+
+  .pagina-eventos .eventos-contenido {
+    padding: 55px 30px 75px;
+  }
+
+  .pagina-eventos .eventos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .pagina-eventos > .eventos-hero {
+    min-height: 470px;
+    padding: 80px 65px;
+  }
+
+  .pagina-eventos .eventos-contenido {
+    padding: 65px 35px 90px;
+  }
+
+  .pagina-eventos .eventos-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+.pagina-eventos .evento-aviso {
+  margin-top: auto;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}

@@ -1,75 +1,145 @@
-
-<!--
-  Página: Explorar - EcoRuta Temuco
-
-  Este HTML está destinado a mostrar los diferentes
-  destinos turísticos de La Araucanía, incluyendo
-  lugares populares, actividades y servicios disponibles.
-
-  También contará con un mapa interactivo que permitirá
-  a los usuarios conocer la ubicación de los destinos,
-  explorar lugares de interés y descubrir las actividades
-  que pueden realizar en cada zona.
--->
-
 <!DOCTYPE html>
 <html lang="es">
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre próximos eventos, actividades y experiencias para disfrutar del sur de Chile con EcoRuta Temuco.">
   <title>Eventos - EcoRuta Temuco</title>
-  <!-- <link rel="stylesheet" href="../css/"> -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/eventos.css">
 </head>
-
 <body>
+ 
+<header>
+  <div class="logo">EcoRuta</div>
 
-  <header>
-    <div class="logo">EcoRuta</div>
+  <nav aria-label="Navegación principal">
+    <ul>
+      <li><a href="../index.html">Inicio</a></li>
+      <li><a href="lugares.html">Lugares de interés</a></li>
+      <li><a href="explorar.html">Explorar</a></li>
+      <li><a href="../index.html#mapa">Mapa</a></li>
+      <li><a href="clima.html">Clima</a></li>
+      <li><a href="eventos.html" aria-current="page">Eventos</a></li>
+      <li><a href="guias.html">Guías de viaje</a></li>
+    </ul>
+  </nav>
+</header>
 
-    <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-      </ul>
-    </nav>
-  </header>
 
-  <main>
-    <section>
-      <h1>Próximos eventos</h1>
-      <p>Descubre actividades y eventos para disfrutar.</p>
+  <main class="pagina-eventos">
+    <section class="eventos-hero" aria-labelledby="titulo-eventos">
+      <img
+        src="https://chile.travel/wp-content/uploads/2024/08/6bf4eec2-5-panoramas-imperdibles-de-la-region-de-la-araucania.jpg"
+        alt="Paisaje natural de La Araucanía"
+      >
+      <div class="eventos-hero-contenido">
+        <span class="eventos-etiqueta-hero">Naturaleza · Cultura · Aventura</span>
+        <h1 id="titulo-eventos">Vive nuevos <span>eventos</span></h1>
+        <p>Descubre actividades y experiencias para disfrutar de la naturaleza y la cultura del sur de Chile.</p>
+        <a class="eventos-hero-boton" href="#listado-eventos">Explorar eventos ↓</a>
+      </div>
     </section>
 
-    <article>
-      <h2>Maratón Glaciar</h2>
-      <p>24 de noviembre — Torres del Paine</p>
-      <a href="https://lastorres.com/circuitos-y-tours/experiencia-las-torres/">
-        Más información
-      </a>
-    </article>
+    <section class="eventos-contenido" id="listado-eventos" aria-labelledby="subtitulo-eventos">
+      <div class="eventos-encabezado">
+        <div>
+          <p class="eventos-sobretitulo">Agenda de experiencias</p>
+          <h2 id="subtitulo-eventos">Próximos eventos</h2>
+          <p>Elige una actividad y conoce más información sobre cada experiencia.</p>
+        </div>
+        <span class="eventos-cantidad">3 actividades</span>
+      </div>
 
-    <article>
-      <h2>Patagonia Fest</h2>
-      <p>2 de diciembre — Puerto Natales</p>
-      <a href="https://patagonia-chile.com/">
-        Más información
-      </a>
-    </article>
+      <ul class="eventos-grid">
+        <li>
+          <article class="evento-tarjeta" aria-labelledby="evento-mogekonmen">
+            <div class="evento-imagen">
+              <img
+                src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=960&q=85"
+                alt="Plato de comida ilustrativo"
+                loading="lazy"
+              >
+              <span class="evento-categoria">Gastronomía</span>
+            </div>
+            <div class="evento-detalle">
+              <p class="evento-fecha">30 de octubre al 1 de noviembre</p>
+              <h3 id="evento-mogekonmen">Festival de Gastronomía Mapuche MOGEKONMEN</h3>
+              <p class="evento-ubicacion">📍 Curarrehue, La Araucanía</p>
+              <p class="evento-descripcion">
+                Descubre la gastronomía mapuche, sus sabores tradicionales
+                y conocimientos ancestrales en un encuentro cultural.
+              </p>
+              <a class="evento-boton" href="https://temucotelevision.cl/web/2026/10/12/festival-de-gastronomia-mapuche-mogekonmen-regresa-a-kurarewe-el-30-y-31-de-octubre-y-1-de-noviembre/">
+                Más información <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </li>
 
-    <article>
-      <h2>Trekking Guiado</h2>
-      <p>16 de diciembre — Senderos de la Araucanía</p>
-      <a href="https://www.trekkingchile.com/es/busqueda-de-guias/">
-        Más información
-      </a>
-    </article>
+        <li>
+          <article class="evento-tarjeta" aria-labelledby="evento-exposofo">
+            <div class="evento-imagen">
+              <img
+                src="../img/evento/expo-sofo.jpg"
+                alt="Visitantes recorriendo una exposición ganadera con animales en corrales"
+                loading="lazy"
+              >
+              <span class="evento-categoria">Tradiciones</span>
+            </div>
+            <div class="evento-detalle">
+              <p class="evento-fecha">19 al 22 de noviembre</p>
+              <h3 id="evento-exposofo">EXPOSOFO 2026</h3>
+              <p class="evento-ubicacion">📍 Parque SOFO, Temuco</p>
+              <p class="evento-descripcion">
+                Conoce la feria agrícola y ganadera de La Araucanía,
+                con actividades relacionadas con el campo y las tradiciones.
+              </p>
+              <a class="evento-boton" href="https://exposofo.cl/">
+                Más información <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </li>
+
+        <li>
+          <article class="evento-tarjeta" aria-labelledby="evento-trekking">
+            <div class="evento-imagen">
+              <img
+                src="../img/evento/Trekking.jpg"
+                alt="Personas realizando senderismo en un entorno natural"
+                loading="lazy"
+              >
+              <span class="evento-categoria">Naturaleza</span>
+            </div>
+            <div class="evento-detalle">
+              <p class="evento-fecha">Fecha por confirmar</p>
+              <h3 id="evento-trekking">Trekking Guiado</h3>
+              <p class="evento-ubicacion">📍 Senderos de La Araucanía</p>
+              <p class="evento-descripcion">Descubre rutas y senderos para conectar con los paisajes naturales de nuestra región.</p>
+              <p class="evento-aviso">
+                Información oficial del evento pendiente de confirmación.
+              </p>
+            </div>
+          </article>
+        </li>
+      </ul>
+
+      <p class="eventos-nota">Las imágenes son ilustrativas. Consulta los enlaces para revisar información y disponibilidad actualizadas.</p>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 EcoRuta Temuco.</p>
+    <section>
+      <h2>EcoRuta Temuco</h2>
+      <p>Descubre nuevas experiencias entre bosques, volcanes, lagos y paisajes del sur de Chile.</p>
+    </section>
+    <section>
+      <h2>Explora EcoRuta</h2>
+      <p><a href="../index.html">Volver al inicio</a></p>
+      <p><a href="../index.html#mapa">Ver mapa</a></p>
+    </section>
+    <p>&copy; 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
   </footer>
-
 </body>
 </html>
