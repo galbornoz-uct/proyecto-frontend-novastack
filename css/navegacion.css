@@ -1,4 +1,8 @@
 /* Encabezado compartido: valores originales de Inicio. */
+.navegacion-principal .menu-boton {
+    display: none;
+}
+
 .navegacion-principal {
     --crema: #fff9ef;
     --dorado: #f2be62;
@@ -166,4 +170,39 @@
     .navegacion-principal *::after { transition: none !important; }
     .navegacion-principal .logo:hover,
     .navegacion-principal nav a:hover { transform: none; }
+}
+
+@media (max-width: 767.98px) {
+    .navegacion-principal.menu-listo {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .navegacion-principal.menu-listo .menu-boton {
+        display: block;
+        min-width: 44px;
+        min-height: 44px;
+        border: 1px solid var(--verde-oscuro);
+        border-radius: 8px;
+        background: transparent;
+        color: var(--verde-oscuro);
+        font: 28px/1 Arial, Helvetica, sans-serif;
+        cursor: pointer;
+    }
+
+    .navegacion-principal.menu-listo nav {
+        display: none;
+        grid-column: 1 / -1;
+        max-height: calc(100vh - 90px);
+        max-height: calc(100dvh - 90px);
+        overflow-y: auto;
+    }
+
+    .navegacion-principal.menu-listo.menu-abierto nav {
+        display: block;
+    }
+
+    .navegacion-principal.menu-listo nav ul {
+        flex-direction: column;
+    }
 }
