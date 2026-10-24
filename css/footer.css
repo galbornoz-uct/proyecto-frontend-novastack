@@ -1,0 +1,84 @@
+/* Footer oficial de Inicio; valores aislados de los estilos de cada pagina. */
+.footer-principal {
+    --verde-oscuro: #153d30;
+    --blanco: #fff;
+    --dorado: #f2be62;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: normal;
+    text-align: left;
+    border: 0;
+}
+.footer-principal,
+.footer-principal * {
+    box-sizing: border-box;
+}
+.footer-principal * {
+    margin: 0;
+    padding: 0;
+}
+.footer-principal h2 {
+    font-weight: bold;
+    line-height: normal;
+}
+.footer-principal a:focus-visible {
+    outline: 3px solid #087f83;
+    outline-offset: 3px;
+}
+
+.footer-principal {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 35px 24px;
+    background: linear-gradient(140deg, var(--verde-oscuro), #102c26);
+    color: var(--blanco);
+}
+
+.footer-principal h2 {
+    margin-bottom: 12px;
+    color: var(--dorado);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+}
+
+.footer-principal p {
+    margin-bottom: 8px;
+    color: #e2eee7;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-principal a {
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+.footer-principal a:hover {
+    color: var(--dorado);
+    text-decoration: underline;
+}
+
+.footer-principal address {
+    font-style: normal;
+}
+
+.footer-principal > p:last-child {
+    grid-column: 1 / -1;
+    margin-top: 16px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, .25);
+    font-size: 13px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-principal {
+        grid-template-columns: 2fr 1fr;
+        gap: 40px;
+        padding: 40px;
+    }
+}
+@media (min-width: 1100px) {
+    .footer-principal { padding: 45px 60px; }
+}

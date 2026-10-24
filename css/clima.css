@@ -311,7 +311,7 @@ select {
     list-style: none;
 }
 
-/* Tarjeta de cada día con la foto del atardecer de fondo.
+/* Tarjeta de cada día con un fondo acorde al pronóstico.
    La capa verde encima ayuda a que el texto se lea bien. */
 .dia {
     transition: transform .25s ease, box-shadow .25s ease;
@@ -319,12 +319,20 @@ select {
     background-color: var(--verde-oscuro);
     background-image:
         linear-gradient(rgba(20, 45, 35, 0.45), rgba(20, 45, 35, 0.75)),
-        url("../img/clima/fondo-pronostico.jpg");
+        var(--fondo-pronostico, url("../img/clima/pronostico-nublado.svg"));
     background-size: cover;
     background-position: center;
     border-radius: 12px;
     color: var(--blanco);
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.pronostico > .dia:nth-child(2) {
+    --fondo-pronostico: url("../img/clima/pronostico-soleado.svg");
+}
+
+.pronostico > .dia:nth-child(3) {
+    --fondo-pronostico: url("../img/clima/pronostico-lluvioso.svg");
 }
 
 .dia h3 {
@@ -437,6 +445,8 @@ select {
         grid-template-areas:
             "ciudad actual"
             "pronostico pronostico";
+        max-width: 1350px;
+        padding-inline: 48px;
         margin-bottom: 48px;
     }
 
