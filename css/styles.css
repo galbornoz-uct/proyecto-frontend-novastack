@@ -263,6 +263,50 @@ main > section:first-child form button:hover {
 }
 
 /* TARJETAS GENERALES */
+.buscador-contenedor {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 600px;
+}
+
+main > section:first-child:has(#buscador-resultados:not([hidden])) {
+    overflow: visible;
+    z-index: 3;
+}
+
+#buscador-resultados {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    width: 100%;
+    max-height: min(50vh, 360px);
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+    padding: 12px;
+    background: var(--blanco);
+    color: var(--verde-oscuro);
+    border: 1px solid var(--borde);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+}
+
+#buscador-lista { list-style: none; }
+#buscador-lista a {
+    display: block;
+    padding: 12px;
+    color: var(--verde-oscuro);
+    border-radius: 8px;
+    text-decoration: none;
+}
+#buscador-lista a:hover,
+#buscador-lista a[aria-selected="true"],
+#buscador-lista a:focus-visible { background: var(--verde-claro); }
+#buscador-lista strong,
+#buscador-lista small { display: block; }
+#buscador-lista small { margin-top: 4px; line-height: 1.5; }
+#buscador-estado { font-size: 14px; line-height: 1.5; }
+
 main > article,
 main > .mapa-principal {
     min-width: 0;
@@ -464,6 +508,31 @@ main > aside .servicios-grid a:hover {
 main > article:nth-of-type(2) {
     grid-area: clima;
     border-top: 5px solid var(--dorado);
+}
+
+main > article:nth-of-type(2) > .clima-ver-mas {
+    display: block;
+    margin-top: 12px;
+    padding: 13px;
+    background-color: var(--cafe);
+    color: var(--blanco);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color .25s ease, transform .25s ease;
+}
+
+main > article:nth-of-type(2) > .clima-ver-mas:hover {
+    background-color: var(--verde);
+    transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    main > article:nth-of-type(2) > .clima-ver-mas:hover {
+        transform: none;
+    }
 }
 
 main > article:nth-of-type(2) label {
