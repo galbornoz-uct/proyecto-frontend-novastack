@@ -15,10 +15,11 @@
     <link rel="stylesheet" href="css/distribucion.css">
     <link rel="stylesheet" href="css/footer.css">
     <script src="js/menu.js" defer></script>
+    <script src="js/buscador.js" defer></script>
 </head>
 <body>
     <header class="navegacion-principal">
-        <div class="logo">EcoRuta</div>
+        <a class="logo" href="index.html" aria-label="EcoRuta - Ir al inicio">EcoRuta</a>
         <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú principal" hidden>
             <span aria-hidden="true">☰</span>
         </button>
@@ -38,11 +39,18 @@
     <main>
         <section>
             <h1>Explora la <span>Araucanía</span></h1>
-            <form role="search">
+            <div class="buscador-contenedor">
+            <form role="search" id="buscador-ecoruta">
                 <label for="destino">¿Dónde quieres ir?</label>
-                <input type="search" id="destino" name="destino" placeholder="Busca un destino">
-                <button type="submit">Buscar</button>
+                <input type="search" id="destino" name="destino" placeholder="Busca destinos, eventos o servicios" aria-controls="buscador-resultados" disabled>
+                <button type="submit" disabled>Buscar</button>
             </form>
+            <div id="buscador-resultados" hidden>
+                <p id="buscador-estado" role="status" aria-live="polite"></p>
+                <ul id="buscador-lista" aria-label="Resultados de búsqueda"></ul>
+            </div>
+            <noscript>Activa JavaScript para buscar contenido de EcoRuta.</noscript>
+            </div>
             <img src="https://chile.travel/wp-content/uploads/2024/08/6bf4eec2-5-panoramas-imperdibles-de-la-region-de-la-araucania.jpg" alt="Paisaje natural de La Araucanía">
         </section>
 
@@ -77,10 +85,16 @@
             <h2>Clima detallado</h2>
             <label for="ciudad">Ciudad</label>
             <select id="ciudad" name="ciudad">
-                <option value="temuco">Temuco</option>
-                <option value="pucon">Pucón</option>
-                <option value="villarrica">Villarrica</option>
-            </select>
+                    <option value="temuco" selected>Temuco</option>
+                    <option value="pucon">Pucón</option>
+                    <option value="villarrica">Villarrica</option>
+                    <option value="cunco">Cunco</option>
+                    <option value="curacautin">Curacautín</option>
+                    <option value="angol">Angol</option>
+                    <option value="lonquimay">Lonquimay</option>
+                    <option value="melipeuco">Melipeuco</option>
+                    <option value="carahue">Carahue</option>
+                </select>
 
             <p><strong>16 °C</strong></p>
             <p>Parcialmente nublado</p>
@@ -97,6 +111,7 @@
                 <li>Mañana: mínima 10 °C, máxima 16 °C</li>
                 <li>Próximos días: lluvia ocasional</li>
             </ul>
+            <a class="clima-ver-mas" href="pages/clima.html">Ver más</a>
         </article>
 
         <!-- MAPA -->
