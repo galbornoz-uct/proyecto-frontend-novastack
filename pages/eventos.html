@@ -7,24 +7,30 @@
   <title>Eventos - EcoRuta Temuco</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="../css/eventos.css">
+    <link rel="stylesheet" href="../css/navegacion.css">
+    <link rel="stylesheet" href="../css/distribucion.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../js/menu.js" defer></script>
 </head>
 <body>
  
-<header>
-  <div class="logo">EcoRuta</div>
-
-  <nav aria-label="Navegación principal">
-    <ul>
-      <li><a href="../index.html">Inicio</a></li>
-      <li><a href="lugares.html">Lugares de interés</a></li>
-      <li><a href="explorar.html">Explorar</a></li>
-      <li><a href="../index.html#mapa">Mapa</a></li>
-      <li><a href="clima.html">Clima</a></li>
-      <li><a href="eventos.html" aria-current="page">Eventos</a></li>
-      <li><a href="guias.html">Guías de viaje</a></li>
-    </ul>
-  </nav>
-</header>
+<header class="navegacion-principal">
+        <div class="logo">EcoRuta</div>
+        <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú principal" hidden>
+            <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="menu-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#mapa">Mapa</a></li>
+                <li><a href="lugares.html">Lugares de interés</a></li>
+                <li><a href="clima.html">Clima</a></li>
+                <li><a href="eventos.html" aria-current="page">Eventos</a></li>
+                <li><a href="explorar.html">Explorar</a></li>
+                <li><a href="guias.html">Guías de viaje</a></li>
+            </ul>
+        </nav>
+    </header>
 
 
   <main class="pagina-eventos">
@@ -37,7 +43,6 @@
         <span class="eventos-etiqueta-hero">Naturaleza · Cultura · Aventura</span>
         <h1 id="titulo-eventos">Vive nuevos <span>eventos</span></h1>
         <p>Descubre actividades y experiencias para disfrutar de la naturaleza y la cultura del sur de Chile.</p>
-        <a class="eventos-hero-boton" href="#listado-eventos">Explorar eventos ↓</a>
       </div>
     </section>
 
@@ -129,17 +134,34 @@
     </section>
   </main>
 
-  <footer>
-    <section>
-      <h2>EcoRuta Temuco</h2>
-      <p>Descubre nuevas experiencias entre bosques, volcanes, lagos y paisajes del sur de Chile.</p>
-    </section>
-    <section>
-      <h2>Explora EcoRuta</h2>
-      <p><a href="../index.html">Volver al inicio</a></p>
-      <p><a href="../index.html#mapa">Ver mapa</a></p>
-    </section>
-    <p>&copy; 2026 EcoRuta Temuco. Todos los derechos reservados.</p>
-  </footer>
+  <footer class="footer-principal">
+        <section>
+            <h2>Explora Araucanía</h2>
+            <p>
+                Descubre los secretos mejor guardados de La Araucanía.
+                Bosques de araucarias, volcanes y lagos te esperan.
+            </p>
+        </section>
+
+        <section>
+            <h2>Contacto</h2>
+            <address>
+                <p>
+                    Correo:
+                    <a href="mailto:info@exploraaraucania.cl">
+                        info@exploraaraucania.cl
+                    </a>
+                </p>
+                <p>
+                    Teléfono:
+                    <a href="tel:+56925456799">
+                        +56 9 2545 6799
+                    </a>
+                </p>
+            </address>
+        </section>
+
+        <p>&copy; 2026 Explora Araucanía. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>

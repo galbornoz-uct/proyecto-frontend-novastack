@@ -11,11 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoRuta Temuco</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/navegacion.css">
+    <link rel="stylesheet" href="css/distribucion.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <script src="js/menu.js" defer></script>
 </head>
 <body>
-    <header>
+    <header class="navegacion-principal">
         <div class="logo">EcoRuta</div>
-        <nav aria-label="Navegación principal">
+        <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú principal" hidden>
+            <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="menu-principal" aria-label="Navegación principal">
             <ul>
                 <li><a href="index.html" aria-current="page">Inicio</a></li>
                 <li><a href="#mapa">Mapa</a></li>
@@ -44,21 +51,21 @@
             <h2>Próximos eventos</h2>
             <ul>
                 <li>
-                    <h3>Maratón Glaciar</h3>
-                    <a href="https://lastorres.com/circuitos-y-tours/experiencia-las-torres/">
-                        Más información: 24 de noviembre — Torres del Paine
+                    <h3>Festival de Gastronomía Mapuche MOGEKONMEN</h3>
+                    <a href="https://temucotelevision.cl/web/2026/10/12/festival-de-gastronomia-mapuche-mogekonmen-regresa-a-kurarewe-el-30-y-31-de-octubre-y-1-de-noviembre/">
+                        Más información: 30 de octubre al 1 de noviembre de 2026 — Curarrehue, La Araucanía
                     </a>
                 </li>
                 <li>
-                    <h3>Patagonia Fest</h3>
-                    <a href="https://patagonia-chile.com/">
-                        Más información: 2 de diciembre — Puerto Natales
+                    <h3>EXPOSOFO 2026</h3>
+                    <a href="https://exposofo.cl/">
+                        Más información: 19 al 22 de noviembre de 2026 — Parque SOFO, Temuco
                     </a>
                 </li>
                 <li>
                     <h3>Trekking Guiado</h3>
-                    <a href="https://www.trekkingchile.com/es/busqueda-de-guias/">
-                        Más información: 16 de diciembre — Senderos de La Araucanía
+                    <a href="pages/eventos.html#evento-trekking">
+                        Fecha por confirmar — Senderos de La Araucanía. Información oficial del evento pendiente de confirmación.
                     </a>
                 </li>
             </ul>
@@ -158,7 +165,7 @@
     </main>
 
     <!-- PIE DE PAGINA -->
-    <footer>
+    <footer class="footer-principal">
         <section>
             <h2>Explora Araucanía</h2>
             <p>

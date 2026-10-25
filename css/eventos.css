@@ -104,22 +104,6 @@ main.pagina-eventos {
   line-height: 1.7;
 }
 
-.pagina-eventos .eventos-hero-boton {
-  display: inline-block;
-  padding: 13px 20px;
-  border-radius: 10px;
-  background: var(--dorado);
-  color: var(--verde-oscuro);
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform .2s ease, background-color .2s ease;
-}
-
-.pagina-eventos .eventos-hero-boton:hover {
-  transform: translateY(-2px);
-  background: #ffe0a0;
-}
-
 /* SECCIÓN DE EVENTOS */
 .pagina-eventos .eventos-contenido {
   max-width: 1220px;

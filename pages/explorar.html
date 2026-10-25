@@ -6,22 +6,29 @@
   <meta name="description" content="Catálogo de destinos, rutas y lugares de interés de La Araucanía en EcoRuta Temuco.">
   <title>Explorar La Araucanía | EcoRuta Temuco</title>
   <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/navegacion.css">
+    <link rel="stylesheet" href="../css/distribucion.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <script src="../js/menu.js" defer></script>
 </head>
 <body>
-  <header class="encabezado">
-    <a class="logo" href="../index.html">EcoRuta</a>
-
-    <nav aria-label="Navegación principal">
-      <ul class="navegacion">
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="../index.html#mapa">Mapa</a></li>
-        <li><a href="clima.html">Clima</a></li>
-        <li><a href="eventos.html">Eventos</a></li>
-        <li><a href="explorar.html" aria-current="page">Explorar</a></li>
-        <li><a href="guias.html">Guías de viaje</a></li>
-      </ul>
-    </nav>
-  </header>
+  <header class="navegacion-principal">
+        <div class="logo">EcoRuta</div>
+        <button class="menu-boton" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú principal" hidden>
+            <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="menu-principal" aria-label="Navegación principal">
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="../index.html#mapa">Mapa</a></li>
+                <li><a href="lugares.html">Lugares de interés</a></li>
+                <li><a href="clima.html">Clima</a></li>
+                <li><a href="eventos.html">Eventos</a></li>
+                <li><a href="explorar.html" aria-current="page">Explorar</a></li>
+                <li><a href="guias.html">Guías de viaje</a></li>
+            </ul>
+        </nav>
+    </header>
   <main>
     <section class="presentacion" aria-labelledby="titulo">
       <p class="etiqueta">Catálogo turístico · La Araucanía</p>
@@ -146,7 +153,7 @@
       </div>
     </div>
   </main>
-  <footer>
+  <footer class="footer-principal">
         <section>
             <h2>Explora Araucanía</h2>
             <p>
