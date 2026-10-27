@@ -31,126 +31,132 @@
     </header>
   <main>
     <section class="presentacion" aria-labelledby="titulo">
-      <p class="etiqueta">Catálogo turístico · La Araucanía</p>
-      <h1 id="titulo">Un lugar para empezar tu próxima salida</h1>
-      <p>Descubre destinos, rutas y lugares de interés de la región. Compara alternativas y reúne lo necesario para planificar tu viaje.</p>
-      <nav aria-label="Secciones del catálogo">
-        <ul class="accesos">
-          <li><a class="boton boton-dorado" href="#destinos">Destinos populares</a></li>
-          <li><a class="boton boton-claro" href="#lugares">Lugares de interés</a></li>
-          <li><a class="boton boton-claro" href="#actividades">Rutas y actividades</a></li>
-        </ul>
-      </nav>
+      <div class="presentacion-contenido">
+        <p class="etiqueta">Catálogo turístico · La Araucanía</p>
+        <h1 id="titulo">Un lugar para empezar tu próxima salida</h1>
+        <p>Descubre destinos, rutas y lugares de interés de la región. Compara alternativas y reúne lo necesario para planificar tu viaje.</p>
+        <nav aria-label="Secciones del catálogo">
+          <ul class="accesos">
+            <li><a class="boton boton-dorado" href="#destinos">Destinos populares</a></li>
+            <li><a class="boton boton-claro" href="#lugares">Lugares de interés</a></li>
+            <li><a class="boton boton-claro" href="#actividades">Rutas y actividades</a></li>
+          </ul>
+        </nav>
+      </div>
     </section>
     <div class="contenido-catalogo">
       <aside class="aviso" aria-label="Estado de la información">
-        <strong>Planifica con información confirmada.</strong> Los horarios, tarifas, accesos y recorridos que no han sido verificados se indican como pendientes. Confírmalos con la administración del lugar antes de viajar.
+        <p><strong>Planifica con información confirmada.</strong> Los horarios, tarifas, accesos y recorridos que no han sido verificados se indican como pendientes. Confírmalos con la administración del lugar antes de viajar.</p>
       </aside>
-      <section id="destinos" aria-labelledby="titulo-destinos">
-        <p class="etiqueta">Elige tu destino</p>
-        <h2 id="titulo-destinos">Destinos populares</h2>
-        <p>Conoce los destinos contemplados en EcoRuta y compara sus propuestas.</p>
+      <section id="destinos" class="seccion-catalogo" aria-labelledby="titulo-destinos">
+        <div class="cabecera-seccion">
+          <p class="etiqueta">Elige tu destino</p>
+          <h2 id="titulo-destinos">Destinos populares</h2>
+          <p>Conoce los destinos contemplados en EcoRuta y compara sus propuestas.</p>
+        </div>
         <div class="catalogo">
-        <article class="tarjeta">
-          <p class="etiqueta">Destino</p>
-          <h3>Pucón</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Pucón, La Araucanía.</p>
-          <p>Conoce sus lagos, volcanes y paisajes naturales.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="etiqueta">Destino</p>
-          <h3>Villarrica</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Villarrica, La Araucanía.</p>
-          <p>Descubre sus playas, cultura y atractivos turísticos.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="etiqueta">Área natural</p>
-          <h3>Parque Nacional Conguillío</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> La Araucanía. Acceso específico pendiente de confirmar.</p>
-          <p>Explora sus senderos, bosques y paisajes volcánicos.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
+          <article class="tarjeta">
+            <p class="etiqueta">Destino</p>
+            <h3>Pucón</h3>
+            <p class="ubicacion"><strong>Ubicación:</strong> Pucón, La Araucanía.</p>
+            <p>Conoce sus lagos, volcanes y paisajes naturales.</p>
+            <p class="pendiente"><span class="estado">Por verificar</span> Horarios, tarifas y condiciones de visita.</p>
+          </article>
+          <article class="tarjeta">
+            <p class="etiqueta">Destino</p>
+            <h3>Villarrica</h3>
+            <p class="ubicacion"><strong>Ubicación:</strong> Villarrica, La Araucanía.</p>
+            <p>Descubre sus playas, cultura y atractivos turísticos.</p>
+            <p class="pendiente"><span class="estado">Por verificar</span> Horarios, tarifas y condiciones de visita.</p>
+          </article>
+          <article class="tarjeta">
+            <p class="etiqueta">Área natural</p>
+            <h3>Parque Nacional Conguillío</h3>
+            <p class="ubicacion"><strong>Ubicación:</strong> La Araucanía. Acceso específico pendiente de confirmar.</p>
+            <p>Explora sus senderos, bosques y paisajes volcánicos.</p>
+            <p class="pendiente"><span class="estado">Por verificar</span> Horarios, tarifas y condiciones de visita.</p>
+          </article>
         </div>
       </section>
-      <section id="lugares" aria-labelledby="titulo-lugares">
-        <p class="etiqueta">Naturaleza y cultura</p>
-        <h2 id="titulo-lugares">Lugares de interés en Temuco</h2>
-        <p>Opciones para conocer la ciudad, tomadas de los lugares ya publicados en Inicio.</p>
-        <div class="catalogo">
-        <article class="tarjeta">
-          <p class="etiqueta">Naturaleza</p>
-          <h3>Cerro Ñielol</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
-          <p>Monumento natural con senderos y vistas panorámicas.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="etiqueta">Cultura</p>
-          <h3>Museo Regional de la Araucanía</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
-          <p>Un espacio para conocer el patrimonio cultural y la historia regional.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="etiqueta">Cultura</p>
-          <h3>Pabellón Araucanía</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Temuco, La Araucanía.</p>
-          <p>Espacio cultural y arquitectónico a los pies del Cerro Ñielol.</p>
-          <p class="pendiente">Horarios, tarifas y condiciones de visita: pendientes de verificación.</p>
-        </article>
+      <section id="lugares" class="seccion-catalogo" aria-labelledby="titulo-lugares">
+        <div class="cabecera-seccion">
+          <p class="etiqueta">Naturaleza y cultura</p>
+          <h2 id="titulo-lugares">Lugares de interés en Temuco</h2>
+          <p>Una vista rápida de tres lugares de la ciudad. Sus fichas completas y el cálculo de distancia están en la página Lugares de interés.</p>
         </div>
+        <ul class="catalogo catalogo-breve" role="list">
+          <li class="tarjeta tarjeta-breve">
+            <p class="etiqueta">Naturaleza</p>
+            <h3>Cerro Ñielol</h3>
+            <p>Monumento natural con senderos y vistas panorámicas.</p>
+          </li>
+          <li class="tarjeta tarjeta-breve">
+            <p class="etiqueta">Cultura</p>
+            <h3>Museo Regional de la Araucanía</h3>
+            <p>Un espacio para conocer el patrimonio cultural y la historia regional.</p>
+          </li>
+          <li class="tarjeta tarjeta-breve">
+            <p class="etiqueta">Cultura</p>
+            <h3>Pabellón Araucanía</h3>
+            <p>Espacio cultural y arquitectónico a los pies del Cerro Ñielol.</p>
+          </li>
+        </ul>
         <p class="enlace-seccion"><a class="boton" href="lugares.html">Ver lugares y consultar distancias</a></p>
       </section>
-      <section id="actividades" aria-labelledby="titulo-actividades">
-        <p class="etiqueta">Explora a tu ritmo</p>
-        <h2 id="titulo-actividades">Rutas y actividades</h2>
-        <p>Las rutas están pendientes de completar. Estas fichas no representan itinerarios habilitados ni recorridos oficiales.</p>
-        <div class="catalogo catalogo-rutas">
-        <article class="tarjeta">
-          <p class="etiqueta">Ruta pendiente</p>
-          <h3>Recorrido de senderismo por definir</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Pendiente de confirmar.</p>
-          <p>Recorrido a pie. La ficha se completará cuando exista información verificada.</p>
-          <p class="pendiente">Nombre del recorrido, trazado, distancia, duración y dificultad: pendientes de confirmar.</p>
-        </article>
-        <article class="tarjeta">
-          <p class="etiqueta">Ruta pendiente</p>
-          <h3>Recorrido de ciclismo por definir</h3>
-          <p class="ubicacion"><strong>Ubicación:</strong> Pendiente de confirmar.</p>
-          <p>Recorrido en bicicleta. El itinerario y sus condiciones todavía no están confirmados.</p>
-          <p class="pendiente">Nombre del recorrido, trazado, distancia, duración y dificultad: pendientes de confirmar.</p>
-        </article>
+      <section id="actividades" class="seccion-catalogo" aria-labelledby="titulo-actividades">
+        <div class="cabecera-seccion">
+          <p class="etiqueta">Explora a tu ritmo</p>
+          <h2 id="titulo-actividades">Rutas y actividades</h2>
+          <p>Las rutas están pendientes de completar. Estas fichas no representan itinerarios habilitados ni recorridos oficiales.</p>
         </div>
-        <p class="otras-actividades"><strong>Otras actividades contempladas:</strong> camping y turismo sustentable. Lugares habilitados y prestadores pendientes de confirmar.</p>
+        <div class="catalogo catalogo-rutas">
+          <article class="tarjeta tarjeta-ruta">
+            <p class="etiqueta">Ruta pendiente</p>
+            <h3>Recorrido de senderismo por definir</h3>
+            <p>Recorrido a pie. <span class="ubicacion"><strong>Ubicación:</strong> pendiente de confirmar.</span></p>
+            <p class="pendiente"><span class="estado">Por confirmar</span> Nombre, trazado, distancia, duración y dificultad.</p>
+          </article>
+          <article class="tarjeta tarjeta-ruta">
+            <p class="etiqueta">Ruta pendiente</p>
+            <h3>Recorrido de ciclismo por definir</h3>
+            <p>Recorrido en bicicleta. <span class="ubicacion"><strong>Ubicación:</strong> pendiente de confirmar.</span></p>
+            <p class="pendiente"><span class="estado">Por confirmar</span> Nombre, trazado, distancia, duración y dificultad.</p>
+          </article>
+        </div>
+        <p class="otras-actividades"><strong>Otras actividades contempladas:</strong> camping y turismo sustentable. <span class="estado">Pendiente</span> Lugares habilitados y prestadores por confirmar.</p>
       </section>
-      <section class="panel" aria-labelledby="titulo-planificar">
+      <section class="panel panel-pasos" aria-labelledby="titulo-planificar">
         <p class="etiqueta">Antes de salir</p>
         <h2 id="titulo-planificar">Prepara tu próxima salida</h2>
-        <ol class="pasos">
+        <ol class="pasos" role="list">
           <li><h3>Elige y confirma</h3><p>Revisa el destino y confirma los accesos, tarifas y horarios con sus responsables.</p></li>
           <li><h3>Organiza tu viaje</h3><p>Consulta el clima y prepara tu transporte y equipamiento.</p><a href="clima.html">Consultar sección de clima →</a></li>
           <li><h3>Cuida el entorno</h3><p>Respeta la señalización, utiliza senderos habilitados y lleva tus residuos de regreso.</p></li>
         </ol>
       </section>
-      <div class="complementos">
-        <section class="panel" id="mapa" aria-labelledby="titulo-mapa">
-          <h2 id="titulo-mapa">Ubicación de los recorridos</h2>
-          <p>El mapa interactivo y las ubicaciones de los recorridos están pendientes de implementación.</p>
-          <a class="boton" href="../index.html#mapa">Ver mapa turístico</a>
-        </section>
-        <section class="panel" id="servicios" aria-labelledby="titulo-servicios">
-          <h2 id="titulo-servicios">Servicios turísticos</h2>
-          <ul><li>Alojamiento</li><li>Transporte</li><li>Guías turísticos</li><li>Equipamiento recomendado</li></ul>
-          <a href="servicios.html">Consultar servicios →</a>
-        </section>
-        <section class="panel" id="emprendimientos" aria-labelledby="titulo-emprendimientos">
-          <h2 id="titulo-emprendimientos">Emprendimientos locales</h2>
-          <p>Conoce emprendimientos de La Araucanía, sus productos y rangos de precios.</p>
-          <a href="emprendimientos.html">Ver emprendimientos locales →</a>
-        </section>
-      </div>
+      <section class="recursos" aria-labelledby="titulo-recursos">
+        <div class="cabecera-seccion">
+          <p class="etiqueta">Más recursos</p>
+          <h2 id="titulo-recursos">Complementa tu viaje</h2>
+        </div>
+        <div class="complementos">
+          <section class="panel" id="mapa" aria-labelledby="titulo-mapa">
+            <h3 id="titulo-mapa">Ubicación de los recorridos</h3>
+            <p>El mapa interactivo y las ubicaciones de los recorridos están pendientes de implementación.</p>
+            <a href="../index.html#mapa">Ver mapa turístico →</a>
+          </section>
+          <section class="panel" id="servicios" aria-labelledby="titulo-servicios">
+            <h3 id="titulo-servicios">Servicios turísticos</h3>
+            <ul><li>Alojamiento</li><li>Transporte</li><li>Guías turísticos</li><li>Equipamiento recomendado</li></ul>
+            <a href="servicios.html">Consultar servicios →</a>
+          </section>
+          <section class="panel" id="emprendimientos" aria-labelledby="titulo-emprendimientos">
+            <h3 id="titulo-emprendimientos">Emprendimientos locales</h3>
+            <p>Conoce emprendimientos de La Araucanía, sus productos y rangos de precios.</p>
+            <a href="emprendimientos.html">Ver emprendimientos locales →</a>
+          </section>
+        </div>
+      </section>
     </div>
   </main>
   <footer class="footer-principal">
