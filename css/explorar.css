@@ -245,16 +245,18 @@ footer > p:last-child {
 
 /* Portada */
 .presentacion {
-  padding: 56px 20px 72px;
-  background: linear-gradient(90deg, rgba(10,40,30,.95), rgba(10,40,30,.7)), url("../img/clima/fondo-pronostico.jpg") center 55% / cover;
+  padding: 56px 16px 72px;
+  background: linear-gradient(90deg, rgba(10,40,30,.92), rgba(10,40,30,.62)), url("../img/lugares/parque-nacional.png") center 40% / cover;
   color: var(--blanco);
 }
+.presentacion-contenido { max-width: 1152px; margin: 0 auto; }
 .presentacion h1 {
-  max-width: 24ch;
-  margin-bottom: 24px;
+  max-width: 22ch;
+  margin-bottom: 20px;
   font-size: clamp(2rem, 5vw, 3.4rem);
   line-height: 1.15;
   color: var(--blanco);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, .28);
 }
 .presentacion h1::after {
   content: "";
@@ -265,51 +267,98 @@ footer > p:last-child {
   border-radius: 4px;
   background: var(--dorado);
 }
-.presentacion > p:not(.etiqueta) { max-width: 60ch; color: #dbe8e1; font-size: 1.1rem; }
+.presentacion-contenido > p:not(.etiqueta) { max-width: 58ch; margin-bottom: 0; color: #e6efe9; font-size: 1.1rem; }
 .etiqueta { color: var(--turquesa); font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.presentacion .etiqueta { color: var(--dorado); }
+.presentacion .etiqueta { margin-bottom: 12px; color: var(--dorado); }
 .logo { font-family: Georgia, "Times New Roman", serif; }
 .encabezado { border-bottom: 3px solid var(--dorado); }
 .accesos { justify-content: flex-start; margin-top: 28px; }
+.presentacion .accesos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.presentacion .accesos .boton { width: 100%; }
 .boton-dorado { color: var(--verde-oscuro); background: var(--dorado); border-color: var(--dorado); }
 .boton-dorado:hover, .boton-dorado:focus-visible { background: var(--crema); border-color: var(--crema); }
-.boton-claro { background: transparent; border-color: #dbe8e1; }
+.boton-claro { background: rgba(10, 40, 30, .35); border-color: #dbe8e1; }
 
 /* Catálogo */
 .contenido-catalogo { position: relative; max-width: 1200px; margin: -28px auto 48px; padding: 0 16px; }
 .contenido-catalogo > * + * { margin-top: 40px; }
-section { scroll-margin-top: 24px; }
-.aviso { padding: 24px; background: var(--blanco); border-top: 5px solid var(--dorado); border-radius: 16px; box-shadow: var(--sombra); }
+.contenido-catalogo section[id] { scroll-margin-top: 96px; }
+.aviso { padding: 16px 20px; background: var(--blanco); border-left: 4px solid var(--dorado); border-radius: 12px; box-shadow: var(--sombra); color: var(--texto-suave); font-size: .92rem; }
+.aviso p { margin: 0; }
+.aviso strong { color: var(--verde-oscuro); }
+
+/* Encabezado de cada sección */
+.cabecera-seccion { max-width: 65ch; margin-bottom: 24px; }
+.cabecera-seccion .etiqueta { margin-bottom: 6px; }
+.cabecera-seccion h2 { margin-bottom: 8px; }
+.cabecera-seccion p:last-child { margin-bottom: 0; color: var(--texto-suave); }
+
+/* Tarjetas */
 .catalogo, .complementos, .pasos { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; }
-.tarjeta, .panel { min-width: 0; padding: 24px; border-radius: 16px; background: var(--blanco); box-shadow: var(--sombra); overflow-wrap: anywhere; }
+.catalogo-breve { margin: 0; padding: 0; list-style: none; }
+.tarjeta, .panel { min-width: 0; padding: 24px; border-radius: 16px; background: var(--blanco); box-shadow: var(--sombra); overflow-wrap: break-word; }
 .tarjeta { display: flex; flex-direction: column; border-top: 5px solid var(--turquesa); }
-.tarjeta h3 { margin-bottom: 12px; color: var(--verde-oscuro); font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; }
+.tarjeta .etiqueta { margin-bottom: 6px; }
+.tarjeta h3 { margin-bottom: 8px; color: var(--verde-oscuro); font-family: Georgia, "Times New Roman", serif; font-size: 1.4rem; }
+.tarjeta p:last-child { margin-bottom: 0; }
 .ubicacion { color: var(--texto-suave); font-size: .95rem; }
-.pendiente { margin-top: auto; margin-bottom: 0; padding: 12px; border-left: 3px solid var(--dorado); background: var(--crema); font-size: .85rem; }
+.tarjeta-breve { padding: 20px 24px; }
+.tarjeta-breve h3 { font-size: 1.25rem; }
+.tarjeta-breve p:last-child { color: var(--texto-suave); }
+.tarjeta-ruta { border-top-color: var(--cafe); }
+
+/* Información pendiente (discreta) */
+.pendiente { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--borde); color: var(--texto-suave); font-size: .85rem; }
+.estado { display: inline-block; margin-right: 6px; padding: 2px 8px; border: 1px solid var(--dorado); border-radius: 999px; background: var(--crema); color: var(--cafe); font-size: .75rem; font-weight: 700; }
+.enlace-seccion { margin: 24px 0 0; }
+.otras-actividades { margin: 20px 0 0; padding: 16px 20px; border-radius: 12px; background: var(--verde-claro); }
+
+/* Prepara tu próxima salida */
 .panel { border-top: 5px solid var(--dorado); }
 .panel h2 { font-size: 1.5rem; }
-.enlace-seccion { margin-top: 24px; }
-.otras-actividades { padding: 20px; border-radius: 12px; background: var(--verde-claro); }
-.pasos { margin: 0; padding-left: 24px; }
-.pasos li { padding: 16px; background: var(--crema); border-radius: 12px; }
-.pasos h3 { color: var(--verde-oscuro); }
+.panel-pasos .etiqueta { margin-bottom: 6px; }
+.panel-pasos h2 { margin-bottom: 20px; }
+.pasos { margin: 0; padding: 0; list-style: none; counter-reset: paso; }
+.pasos li { position: relative; min-width: 0; padding: 20px 16px 16px 64px; background: var(--crema); border-radius: 12px; counter-increment: paso; }
+.pasos li::before { content: counter(paso); position: absolute; top: 18px; left: 16px; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--verde); color: var(--blanco); font-weight: 700; }
+.pasos h3 { margin-bottom: 6px; color: var(--verde-oscuro); }
+.pasos p { margin-bottom: 0; }
+
+/* Recursos complementarios */
+.complementos .panel { display: flex; flex-direction: column; border-top-width: 3px; }
+.complementos h3 { margin-bottom: 10px; color: var(--verde-oscuro); font-family: Georgia, "Times New Roman", serif; font-size: 1.25rem; }
+.complementos ul { margin: 0 0 12px; padding-left: 20px; }
+.complementos a { margin-top: auto; }
 .complementos a, .pasos a { display: inline-block; padding-block: 8px; font-weight: 600; }
 
 /* TABLET - DESDE 700PX */
 @media (min-width: 700px) {
   .encabezado { flex-direction: row; justify-content: space-between; padding: 14px 28px; }
-  .presentacion { padding: 80px 28px 72px; }
+  .presentacion { padding: 80px 24px 72px; }
+  .presentacion .accesos { display: flex; flex-wrap: wrap; gap: 12px; }
+  .presentacion .accesos .boton { width: auto; }
   .contenido-catalogo { padding: 0 24px; }
   .catalogo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .pasos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   footer { grid-template-columns: 2fr 1fr; gap: 40px; padding: 40px; }
 }
 
+/* Anclas: el menú compartido ocupa dos líneas entre 768 y 1099px */
+@media (min-width: 768px) and (max-width: 1099.98px) {
+  .contenido-catalogo section[id] { scroll-margin-top: 132px; }
+}
+
+/* Tablet: la tercera tarjeta ocupa la fila completa */
+@media (min-width: 700px) and (max-width: 1099.98px) {
+  .catalogo > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+
 /* COMPUTADOR - DESDE 1100PX */
 @media (min-width: 1100px) {
   .encabezado { padding-inline: 48px; }
-  .presentacion { padding: 90px 48px 80px; }
-  .catalogo, .complementos { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .presentacion { padding: 90px 24px 80px; }
+  .contenido-catalogo > * + * { margin-top: 48px; }
+  .catalogo, .complementos { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
   .catalogo-rutas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .navegacion a { font-size: 15px; padding: 11px 15px; }
   .navegacion a::after { left: 15px; }
