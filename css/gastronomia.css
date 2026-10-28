@@ -1,0 +1,196 @@
+:root {
+  --verde-oscuro: #153d30;
+  --verde-claro: #e4f1e6;
+  --turquesa: #087f83;
+  --dorado: #f2be62;
+  --crema: #fff9ef;
+  --blanco: #fff;
+  --texto: #24382f;
+  --texto-suave: #52665d;
+  --borde: #e7e5dd;
+  --sombra: 0 8px 24px rgba(21, 61, 48, .12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--crema);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gastronomia {
+  padding: 0 18px 48px;
+}
+
+.presentacion {
+  margin: 0 -18px 36px;
+  padding: 54px 24px;
+  background:
+    linear-gradient(110deg, rgba(21, 61, 48, .94), rgba(21, 61, 48, .72)),
+    url("../img/emprendimientos/banner-emprendimientos.png") center 48% / cover;
+  color: var(--blanco);
+}
+
+.presentacion,
+.catalogo {
+  padding-right: max(24px, calc((100% - 1120px) / 2));
+  padding-left: max(24px, calc((100% - 1120px) / 2));
+}
+
+.etiqueta {
+  margin: 0 0 10px;
+  color: var(--turquesa);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.presentacion .etiqueta {
+  color: var(--dorado);
+}
+
+.presentacion h1 {
+  max-width: 720px;
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  line-height: 1.08;
+}
+
+.presentacion > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.catalogo {
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+.cabecera-catalogo {
+  margin-bottom: 22px;
+}
+
+.cabecera-catalogo h2 {
+  margin: 0 0 10px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 5vw, 2.25rem);
+}
+
+.cabecera-catalogo > p:last-child {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.aviso {
+  margin-bottom: 22px;
+  padding: 15px 17px;
+  border-left: 4px solid var(--dorado);
+  border-radius: 0 10px 10px 0;
+  background-color: var(--verde-claro);
+  line-height: 1.55;
+}
+
+.locales {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 18px;
+}
+
+.tarjeta-local {
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background-color: var(--blanco);
+  box-shadow: var(--sombra);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.tarjeta-local img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  background-color: var(--verde-claro);
+}
+
+.contenido-tarjeta {
+  padding: 18px;
+}
+
+.tipo-local {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.tarjeta-local h3 {
+  margin: 0 0 10px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+}
+
+.descripcion-local,
+.ubicacion-local {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.descripcion-local {
+  color: var(--texto-suave);
+}
+
+.ubicacion-local {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--borde);
+  font-size: .92rem;
+}
+
+.tarjeta-local:focus-within {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+@media (min-width: 600px) {
+  .locales {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .contenido-tarjeta {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .presentacion {
+    padding-top: 74px;
+    padding-bottom: 74px;
+  }
+
+  .locales {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-local {
+    transition: none;
+  }
+}
