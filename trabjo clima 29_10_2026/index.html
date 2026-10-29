@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima en Temuco</title>
+</head>
+<body>
+
+    <h1 id="tituloClima">El Clima en Temuco</h1>
+
+    <!-- Seleccionar ciudad -->
+    <label for="ciudad">Selecciona una ciudad:</label>
+
+    <select id="ciudad">
+        <option value="-38.74,-72.59">Temuco</option>
+        <option value="-33.45,-70.67">Santiago</option>
+        <option value="-39.82,-73.25">Valdivia</option>
+    </select>
+
+    <br><br>
+
+    <!-- Botón para cargar el clima -->
+    <button id="btnClima">Traer Clima</button>
+
+    <hr>
+
+    <!-- Mostrar los datos -->
+    <p id="parrafoTemperatura">
+        Temperatura: Esperando datos...
+    </p>
+
+    <p id="parrafoViento">
+        Viento: Esperando datos...
+    </p>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
