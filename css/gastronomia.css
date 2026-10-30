@@ -28,17 +28,15 @@ body {
 
 .presentacion {
   margin: 0 -18px 36px;
-  padding: 54px 24px;
+  padding: 54px max(24px, calc((100% - 1120px) / 2));
   background:
     linear-gradient(110deg, rgba(21, 61, 48, .94), rgba(21, 61, 48, .72)),
     url("../img/emprendimientos/banner-emprendimientos.png") center 48% / cover;
   color: var(--blanco);
-}
 
-.presentacion,
-.catalogo {
-  padding-right: max(24px, calc((100% - 1120px) / 2));
-  padding-left: max(24px, calc((100% - 1120px) / 2));
+  @media (min-width: 1000px) {
+    padding-block: 74px;
+  }
 }
 
 .etiqueta {
@@ -70,6 +68,7 @@ body {
 }
 
 .catalogo {
+  width: 100%;
   max-width: 1168px;
   margin: 0 auto;
 }
@@ -102,11 +101,15 @@ body {
 
 .locales {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  align-items: stretch;
   gap: 18px;
 }
 
 .tarjeta-local {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--borde);
   border-radius: 14px;
@@ -115,15 +118,35 @@ body {
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.tarjeta-local img {
+.imagen-local {
+  position: relative;
+  margin: 0;
+}
+
+.imagen-local img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 2;
+  height: auto;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   background-color: var(--verde-claro);
 }
 
+.imagen-local figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background-color: rgba(21, 61, 48, .88);
+  color: var(--blanco);
+  font-size: .75rem;
+}
+
 .contenido-tarjeta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 18px;
 }
 
@@ -156,10 +179,35 @@ body {
 }
 
 .ubicacion-local {
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid var(--borde);
+  margin-top: auto;
+  padding-top: 16px;
   font-size: .92rem;
+}
+
+.enlace-mapa {
+  align-self: flex-start;
+  margin-top: 12px;
+  color: var(--turquesa);
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-underline-offset: 3px;
+}
+
+.enlace-mapa:hover {
+  color: var(--verde-oscuro);
+}
+
+.atribucion {
+  margin: 24px 0 0;
+  color: var(--texto-suave);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+.atribucion a {
+  color: var(--verde-oscuro);
+  text-underline-offset: 3px;
 }
 
 .tarjeta-local:focus-within {
@@ -169,23 +217,11 @@ body {
 
 @media (min-width: 600px) {
   .locales {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 22px;
   }
 
   .contenido-tarjeta {
     padding: 20px;
-  }
-}
-
-@media (min-width: 1000px) {
-  .presentacion {
-    padding-top: 74px;
-    padding-bottom: 74px;
-  }
-
-  .locales {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 
