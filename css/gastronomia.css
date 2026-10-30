@@ -29,15 +29,12 @@ body {
 .presentacion {
   margin: 0 -18px 36px;
   padding: 54px 24px;
+  padding-right: max(24px, calc((100% - 1120px) / 2));
+  padding-left: max(24px, calc((100% - 1120px) / 2));
   background:
     linear-gradient(110deg, rgba(21, 61, 48, .94), rgba(21, 61, 48, .72)),
     url("../img/emprendimientos/banner-emprendimientos.png") center 48% / cover;
   color: var(--blanco);
-}
-
-.presentacion {
-  padding-right: max(24px, calc((100% - 1120px) / 2));
-  padding-left: max(24px, calc((100% - 1120px) / 2));
 }
 
 .etiqueta {
