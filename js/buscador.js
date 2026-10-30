@@ -19,7 +19,7 @@
         ['Restaurant Don Pedro', 'Restaurante · Temuco', 'Ubicado en calle San Guillermo, Barrio Dreves.', 'gastronomia restaurante comida temuco', 'pages/gastronomia.html#restaurant-don-pedro'],
         ['Restaurant A La Antigua', 'Restaurante · Temuco', 'Ubicado en General Mackenna, sector Centro.', 'gastronomia restaurante comida temuco', 'pages/gastronomia.html#restaurant-a-la-antigua'],
         ['Cafetería Marriet', 'Cafetería · Temuco', 'Ubicada en Avenida Alemania 0671, Portal Temuco.', 'gastronomia cafeteria cafe temuco', 'pages/gastronomia.html#cafeteria-marriet'],
-        ['Cafetería Di Gatto', 'Cafetería · Temuco', 'Ubicada en Francisco Salazar 01145, Villa Andrés Bello.', 'gastronomia cafeteria cafe temuco', 'pages/gastronomia.html#cafeteria-di-gatto'],
+        ['Cafetería Austral', 'Cafetería · Temuco', 'Ubicada en Antonio Varas, Población Carabineros, sector Centro.', 'gastronomia cafeteria cafe temuco', 'pages/gastronomia.html#cafeteria-austral'],
         ['Raíces del Ñielol', 'Emprendimiento · Ejemplo ficticio', 'Ficha ilustrativa; no corresponde a un negocio verificado.', 'emprendimientos artesanias sustentabilidad', 'pages/emprendimientos.html#raices-del-nielol'],
         ['Sabores del Volcán', 'Emprendimiento · Ejemplo ficticio', 'Ficha ilustrativa; no corresponde a un negocio verificado.', 'emprendimientos miel comida gastronomia productos', 'pages/emprendimientos.html#gastronomia'],
         ['Guías de viaje', 'Guías', 'Información de guías y zonas de recorrido por definir.', 'guias turismo recorridos', 'pages/guias.html'],
