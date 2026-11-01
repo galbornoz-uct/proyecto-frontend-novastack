@@ -1,0 +1,232 @@
+:root {
+  --verde-oscuro: #153d30;
+  --verde-claro: #e4f1e6;
+  --turquesa: #087f83;
+  --dorado: #f2be62;
+  --crema: #fff9ef;
+  --blanco: #fff;
+  --texto: #24382f;
+  --texto-suave: #52665d;
+  --borde: #e7e5dd;
+  --sombra: 0 8px 24px rgba(21, 61, 48, .12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--crema);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.gastronomia {
+  padding: 0 18px 48px;
+}
+
+.presentacion {
+  margin: 0 -18px 36px;
+  padding: 54px max(24px, calc((100% - 1120px) / 2));
+  background:
+    linear-gradient(110deg, rgba(21, 61, 48, .94), rgba(21, 61, 48, .72)),
+    url("../img/emprendimientos/banner-emprendimientos.png") center 48% / cover;
+  color: var(--blanco);
+
+  @media (min-width: 1000px) {
+    padding-block: 74px;
+  }
+}
+
+.etiqueta {
+  margin: 0 0 10px;
+  color: var(--turquesa);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.presentacion .etiqueta {
+  color: var(--dorado);
+}
+
+.presentacion h1 {
+  max-width: 720px;
+  margin: 0 0 14px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 8vw, 4rem);
+  line-height: 1.08;
+}
+
+.presentacion > p:last-child {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.catalogo {
+  width: 100%;
+  max-width: 1168px;
+  margin: 0 auto;
+}
+
+.cabecera-catalogo {
+  margin-bottom: 22px;
+}
+
+.cabecera-catalogo h2 {
+  margin: 0 0 10px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.7rem, 5vw, 2.25rem);
+}
+
+.cabecera-catalogo > p:last-child {
+  margin: 0;
+  color: var(--texto-suave);
+  line-height: 1.6;
+}
+
+.aviso {
+  margin-bottom: 22px;
+  padding: 15px 17px;
+  border-left: 4px solid var(--dorado);
+  border-radius: 0 10px 10px 0;
+  background-color: var(--verde-claro);
+  line-height: 1.55;
+}
+
+.locales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.tarjeta-local {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--borde);
+  border-radius: 14px;
+  background-color: var(--blanco);
+  box-shadow: var(--sombra);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.imagen-local {
+  position: relative;
+  margin: 0;
+}
+
+.imagen-local img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background-color: var(--verde-claro);
+}
+
+.imagen-local figcaption {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  background-color: rgba(21, 61, 48, .88);
+  color: var(--blanco);
+  font-size: .75rem;
+}
+
+.contenido-tarjeta {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 18px;
+}
+
+.tipo-local {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background-color: var(--verde-claro);
+  color: var(--verde-oscuro);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.tarjeta-local h3 {
+  margin: 0 0 10px;
+  color: var(--verde-oscuro);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.4rem;
+}
+
+.descripcion-local,
+.ubicacion-local {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.descripcion-local {
+  color: var(--texto-suave);
+}
+
+.ubicacion-local {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: .92rem;
+}
+
+.enlace-mapa {
+  align-self: flex-start;
+  margin-top: 12px;
+  color: var(--turquesa);
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.5;
+  text-underline-offset: 3px;
+}
+
+.enlace-mapa:hover {
+  color: var(--verde-oscuro);
+}
+
+.atribucion {
+  margin: 24px 0 0;
+  color: var(--texto-suave);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+
+.atribucion a {
+  color: var(--verde-oscuro);
+  text-underline-offset: 3px;
+}
+
+.tarjeta-local:focus-within {
+  outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+@media (min-width: 600px) {
+  .locales {
+    gap: 22px;
+  }
+
+  .contenido-tarjeta {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tarjeta-local {
+    transition: none;
+  }
+}
