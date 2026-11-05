@@ -1,3 +1,8 @@
-export default function MapaAraucania() {
-  return <p>MapaAraucania pendiente</p>;
+export default function MapaAraucania({ titulo, descripcion }) {
+  return (
+    <section className="mapa-principal" id="mapa">
+      <h2>{titulo}</h2>
+      <p>{descripcion}</p>
+    </section>
+  );
 }
