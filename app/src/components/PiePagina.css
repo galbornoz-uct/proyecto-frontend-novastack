@@ -1,0 +1,89 @@
+/* Diseño original de css/footer.css, sin afectar otros componentes. */
+.footer-principal {
+  --pie-verde-oscuro: #153d30;
+  --pie-blanco: #fff;
+  --pie-dorado: #f2be62;
+  box-sizing: border-box;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding: 35px 24px;
+  background: linear-gradient(140deg, var(--pie-verde-oscuro), #102c26);
+  color: var(--pie-blanco);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: normal;
+  text-align: left;
+  border: 0;
+}
+
+.footer-principal,
+.footer-principal * {
+  box-sizing: border-box;
+}
+
+.footer-principal * {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-principal h2 {
+  margin-bottom: 12px;
+  color: var(--pie-dorado);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: normal;
+}
+
+.footer-principal p {
+  margin-bottom: 8px;
+  color: #e2eee7;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-principal a {
+  color: var(--pie-blanco);
+  text-decoration: none;
+}
+
+.footer-principal a:hover {
+  color: var(--pie-dorado);
+  text-decoration: underline;
+}
+
+.footer-principal a:focus-visible {
+  outline: 3px solid #087f83;
+  outline-offset: 3px;
+}
+
+.footer-principal address {
+  font-style: normal;
+}
+
+.footer-principal > p:last-child {
+  grid-column: 1 / -1;
+  margin-top: 16px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-principal {
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    padding: 40px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .footer-principal {
+    padding: 45px 60px;
+  }
+}
