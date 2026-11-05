@@ -1,7 +1,6 @@
 
 import Encabezado from "./components/Encabezado.jsx";
 import BannerPrincipal from "./components/BannerPrincipal.jsx";
-import Buscador from "./components/Buscador.jsx";
 import TarjetaEventos from "./components/TarjetaEventos.jsx";
 import TarjetaClima from "./components/TarjetaClima.jsx";
 import MapaAraucania from "./components/MapaAraucania.jsx";
@@ -26,14 +25,9 @@ function App() {
             titulo="Explora La Araucanía"
             subtitulo="Descubre destinos y experiencias turísticas"
           />
-
-          {/* Rodrigo: buscador */}
-          <Buscador
-            placeholder="Busca destinos, eventos o servicios"
-          />
         </section>
 
-        {/* Sección central de EcoRuta */}
+        {/* Sección central */}
         <section>
           {/* Matías: eventos */}
           <TarjetaEventos
@@ -58,7 +52,10 @@ function App() {
         {/* Gonzalo: bloques informativos */}
         <BloqueInformativo
           titulo="Explorar La Araucanía"
-          secciones={["Explorar La Araucanía", "Servicios para tu viaje"]}
+          secciones={[
+            "Explorar La Araucanía",
+            "Servicios para tu viaje"
+          ]}
         />
       </main>
 
