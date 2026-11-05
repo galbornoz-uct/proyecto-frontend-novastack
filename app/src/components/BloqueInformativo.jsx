@@ -1,7 +1,6 @@
 import "./BloqueInformativo.css";
 
-// Contenido recuperado de las dos secciones del index.html original.
-// App.jsx actualmente pasa los nombres de las secciones como cadenas.
+
 const seccionesOriginales = {
   "Explorar La Araucanía": {
     etiquetaNavegacion: "Explorar La Araucanía",
