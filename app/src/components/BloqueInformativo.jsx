@@ -34,6 +34,22 @@ const seccionesOriginales = {
   },
 };
 
+// La app Vite vive en /app y no sirve las páginas HTML del repositorio.
+// En desarrollo abrimos las páginas publicadas; en el sitio final usamos
+// una ruta absoluta para impedir /pages/pages/ al navegar entre secciones.
+function resolverHref(href) {
+  if (!href.startsWith("pages/")) return href;
+
+  const ruta = `/proyecto-frontend-novastack/${href}`;
+  const enDesarrolloLocal = typeof window !== "undefined" &&
+    (window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1");
+
+  return enDesarrolloLocal
+    ? `https://galbornoz-uct.github.io${ruta}`
+    : ruta;
+}
+
 export default function BloqueInformativo({ titulo, secciones = [] }) {
   return (
     <aside className="bloque-informativo" aria-label={titulo}>
@@ -61,7 +77,7 @@ export default function BloqueInformativo({ titulo, secciones = [] }) {
                 <ul className={claseLista}>
                   {enlaces.map((enlace) => (
                     <li key={enlace.href}>
-                      <a href={enlace.href}>
+                      <a href={resolverHref(enlace.href)}>
                         {enlace.descripcion ? (
                           <span>
                             <strong>{enlace.nombre}</strong>
