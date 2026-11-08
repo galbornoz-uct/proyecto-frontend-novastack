@@ -1,4 +1,3 @@
-
 import Encabezado from "./components/Encabezado.jsx";
 import BannerPrincipal from "./components/BannerPrincipal.jsx";
 import TarjetaEventos from "./components/TarjetaEventos.jsx";
@@ -27,8 +26,8 @@ function App() {
           />
         </section>
 
-        {/* Sección central */}
-        <section>
+        {/* Integración final: sección de eventos, mapa y clima */}
+        <section aria-label="Eventos, mapa y clima de La Araucanía">
           {/* Matías: eventos */}
           <TarjetaEventos
             titulo="Próximos eventos"
