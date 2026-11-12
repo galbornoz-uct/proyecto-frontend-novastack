@@ -1,64 +1,30 @@
+import { Routes, Route } from "react-router";
+
 import Encabezado from "./components/Encabezado.jsx";
-import BannerPrincipal from "./components/BannerPrincipal.jsx";
-import TarjetaEventos from "./components/TarjetaEventos.jsx";
-import TarjetaClima from "./components/TarjetaClima.jsx";
-import MapaAraucania from "./components/MapaAraucania.jsx";
-import BloqueInformativo from "./components/BloqueInformativo.jsx";
 import PiePagina from "./components/PiePagina.jsx";
 
-import { eventos } from "./datos/eventos.js";
+import Inicio from "./paginas/Inicio.jsx";
+import Rutas from "./paginas/Rutas.jsx";
+import DetalleRuta from "./paginas/DetalleRuta.jsx";
+import NoEncontrada from "./paginas/NoEncontrada.jsx";
 
 function App() {
   return (
     <>
-      {/* Rodrigo: encabezado */}
       <Encabezado
         enlaces={["Inicio", "Lugares", "Eventos", "Servicios"]}
         paginaActual="Inicio"
       />
 
       <main>
-        {/* Carlos: banner principal */}
-        <section>
-          <BannerPrincipal
-            titulo="Explora La Araucanía"
-            subtitulo="Descubre destinos y experiencias turísticas"
-          />
-        </section>
-
-        {/* Integración final: sección de eventos, mapa y clima */}
-        <section aria-label="Eventos, mapa y clima de La Araucanía">
-          {/* Matías: eventos */}
-          <TarjetaEventos
-            titulo="Próximos eventos"
-            eventos={eventos}
-          />
-
-          {/* Carlos: mapa */}
-          <MapaAraucania
-            titulo="Mapa de La Araucanía"
-            descripcion="Descubre lugares turísticos de la región"
-          />
-
-          {/* Matías: clima */}
-          <TarjetaClima
-            titulo="Clima detallado"
-            ciudad="Temuco"
-            temperatura={null}
-          />
-        </section>
-
-        {/* Gonzalo: bloques informativos */}
-        <BloqueInformativo
-          titulo="Explorar La Araucanía"
-          secciones={[
-            "Explorar La Araucanía",
-            "Servicios para tu viaje"
-          ]}
-        />
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/rutas" element={<Rutas />} />
+          <Route path="/rutas/:id" element={<DetalleRuta />} />
+          <Route path="*" element={<NoEncontrada />} />
+        </Routes>
       </main>
 
-      {/* Gonzalo: pie de página */}
       <PiePagina />
     </>
   );
