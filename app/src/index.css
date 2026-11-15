@@ -107,3 +107,129 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+.catalogo-rutas {
+  --catalogo-verde: #153d30;
+  --catalogo-turquesa: #087f83;
+  --catalogo-dorado: #f2be62;
+
+  box-sizing: border-box;
+  max-width: 1060px;
+  margin-inline: auto;
+  padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
+  color: var(--catalogo-verde);
+  background: #f2f8f4;
+  text-align: left;
+}
+
+.catalogo-rutas h1,
+.catalogo-rutas h2 {
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.15;
+}
+
+.catalogo-rutas h1 {
+  margin: 0 0 12px;
+  font-size: clamp(32px, 5vw, 48px);
+}
+
+.catalogo-rutas__nota,
+.catalogo-rutas__estado {
+  color: #355449;
+  font-size: 0.9em;
+}
+
+.catalogo-rutas__nota {
+  margin-top: 8px;
+}
+
+.catalogo-rutas .filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0 12px;
+}
+
+.catalogo-rutas .filtros button {
+  min-height: 44px;
+  padding: 8px 16px;
+  border: 1px solid var(--catalogo-verde);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--catalogo-verde);
+  font: inherit;
+  cursor: pointer;
+}
+
+.catalogo-rutas .filtros button:hover {
+  background: #e0f2ea;
+}
+
+.catalogo-rutas .filtros button[aria-pressed="true"] {
+  background: var(--catalogo-verde);
+  color: #fff;
+}
+
+.catalogo-rutas .filtros button:focus-visible {
+  outline: 3px solid var(--catalogo-turquesa);
+  outline-offset: 3px;
+}
+
+.catalogo-rutas__lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.catalogo-rutas__tarjeta {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid #ceded2;
+  border-top: 4px solid var(--catalogo-dorado);
+  border-radius: 16px;
+  background: #fff9ef;
+}
+
+.catalogo-rutas__dificultad {
+  display: inline-block;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  padding: 2px 8px;
+  background: #e0f2ea;
+  font-size: 0.85em;
+  text-transform: capitalize;
+}
+
+.catalogo-rutas__datos {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0 0;
+}
+
+.catalogo-rutas__datos dt {
+  font-weight: 600;
+}
+
+.catalogo-rutas__datos dd {
+  margin: 0;
+}
+
+.catalogo-rutas__enlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--catalogo-verde);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.catalogo-rutas__enlace:focus-visible {
+  outline: 3px solid var(--catalogo-turquesa);
+  outline-offset: 3px;
+}
