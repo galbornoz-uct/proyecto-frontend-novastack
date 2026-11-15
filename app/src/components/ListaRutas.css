@@ -1,0 +1,45 @@
+.lista-rutas {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 1160px;
+  margin: 32px auto;
+  color: #153d30;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.lista-rutas h2 {
+  margin: 0 0 20px;
+  color: #153d30;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.lista-rutas__lista {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-rutas__lista > li {
+  display: flex;
+  min-width: 0;
+}
+
+@media (min-width: 640px) {
+  .lista-rutas__lista {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .lista-rutas__lista {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
