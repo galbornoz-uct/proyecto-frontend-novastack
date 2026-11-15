@@ -11,10 +11,7 @@ import NoEncontrada from "./paginas/NoEncontrada.jsx";
 function App() {
   return (
     <>
-      <Encabezado
-        enlaces={["Inicio", "Lugares", "Eventos", "Servicios"]}
-        paginaActual="Inicio"
-      />
+      <Encabezado/>
 
       <main>
         <Routes>
