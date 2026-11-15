@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 const rutas = [
   {
@@ -48,6 +49,13 @@ function TarjetaCatalogo({ ruta }) {
           <dd>{ruta.duracionMin} min</dd>
         </div>
       </dl>
+      <Link
+        className="catalogo-rutas__enlace"
+        to={`/rutas/${ruta.id}`}
+        aria-label={`Ver ruta: ${ruta.nombre}`}
+      >
+        Ver ruta
+      </Link>
     </article>
   );
 }

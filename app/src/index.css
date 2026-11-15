@@ -218,3 +218,18 @@ code {
 .catalogo-rutas__datos dd {
   margin: 0;
 }
+
+.catalogo-rutas__enlace {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 12px;
+  color: var(--catalogo-verde);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+
+.catalogo-rutas__enlace:focus-visible {
+  outline: 3px solid var(--catalogo-turquesa);
+  outline-offset: 3px;
+}
