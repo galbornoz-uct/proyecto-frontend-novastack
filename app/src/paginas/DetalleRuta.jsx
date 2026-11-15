@@ -4,12 +4,21 @@ import "./DetalleRuta.css";
 const rutas = [
   {
     id: 1,
-    nombre: "Cerro Ñielol",
-    descripcion: "Recorrido de ejemplo por el Cerro Ñielol.",
-    ubicacion: "Temuco, La Araucanía",
-    distanciaKm: 2,
+    nombre: "Senderismo en Cerro Ñielol",
+    descripcion: "Recorrido por senderos del Cerro Ñielol.",
+    ubicacion: "Cerro Ñielol, Temuco, La Araucanía",
+    distanciaKm: 2.5,
     duracionMin: 60,
-    dificultad: "Baja",
+    dificultad: "baja",
+  },
+  {
+    id: 2,
+    nombre: "Caminata por Conguillío",
+    descripcion: "Caminata entre bosques y paisajes volcánicos.",
+    ubicacion: "Parque Nacional Conguillío, La Araucanía",
+    distanciaKm: 5,
+    duracionMin: 120,
+    dificultad: "media",
   },
 ];
 
