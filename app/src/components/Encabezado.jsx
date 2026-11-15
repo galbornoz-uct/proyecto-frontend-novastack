@@ -1,25 +1,27 @@
+import { Link, NavLink } from "react-router";
 import "./Encabezado.css";
 
+// Vistas de la app React (contrato del Laboratorio 07).
+// Se navegan con NavLink, sin recargar la página.
+const enlaces = [
+  { texto: "Inicio", ruta: "/" },
+  { texto: "Rutas", ruta: "/rutas" },
+];
+
 // La app Vite vive en /app y no sirve las páginas HTML del repositorio.
-// Igual que en BloqueInformativo: en desarrollo local se abren las páginas
-// publicadas y en GitHub Pages se usa la ruta absoluta del proyecto.
+// Estas páginas NO son rutas de React Router: se mantienen como enlaces
+// HTML normales. En desarrollo local se abren las páginas publicadas y en
+// GitHub Pages se usa la ruta absoluta del proyecto.
 const SITIO_PUBLICADO = "https://galbornoz-uct.github.io";
 const RUTA_PROYECTO = "/proyecto-frontend-novastack";
 
-// Páginas reales del proyecto original (carpeta pages/).
-const PAGINAS = {
-  Lugares: "pages/lugares.html",
-  Eventos: "pages/eventos.html",
-  Servicios: "pages/servicios.html",
-};
+const paginasEstaticas = [
+  { texto: "Lugares", pagina: "pages/lugares.html" },
+  { texto: "Eventos", pagina: "pages/eventos.html" },
+  { texto: "Servicios", pagina: "pages/servicios.html" },
+];
 
-// "./" abre el inicio de la propia app, tanto en local como publicada.
-const RUTA_INICIO = "./";
-
-function crearRuta(texto) {
-  const pagina = PAGINAS[texto];
-  if (!pagina) return RUTA_INICIO;
-
+function crearRutaEstatica(pagina) {
   const ruta = `${RUTA_PROYECTO}/${pagina}`;
   const enDesarrolloLocal =
     typeof window !== "undefined" &&
@@ -29,30 +31,33 @@ function crearRuta(texto) {
   return enDesarrolloLocal ? `${SITIO_PUBLICADO}${ruta}` : ruta;
 }
 
-export default function Encabezado({ enlaces = [], paginaActual = "" }) {
+// NavLink entrega { isActive }. Devolvemos "activo", la clase que ya
+// estiliza Encabezado.css, solo cuando la ruta coincide con la URL actual.
+const claseActiva = ({ isActive }) => (isActive ? "activo" : undefined);
+
+export default function Encabezado() {
   return (
     <header className="navegacion-principal">
-      <a className="logo" href={RUTA_INICIO} aria-label="EcoRuta - Ir al inicio">
+      <Link className="logo" to="/" aria-label="EcoRuta - Ir al inicio">
         EcoRuta
-      </a>
+      </Link>
 
       <nav id="menu-principal" aria-label="Navegación principal">
         <ul>
-          {enlaces.map((enlace) => {
-            const esActual = enlace === paginaActual;
+          {enlaces.map(({ texto, ruta }) => (
+            <li key={ruta}>
+              {/* "end" en Inicio: "/" no debe quedar activo en /rutas */}
+              <NavLink to={ruta} end={ruta === "/"} className={claseActiva}>
+                {texto}
+              </NavLink>
+            </li>
+          ))}
 
-            return (
-              <li key={enlace}>
-                <a
-                  href={crearRuta(enlace)}
-                  className={esActual ? "activo" : undefined}
-                  aria-current={esActual ? "page" : undefined}
-                >
-                  {enlace}
-                </a>
-              </li>
-            );
-          })}
+          {paginasEstaticas.map(({ texto, pagina }) => (
+            <li key={pagina}>
+              <a href={crearRutaEstatica(pagina)}>{texto}</a>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
