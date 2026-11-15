@@ -59,7 +59,7 @@ npm run dev
 
 ## Estado del proyecto:
 
-- Sprint actual: Sprint 0 (Kickoff)
+- Sprint actual: Sprint 3 (Semana 11)
 - Última actualización: (fecha)
 
 ## Tablero Kanban:
@@ -261,13 +261,16 @@ Se completará en la semana 12, cuando la API se construya con `json-server`.
 
 ### API pública externa
 
-La API pública externa está pendiente de registrar en este contrato.
+El proyecto utiliza Open-Meteo en la vista Lugares, mediante `js/clima-rutas.js`.
 
 | Dato | Valor |
 |---|---|
-| Nombre | Pendiente de confirmar por el equipo. |
-| URL base | Pendiente de registrar. |
-| Endpoint que usaremos | Pendiente de registrar. |
-| Requiere autenticación | Debe funcionar sin autenticación, según el requisito del curso. |
-| Vista en que aparece | Pendiente de confirmar. |
-| Para qué le sirve al usuario | Pendiente de definir según la API elegida. |
+| Nombre | Open-Meteo. |
+| URL base | https://api.open-meteo.com |
+| Endpoint que usaremos | `GET /v1/forecast`. |
+| Variables utilizadas | `temperature_2m` (temperatura en °C), `wind_speed_10m` (velocidad del viento en km/h) y `weather_code` (código de las condiciones del cielo). |
+| Requiere autenticación | No requiere autenticación ni clave de API para el uso actual, conforme al requisito del curso. |
+| Vista en que aparece | Lugares (`pages/lugares.html`), mediante `js/clima-rutas.js`. |
+| Para qué le sirve al usuario | Mostrar temperatura, velocidad del viento y condiciones del cielo de lugares turísticos para ayudar a planificar las visitas. |
+
+La consulta envía las coordenadas de cada lugar mediante `latitude` y `longitude`, solicita las tres variables con `current=temperature_2m,wind_speed_10m,weather_code` y utiliza `timezone=America/Santiago`. El código lee los datos desde `current` en la respuesta JSON y traduce `weather_code` a una descripción del cielo.
