@@ -9,7 +9,8 @@
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+    rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
+    rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -42,7 +43,8 @@
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
     --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
+      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
 
   #social .button-icon {
@@ -75,20 +77,24 @@ h1 {
   font-size: 56px;
   letter-spacing: -1.68px;
   margin: 32px 0;
+
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
   font-size: 24px;
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
+
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
 p {
   margin: 0;
 }
@@ -107,6 +113,8 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* Catalogo de rutas - estilos anteriores */
 
 .catalogo-rutas {
   --catalogo-verde: #153d30;
@@ -178,7 +186,8 @@ code {
 
 .catalogo-rutas__lista {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 16px;
   margin: 16px 0 0;
   padding: 0;
@@ -232,4 +241,104 @@ code {
 .catalogo-rutas__enlace:focus-visible {
   outline: 3px solid var(--catalogo-turquesa);
   outline-offset: 3px;
+}
+
+
+/* ---------- API propia (semana 12, integrador) ---------- */
+
+.estado {
+  color: #33443a;
+}
+
+.estado.error {
+  color: #a3261b;
+  font-weight: 700;
+}
+
+.tarjeta.detalle {
+  max-width: 640px;
+}
+
+.resenas {
+  max-width: 640px;
+  margin-top: 24px;
+}
+
+.resenas h3 {
+  font-size: 20px;
+  color: #1f5e3b;
+  margin-bottom: 12px;
+}
+
+.resenas ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.resena {
+  padding: 12px 14px;
+  border: 1px solid #e3e8e3;
+  border-radius: 10px;
+}
+
+.resena span {
+  color: #b7791f;
+}
+
+.borrar {
+  margin-top: 6px;
+  padding: 4px 10px;
+  border: 1.5px solid #a3261b;
+  border-radius: 16px;
+  background: #ffffff;
+  color: #a3261b;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.formulario {
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f2f7f3;
+}
+
+.formulario h4 {
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.formulario label {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  padding: 8px 10px;
+  border: 1px solid #b9c7bc;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.formulario .boton {
+  justify-self: start;
+  margin-top: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.formulario select:focus-visible,
+.formulario textarea:focus-visible {
+  outline: 3px solid #f9a826;
+  outline-offset: 2px;
+}
+
+.formulario .mensaje {
+  min-height: 1.4em;
+  font-size: 14px;
 }
