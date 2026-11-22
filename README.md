@@ -51,7 +51,8 @@ proyecto-frontend-novastack/
 
 ```bash
 # Instalar dependencias
-npm install
+cd app
+npm ci
 
 # Ejecutar en modo desarrollo
 npm run dev
@@ -257,7 +258,64 @@ Los cuerpos de las solicitudes `POST` no incluyen `id`, porque lo genera el serv
 
 ### Cómo levantar la API en local
 
-Se completará en la semana 12, cuando la API se construya con `json-server`.
+La aplicación React de Semana 12 está en `app/`. Desde la raíz del repositorio:
+
+```bash
+cd app
+npm ci
+npm run api
+```
+
+La API usa `json-server` 0.17.4 y escucha en **http://localhost:3001**.
+El comando oficial ejecuta `json-server --watch db.json --port 3001`.
+Desde otra terminal, inicia la interfaz:
+
+```bash
+cd app
+npm run dev
+```
+
+Vite usa por defecto **http://localhost:5173**; si el puerto está ocupado,
+consulta la dirección que indica la terminal. La navegación utiliza HashRouter:
+`/#/rutas`, `/#/rutas/1` y `/#/proponer-ruta`.
+
+Para comprobar las consultas, abre en el navegador:
+
+- http://localhost:3001/rutas
+- http://localhost:3001/rutas/1
+- http://localhost:3001/rutas/9999 (debe responder 404).
+- http://localhost:3001/resenas?rutaId=1
+- http://localhost:3001/sugerencias?rutaId=1
+- http://localhost:3001/sugerencias?tipo=nueva_ruta
+
+Inicio conserva tres rutas destacadas (`slice(0, 3)`) y muestra además un
+listado independiente de sugerencias, obtenido de `GET /sugerencias`, con
+filtro por tipo. En el detalle se consultan y publican mejoras para esa ruta.
+«Proponer ruta», disponible en la navegación incluso desde el catálogo,
+consulta las propuestas de tipo `nueva_ruta` y permite registrar otra con
+`rutaId: null`. Los formularios de reseñas y sugerencias usan POST; el listado
+de reseñas permite DELETE. Los nuevos registros aparecen sin recargar.
+
+Si la API está desconectada, las vistas muestran mensajes de error en vez
+de sustituir los resultados por arreglos locales. El listado de sugerencias
+mantiene sus estados de carga y error independientes de las rutas.
+
+`app/json-server.json` se carga automáticamente al ejecutar `npm run api`
+desde `app/`. Configura `foreignKeySuffix: "__sin_relaciones__"` para evitar
+el HTTP 500 de DELETE al encontrar una sugerencia con `rutaId: null`.
+Los filtros explícitos del contrato se conservan; las relaciones automáticas
+y el borrado de dependientes basados en `rutaId` quedan desactivados.
+Consulta también `app/README.md`.
+
+Para QA de POST y DELETE, **no uses `app/db.json` original**: copia la base y
+`json-server.json` a un directorio temporal y arranca allí el ejecutable
+instalado de `json-server` con `--watch db.json --port 3001` (detén antes
+cualquier API en ese puerto). Prueba la interfaz contra esa copia, espera
+a que el archivo refleje la escritura y reinicia la API para comprobar la
+persistencia. No agregues esa base temporal a Git.
+
+Validaciones técnicas desde `app/`: `npm run build` y `npm run lint`.
+Desde la raíz: `git diff --check`.
 
 ### API pública externa
 

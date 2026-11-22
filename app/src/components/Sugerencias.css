@@ -1,0 +1,73 @@
+.sugerencias {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 32px auto;
+  padding: clamp(16px, 4vw, 32px);
+  color: #153d30;
+  background: #fff9ef;
+  border: 1px solid #ceded2;
+  border-radius: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.sugerencias h2 {
+  color: #153d30;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.sugerencias__filtro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-block: 16px;
+}
+
+.sugerencias__filtro select {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 8px;
+  font: inherit;
+  color: #153d30;
+  background: #fff;
+  border: 1px solid #b9c7bc;
+  border-radius: 8px;
+}
+
+.sugerencias__lista {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.sugerencias__lista li {
+  padding: 16px;
+  border: 1px solid #ceded2;
+  border-radius: 8px;
+}
+
+.sugerencias a {
+  display: inline-block;
+  margin-block: 8px;
+  color: #153d30;
+}
+
+.sugerencias :focus-visible {
+  outline: 3px solid #087f83;
+  outline-offset: 4px;
+}
+
+.sugerencias .formulario > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.detalle-ruta .sugerencias {
+  width: 100%;
+  margin-inline: 0;
+}

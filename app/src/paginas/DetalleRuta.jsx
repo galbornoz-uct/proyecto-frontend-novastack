@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import { API_URL } from "../api.js";
 import Resenas from "../components/Resenas.jsx";
+import Sugerencias from "../components/Sugerencias.jsx";
 import "./DetalleRuta.css";
 
 export default function DetalleRuta() {
@@ -111,6 +112,7 @@ export default function DetalleRuta() {
       </p>
 
       <Resenas rutaId={ruta.id} />
+      <Sugerencias rutaId={ruta.id} permitirCrear />
 
       <Link to="/rutas">Volver al catálogo</Link>
     </section>
