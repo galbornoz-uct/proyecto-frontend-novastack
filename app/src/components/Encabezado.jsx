@@ -6,6 +6,7 @@ import "./Encabezado.css";
 const enlaces = [
   { texto: "Inicio", ruta: "/" },
   { texto: "Rutas", ruta: "/rutas" },
+  { texto: "Proponer ruta", ruta: "/proponer-ruta" },
 ];
 
 // La app Vite vive en /app y no sirve las páginas HTML del repositorio.
