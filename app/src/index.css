@@ -326,10 +326,40 @@ code {
 }
 
 .formulario .boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   justify-self: start;
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 44px;
   margin-top: 8px;
-  background: #ffffff;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: #153d30;
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  overflow-wrap: anywhere;
   cursor: pointer;
+}
+
+.formulario .boton:hover:not(:disabled) {
+  background: #087f83;
+}
+
+.formulario .boton:focus-visible {
+  outline: 3px solid #087f83;
+  outline-offset: 4px;
+}
+
+.formulario .boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .formulario select:focus-visible,
