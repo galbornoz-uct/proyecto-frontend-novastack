@@ -417,6 +417,13 @@ Si el intermediario está ocupado o aún no ha pasado un segundo desde la últim
 consulta externa, el navegador pide al usuario que vuelva a intentar. Escribir
 en el campo no genera tráfico hacia Nominatim.
 
+La petición del navegador está dentro de un `useEffect` dependiente de la
+solicitud enviada. El formulario valida y crea esa solicitud al pulsar «Buscar
+ubicación»; escribir no dispara el efecto. Se permite repetir un lugar y se
+impiden envíos simultáneos. Al salir de la vista se cancela la petición; si
+supera 15 segundos, solo el buscador informa del error. El mapa y sus marcadores
+siguen utilizando las coordenadas de la respuesta, sin consultas adicionales.
+
 #### Configuración para un despliegue
 
 Sirve el intermediario detrás de HTTPS y apunta `VITE_NOMINATIM_PROXY_URL` a la URL
@@ -428,6 +435,28 @@ para mantener el límite global. La URL de búsqueda del proveedor se puede
 cambiar con `NOMINATIM_SEARCH_URL` y reiniciando el intermediario, sin recompilar
 React. Si falta la URL del intermediario al compilar, la búsqueda informa que
 el servicio no está disponible en ese sitio.
+
+Pasos pendientes para habilitar la búsqueda en GitHub Pages:
+
+1. Alojar `app/servidor/nominatim.mjs` en un servicio que ejecute Node.js 22 o
+   superior y exponga HTTPS. No necesita instalar dependencias de React.
+   Comando desde la raíz del repositorio: `node app/servidor/nominatim.mjs`.
+2. Configurar allí `ECORUTA_ORIGEN=https://galbornoz-uct.github.io` y mantener
+   una sola instancia. El servidor acepta el puerto `PORT` del alojamiento
+   y escucha en `0.0.0.0` cuando se usa esa variable; `NOMINATIM_PORT` y
+   `NOMINATIM_HOST` permiten configurarlo explícitamente.
+3. Usar `GET /salud` para verificar que el proceso está activo. Ese endpoint
+   no consulta Nominatim. Probar una búsqueda desde el origen permitido y
+   comprobar su respuesta; que `/salud` responda no verifica CORS ni al proveedor.
+4. Copiar `app/.env.example` a `app/.env.production.local` y completar
+   `VITE_NOMINATIM_PROXY_URL` con la URL HTTPS real de `/buscar-ubicacion`.
+   El archivo `.local` está ignorado por Git; no se sube.
+5. Con los cambios de código revisados y fusionados, regenerar `aplicacion/`
+   desde `main` en la rama de publicación. Hacer un PR independiente del build
+   generado y obtener aprobación de otro integrante antes del merge.
+6. En la URL publicada, buscar un lugar, ver sus datos y su marcador, probar
+   el error y recargar `#/proponer-ruta`. Registrar el resultado del celular
+   en Trello. C5 sigue pendiente hasta comprobar estos pasos en internet.
 
 #### Comprobaciones del laboratorio
 
@@ -446,3 +475,26 @@ el servicio no está disponible en ese sitio.
 
 La verificación del origen y de HTTPS en el despliegue queda pendiente hasta
 que el equipo disponga de una URL pública para el intermediario.
+
+#### Ajustes de código para la rúbrica de Semana 13
+
+- Se conservó el mapa de Salinas y la búsqueda mediante el intermediario de
+  Rodrigo; la consulta pasó a `useEffect` y sigue ocurriendo solo al enviar.
+- En navegador, con respuestas simuladas, se comprobaron el campo vacío,
+  escritura sin consultas, envío único, repetición del mismo lugar, cambio de
+  marcador, respuesta sin datos, HTTP 429, datos inválidos, fallo de red,
+  tiempo de espera y cancelación al salir de la vista. Las pruebas de tiempo
+  de espera usan un reloj acortado de QA, sin cambiar los 15 segundos del código.
+- El servidor real respondió a `/salud` usando `PORT`; una búsqueda de Temuco
+  devolvió datos reales y la cabecera CORS del origen autorizado. Un origen
+  diferente recibió HTTP 403. Esto comprueba la configuración local, no el
+  alojamiento público pendiente.
+- Se unificaron colores, títulos, tarjetas, botones y formularios con el sitio
+  HTML. Se revisaron Inicio, catálogo, detalle y propuesta en 320, 390, 768 y
+  1440 px. La base original no se modificó durante las pruebas.
+
+Para la entrega, el PR de estas mejoras de código debe recibir revisión de
+otro integrante antes del merge. La compilación generada queda fuera de ese
+PR: se vuelve a generar y se publica en un PR independiente después de
+integrar el código y configurar la URL pública. Las evidencias individuales,
+la revisión en GitHub y los registros de Trello se completan por el equipo.

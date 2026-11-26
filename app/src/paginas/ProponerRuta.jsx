@@ -4,11 +4,11 @@ import Sugerencias from "../components/Sugerencias.jsx";
 
 export default function ProponerRuta() {
   return (
-    <>
+    <section className="pagina-propuesta">
       <h1>Proponer ruta</h1>
       <BuscadorUbicacion />
       <Sugerencias soloNuevas permitirCrear />
       <Link to="/rutas">Volver al catálogo</Link>
-    </>
+    </section>
   );
 }

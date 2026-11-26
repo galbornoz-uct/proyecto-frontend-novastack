@@ -90,12 +90,13 @@ export default function Inicio() {
         />
       )}
 
-      <ClimaActual />
-
       <Link to="/rutas" className="boton">
         Ver todas las rutas
       </Link>
-      <Sugerencias />
+      <div className="inicio-complementos">
+        <ClimaActual />
+        <Sugerencias />
+      </div>
     </>
   );
 }

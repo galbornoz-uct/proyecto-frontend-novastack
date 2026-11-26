@@ -16,12 +16,13 @@ const icono = L.icon({
   shadowSize: [41, 41],
 });
 
-const servicio = import.meta.env.VITE_NOMINATIM_PROXY_URL ||
+const servicio = import.meta.env.VITE_NOMINATIM_PROXY_URL?.trim() ||
   (import.meta.env.DEV ? "http://127.0.0.1:3101/buscar-ubicacion" : "");
 
 export default function BuscadorUbicacion() {
   const id = useId();
   const [consulta, setConsulta] = useState("");
+  const [solicitud, setSolicitud] = useState(null);
   const [resultado, setResultado] = useState(null);
   const [estado, setEstado] = useState("");
   const [error, setError] = useState("");
@@ -30,6 +31,7 @@ export default function BuscadorUbicacion() {
   const contenedorMapa = useRef(null);
   const mapa = useRef(null);
   const marcador = useRef(null);
+  const envioPendiente = useRef(false);
 
   useEffect(() => {
     const observador = new ResizeObserver(() => {
@@ -82,9 +84,68 @@ export default function BuscadorUbicacion() {
     marcador.current.bindPopup(nombre);
   }, [resultado]);
 
-  async function buscar(event) {
+  useEffect(() => {
+    if (!solicitud) return;
+
+    const controlador = new AbortController();
+    const tiempoLimite = new AbortController();
+    const limite = setTimeout(() => tiempoLimite.abort(), 15000);
+    const signal = AbortSignal.any([controlador.signal, tiempoLimite.signal]);
+
+    async function consultarUbicacion() {
+      try {
+        const respuesta = await fetch(new URL(servicio, window.location.origin), {
+          method: "POST",
+          body: new URLSearchParams({ q: solicitud.lugar }),
+          signal,
+        });
+        if (controlador.signal.aborted) return;
+
+        if (respuesta.status === 429) {
+          setEstado("Espera unos segundos y vuelve a buscar.");
+          return;
+        }
+        if (!respuesta.ok) throw new Error("Error de búsqueda");
+
+        const lugarEncontrado = await respuesta.json();
+        if (controlador.signal.aborted) return;
+
+        if (lugarEncontrado === null) {
+          setEstado("No se encontraron ubicaciones en Chile para esa búsqueda.");
+        } else if (
+          typeof lugarEncontrado?.nombre !== "string" || !lugarEncontrado.nombre.trim() ||
+          !Number.isFinite(lugarEncontrado.latitud) || Math.abs(lugarEncontrado.latitud) > 90 ||
+          !Number.isFinite(lugarEncontrado.longitud) || Math.abs(lugarEncontrado.longitud) > 180
+        ) {
+          throw new Error("Respuesta inválida");
+        } else {
+          setResultado(lugarEncontrado);
+          setEstado("");
+        }
+      } catch {
+        if (!controlador.signal.aborted) {
+          setEstado("");
+          setError("No se pudo consultar OpenStreetMap. Intenta nuevamente más tarde.");
+        }
+      } finally {
+        clearTimeout(limite);
+        if (!controlador.signal.aborted) {
+          envioPendiente.current = false;
+          setCargando(false);
+        }
+      }
+    }
+
+    consultarUbicacion();
+    return () => {
+      clearTimeout(limite);
+      controlador.abort();
+    };
+  }, [solicitud]);
+
+  function buscar(event) {
     event.preventDefault();
-    if (cargando) return;
+    if (envioPendiente.current) return;
     setResultado(null);
     setEstado("");
     setError("");
@@ -100,47 +161,17 @@ export default function BuscadorUbicacion() {
       return;
     }
 
+    envioPendiente.current = true;
     setCargando(true);
     setEstado("Buscando ubicación…");
-
-    try {
-      const respuesta = await fetch(new URL(servicio, window.location.origin), {
-        method: "POST",
-        body: new URLSearchParams({ q: lugar }),
-        signal: AbortSignal.timeout(15000),
-      });
-
-      if (respuesta.status === 429) {
-        setEstado("Espera unos segundos y vuelve a buscar.");
-        return;
-      }
-      if (!respuesta.ok) throw new Error("Error de búsqueda");
-
-      const lugarEncontrado = await respuesta.json();
-      if (lugarEncontrado === null) {
-        setEstado("No se encontraron ubicaciones en Chile para esa búsqueda.");
-      } else if (
-        !lugarEncontrado?.nombre ||
-        !Number.isFinite(lugarEncontrado.latitud) ||
-        !Number.isFinite(lugarEncontrado.longitud)
-      ) {
-        throw new Error("Respuesta inválida");
-      } else {
-        setResultado(lugarEncontrado);
-        setEstado("");
-      }
-    } catch {
-      setEstado("");
-      setError("No se pudo consultar OpenStreetMap. Intenta nuevamente más tarde.");
-    } finally {
-      setCargando(false);
-    }
+    // Un objeto nuevo permite repetir una búsqueda, pero escribir no consulta.
+    setSolicitud({ lugar });
   }
 
   return (
     <section className="buscador-ubicacion" aria-labelledby={`${id}-titulo`}>
       <h2 id={`${id}-titulo`}>Ubicación de la ruta</h2>
-      <form className="formulario buscador-ubicacion__formulario" onSubmit={buscar} noValidate>
+      <form className="formulario buscador-ubicacion__formulario" onSubmit={buscar} noValidate aria-busy={cargando}>
         <label htmlFor={`${id}-consulta`}>Lugar o dirección pública en Chile</label>
         <p id={`${id}-ayuda`}>Por ejemplo, Temuco o Pucón. Evita ingresar domicilios particulares o datos personales.</p>
         <input

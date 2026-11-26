@@ -5,8 +5,10 @@
   margin: 32px auto;
   padding: clamp(16px, 4vw, 32px);
   color: #153d30;
-  background: #fff9ef;
-  border: 1px solid #ceded2;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-top: 5px solid var(--turquesa);
+  box-shadow: var(--sombra);
   border-radius: 16px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;

@@ -22,7 +22,6 @@
   box-shadow: 0 3px 16px rgba(21, 61, 48, 0.1);
 }
 
-.navegacion-principal,
 .navegacion-principal * {
   box-sizing: border-box;
   margin: 0;
