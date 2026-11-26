@@ -56,7 +56,7 @@ export default function DetalleRuta() {
   if (cargando) {
     return (
       <section className="detalle-ruta">
-        <p>Cargando ruta...</p>
+        <p role="status">Cargando ruta...</p>
       </section>
     );
   }
@@ -75,7 +75,7 @@ export default function DetalleRuta() {
     return (
       <section className="detalle-ruta">
         <h1>Error al cargar la ruta</h1>
-        <p>{error}</p>
+        <p role="alert">{error}</p>
         <Link to="/rutas">Volver al catálogo</Link>
       </section>
     );
