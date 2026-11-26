@@ -70,6 +70,43 @@ Enlace al tablero: https://trello.com/invite/b/6a7dd7a0cd940a8f9eef4fc6/ATTIfb61
 
 https://galbornoz-uct.github.io/proyecto-frontend-novastack/
 
+### Publicación de React — Semana 13
+
+La URL prevista para la aplicación es
+https://galbornoz-uct.github.io/proyecto-frontend-novastack/aplicacion/.
+Estará disponible después de fusionar el PR final de publicación. El enlace
+«Aplicación» del menú del sitio estático apunta a esa carpeta.
+
+Desde `app/`, `npm run dev` utiliza la API propia en `http://localhost:3001`
+y no muestra el aviso de publicación. Para comprobar la versión de producción:
+
+```bash
+npm run build
+npm run preview
+```
+
+El build genera `aplicacion/` en la raíz del repositorio. Vite usa rutas relativas
+(`base: './'`) y `HashRouter` conserva las vistas internas al recargar. Preview
+sirve ese resultado; utiliza la URL indicada en la terminal (por defecto
+http://localhost:4173).
+
+En producción aparece un aviso: la API propia no se ejecuta en GitHub Pages.
+Las consultas van a `https://api-propia.invalid`, una dirección deliberadamente
+inexistente, para mostrar los estados de error sin acceder al localhost de quien
+visita el sitio. Open-Meteo sigue consultándose por HTTPS desde el navegador.
+
+Nominatim necesita publicar su intermediario por separado. Mientras no se
+configure `VITE_NOMINATIM_PROXY_URL`, el aviso y el buscador indican que las
+ubicaciones no están disponibles. No se ha configurado todavía un servicio
+público para ese intermediario; su despliegue y prueba de CORS siguen pendientes.
+Consulta «Segunda API pública externa — Nominatim» para configurar su URL.
+
+La rama `deploy/configuracion` incluye el código y la plantilla de hallazgos en
+`.github/ISSUE_TEMPLATE/hallazgo-qa.md`, pero no los archivos generados. Tras
+aprobar y fusionar todos los cambios, solo el integrador genera `aplicacion/`
+desde `main` actualizado, en `deploy/aplicacion`, y abre el PR de publicación.
+La carpeta se regenera con `npm run build`; no se edita manualmente.
+
 
 ## API propia
 

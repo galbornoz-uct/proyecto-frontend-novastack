@@ -372,3 +372,27 @@ code {
   min-height: 1.4em;
   font-size: 14px;
 }
+
+/* ---------- API externa y publicación (semana 13) ---------- */
+.aviso-publicacion {
+  box-sizing: border-box;
+  width: min(100%, 1060px);
+  margin: 16px auto;
+  padding: 16px 20px;
+  border: 1px solid #d2a326;
+  border-left: 5px solid #a66b00;
+  border-radius: 8px;
+  background: #fff4c4;
+  color: #513b08;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .aviso-publicacion {
+    width: calc(100% - 24px);
+    padding: 14px;
+  }
+}
