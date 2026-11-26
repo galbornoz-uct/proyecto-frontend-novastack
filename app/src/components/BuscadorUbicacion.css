@@ -1,0 +1,59 @@
+.buscador-ubicacion {
+  box-sizing: border-box;
+  width: calc(100% - 32px);
+  max-width: 960px;
+  margin: 32px auto;
+  padding: clamp(16px, 4vw, 32px);
+  color: #153d30;
+  background: #fff9ef;
+  border: 1px solid #ceded2;
+  border-radius: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.buscador-ubicacion h2 {
+  color: inherit;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.buscador-ubicacion__formulario {
+  margin-top: 16px;
+}
+
+.buscador-ubicacion__formulario input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  color: #153d30;
+  background: #fff;
+}
+
+.buscador-ubicacion :focus-visible {
+  outline: 3px solid #087f83;
+  outline-offset: 3px;
+}
+
+.buscador-ubicacion__respuesta,
+.buscador-ubicacion__fuente {
+  margin: 16px 0 0;
+}
+
+.buscador-ubicacion dt {
+  font-weight: 700;
+}
+
+.buscador-ubicacion dd {
+  margin: 0 0 8px;
+}
+
+.buscador-ubicacion__fuente {
+  font-size: 0.875em;
+}
+
+.buscador-ubicacion__fuente a {
+  color: inherit;
+  text-underline-offset: 3px;
+}

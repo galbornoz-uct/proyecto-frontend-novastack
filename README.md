@@ -337,3 +337,75 @@ con viento en km/h. El componente consulta al cargar con `useEffect([])`, muestr
 sus propios estados de carga y error y cita a Open-Meteo en la interfaz. El clima
 es independiente de la API propia: si falla Open-Meteo, las rutas se mantienen;
 si se detiene json-server, el clima puede seguir cargando.
+
+### Segunda API pública externa — Nominatim (OpenStreetMap)
+
+| Dato | Valor |
+|---|---|
+| URL base | https://nominatim.openstreetmap.org |
+| Endpoint | `GET /search` |
+| Parámetros | `q` (lugar o dirección pública), `format=json`, `limit=1`, `countrycodes=cl` y `accept-language=es`. |
+| Datos mostrados | Nombre del lugar (`display_name`), latitud (`lat`) y longitud (`lon`). |
+| Autenticación | El uso previsto de la API pública no requiere clave. |
+| Vista | ProponerRuta (`/#/proponer-ruta`). |
+| Utilidad | Identificar las coordenadas de un lugar en Chile al preparar una propuesta de ruta turística. |
+
+La [política oficial de Nominatim](https://operations.osmfoundation.org/policies/nominatim/)
+limita a toda EcoRuta a un máximo de una solicitud por segundo, sumando el tráfico de
+todos los usuarios. El buscador se ejecuta al enviar el formulario. Usa lugares y
+direcciones públicas y evita enviar domicilios particulares o cualquier dato personal
+o confidencial. La interfaz enlaza la atribución
+[© colaboradores de OpenStreetMap](https://www.openstreetmap.org/copyright). Los
+datos se ofrecen bajo ODbL. Los parámetros se describen en la
+[documentación del endpoint de búsqueda](https://nominatim.org/release-docs/latest/api/Search/).
+
+#### Ejecución local
+
+Después de instalar las dependencias con `npm ci`, ejecuta en dos terminales desde
+`app/`:
+
+```sh
+node servidor/nominatim.mjs
+npm run dev -- --host localhost --strictPort
+```
+
+Abre `http://localhost:5173/#/proponer-ruta`. Para probar también las sugerencias
+y reseñas, ejecuta `npm run api` en otra terminal.
+
+React envía la búsqueda a `POST /buscar-ubicacion` en un intermediario independiente de
+`json-server`. El intermediario consulta al proveedor por HTTPS y lo identifica con
+el `User-Agent` de EcoRuta. Una instancia comparte el límite y guarda hasta 500
+resultados, incluidas búsquedas sin coincidencias, durante 24 horas en memoria.
+Si el intermediario está ocupado o aún no ha pasado un segundo desde la última
+consulta externa, el navegador pide al usuario que vuelva a intentar. Escribir
+en el campo no genera tráfico hacia Nominatim.
+
+#### Configuración para un despliegue
+
+Sirve el intermediario detrás de HTTPS y apunta `VITE_NOMINATIM_PROXY_URL` a la URL
+pública completa de `/buscar-ubicacion` al compilar React. Configura
+`ECORUTA_ORIGEN` con el origen exacto del frontend (esquema, host y puerto, sin
+ruta). `NOMINATIM_HOST` y `NOMINATIM_PORT` configuran la escucha del intermediario
+(por defecto `127.0.0.1:3101`). Usa una sola instancia activa para toda EcoRuta
+para mantener el límite global. La URL de búsqueda del proveedor se puede
+cambiar con `NOMINATIM_SEARCH_URL` y reiniciando el intermediario, sin recompilar
+React. Si falta la URL del intermediario al compilar, la búsqueda informa que
+el servicio no está disponible en ese sitio.
+
+#### Comprobaciones del laboratorio
+
+| Prueba | Resultado |
+|---|---|
+| Temuco | Chrome mostró latitud `-38.7358908` y longitud `-72.590538`. |
+| Pucón | Chrome mostró latitud `-39.2731173` y longitud `-71.9777605`. |
+| CORS | Chrome leyó las respuestas del intermediario en un origen distinto del frontend, con `Access-Control-Allow-Origin: http://localhost:5173` y datos reales de Nominatim. |
+| Lugar inexistente y envío vacío | Se mostró el mensaje sin coincidencias y se validaron el campo vacío y el envío con solo espacios. Escribir y enviar vacío no generó solicitudes. |
+| Fallo de red | Se bloqueó la solicitud del navegador al intermediario mediante Chrome DevTools Protocol. Apareció el mensaje de error y siguieron disponibles el formulario de propuestas y el enlace al catálogo. |
+| `json-server` detenido | La consulta nueva «Cerro Ñielol, Temuco» mostró coordenadas aunque la API propia rechazó la conexión. |
+| Límite y caché | Con proveedor simulado, cinco solicitudes simultáneas generaron una sola consulta externa. Se verificaron el intervalo, la reutilización de resultados y el tratamiento de respuestas inválidas y de HTTP 429. |
+| Funciones existentes | Open-Meteo mostró temperatura y viento. Se verificaron catálogo, detalle y publicación de reseñas y propuestas con una copia local de la base. |
+| Diseño y teclado | Se verificaron anchos de 320, 390, 768 y 1440 px, con foco mediante Tab y envío mediante Enter. |
+| Compilación y lint | `npm run build` y `npm run lint` finalizaron correctamente. Se verificó en `main` que las dos advertencias de lint ya existían en `DetalleRuta.jsx` y `FormularioResena.jsx`. |
+
+La verificación del origen y de HTTPS en el despliegue queda pendiente hasta
+que el equipo disponga de una URL pública para el intermediario.
