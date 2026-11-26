@@ -54,8 +54,11 @@
 }
 
 .sugerencias a {
-  display: inline-block;
-  margin-block: 8px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-block: 4px;
+  padding: 10px 8px;
   color: #153d30;
 }
 
@@ -75,6 +78,10 @@
 .sugerencias :focus-visible {
   outline: 3px solid #087f83;
   outline-offset: 4px;
+}
+
+.sugerencias > a:focus-visible {
+  outline-color: #f2be62;
 }
 
 .sugerencias .formulario > * {

@@ -14,6 +14,7 @@
   line-height: 1.6;
   text-align: left;
   overflow-wrap: anywhere;
+  scroll-margin-block-start: 120px;
 }
 
 .detalle-ruta * {
@@ -83,7 +84,7 @@
 }
 
 .detalle-ruta a:focus-visible {
-  outline: 3px solid #087f83;
+  outline: 3px solid #f2be62;
   outline-offset: 4px;
 }
 

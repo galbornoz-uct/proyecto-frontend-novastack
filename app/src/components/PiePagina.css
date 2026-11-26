@@ -47,6 +47,9 @@
 }
 
 .footer-principal a {
+  display: inline-block;
+  min-height: 44px;
+  padding-block: 10px;
   color: var(--pie-blanco);
   text-decoration: none;
 }
@@ -57,7 +60,7 @@
 }
 
 .footer-principal a:focus-visible {
-  outline: 3px solid #087f83;
+  outline: 3px solid var(--pie-dorado);
   outline-offset: 3px;
 }
 

@@ -41,6 +41,9 @@
 .buscador-campo {
   flex: 1;
   min-width: 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
   padding: 13px;
   color: var(--texto);
   background: transparent;
@@ -51,6 +54,10 @@
 
 .buscador-boton {
   flex-shrink: 0;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 13px 18px;
   color: var(--blanco);
   background-color: var(--cafe);
@@ -67,9 +74,13 @@
   transform: translateY(-2px);
 }
 
-.buscador-campo:focus-visible,
-.buscador-boton:focus-visible {
+.buscador-campo:focus-visible {
   outline: 3px solid var(--turquesa);
+  outline-offset: 3px;
+}
+
+.buscador-boton:focus-visible {
+  outline: 3px solid var(--dorado);
   outline-offset: 3px;
 }
 

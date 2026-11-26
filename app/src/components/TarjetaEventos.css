@@ -88,6 +88,10 @@ main > section:has(> .tarjeta-eventos) > .tarjeta-clima {
 }
 
 .tarjeta-eventos__lista a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 4px;
   color: #e2eee7;
   text-decoration: none;
 }
@@ -102,7 +106,10 @@ main > section:has(> .tarjeta-eventos) > .tarjeta-clima {
 }
 
 .tarjeta-eventos__ver-todos {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   margin-top: 14px;
   padding: 12px;
   background-color: #216e57;
