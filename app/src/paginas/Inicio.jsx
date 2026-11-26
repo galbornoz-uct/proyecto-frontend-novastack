@@ -4,6 +4,7 @@ import { API_URL } from "../api.js";
 import BannerPrincipal from "../components/BannerPrincipal.jsx";
 import ListaRutas from "../components/ListaRutas.jsx";
 import Sugerencias from "../components/Sugerencias.jsx";
+import ClimaActual from "../components/ClimaActual.jsx";
 
 export default function Inicio() {
   const [rutas, setRutas] = useState([]);
@@ -88,6 +89,8 @@ export default function Inicio() {
           titulo="Más rutas para descubrir"
         />
       )}
+
+      <ClimaActual />
 
       <Link to="/rutas" className="boton">
         Ver todas las rutas
