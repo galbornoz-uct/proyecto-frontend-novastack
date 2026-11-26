@@ -80,7 +80,7 @@
 }
 
 .buscador-boton:focus-visible {
-  outline: 3px solid var(--dorado);
+  outline: 3px solid var(--turquesa);
   outline-offset: 3px;
 }
 

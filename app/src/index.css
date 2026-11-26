@@ -5,7 +5,6 @@
   --turquesa: #087f83;
   --dorado: #f2be62;
   --cafe: #92591f;
-  --foco-sobre-oscuro: #f2be62;
   --crema: #fff9ef;
   --blanco: #fff;
   --texto: #24382f;
@@ -130,7 +129,7 @@ main > .boton:hover,
 
 main > .boton:focus-visible,
 .pagina-propuesta > a:focus-visible {
-  outline-color: var(--foco-sobre-oscuro);
+  outline-color: var(--turquesa);
 }
 
 .inicio-complementos {
@@ -459,7 +458,7 @@ main > .estado.error { border-color: #e8c7bd; background: #fff3ee; }
 }
 
 .formulario .boton:focus-visible {
-  outline: 3px solid var(--foco-sobre-oscuro);
+  outline: 3px solid var(--turquesa);
   outline-offset: 4px;
 }
 
