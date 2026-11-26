@@ -1,5 +1,20 @@
-import { useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import iconoMarcador from "leaflet/dist/images/marker-icon.png";
+import iconoMarcadorRetina from "leaflet/dist/images/marker-icon-2x.png";
+import sombraMarcador from "leaflet/dist/images/marker-shadow.png";
 import "./BuscadorUbicacion.css";
+
+const icono = L.icon({
+  iconUrl: iconoMarcador,
+  iconRetinaUrl: iconoMarcadorRetina,
+  shadowUrl: sombraMarcador,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 const servicio = import.meta.env.VITE_NOMINATIM_PROXY_URL ||
   (import.meta.env.DEV ? "http://127.0.0.1:3101/buscar-ubicacion" : "");
@@ -12,6 +27,60 @@ export default function BuscadorUbicacion() {
   const [error, setError] = useState("");
   const [invalido, setInvalido] = useState(false);
   const [cargando, setCargando] = useState(false);
+  const contenedorMapa = useRef(null);
+  const mapa = useRef(null);
+  const marcador = useRef(null);
+
+  useEffect(() => {
+    const observador = new ResizeObserver(() => {
+      if (contenedorMapa.current?.offsetWidth) {
+        mapa.current?.invalidateSize();
+      }
+    });
+    observador.observe(contenedorMapa.current);
+
+    return () => {
+      observador.disconnect();
+      mapa.current?.remove();
+      mapa.current = null;
+      marcador.current = null;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!resultado) {
+      marcador.current?.remove();
+      marcador.current = null;
+      mapa.current?.closePopup();
+      return;
+    }
+
+    if (!mapa.current) {
+      mapa.current = L.map(contenedorMapa.current);
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">colaboradores de OpenStreetMap</a>',
+      }).addTo(mapa.current);
+    }
+
+    const coordenadas = [resultado.latitud, resultado.longitud];
+    mapa.current.invalidateSize();
+    mapa.current.setView(coordenadas, 13, { animate: false });
+
+    if (!marcador.current) {
+      marcador.current = L.marker(coordenadas, {
+        icon: icono,
+        alt: "Ubicación encontrada",
+      }).addTo(mapa.current);
+    } else {
+      marcador.current.setLatLng(coordenadas);
+    }
+
+    // El nombre del servicio se muestra como texto, nunca como HTML.
+    const nombre = document.createElement("span");
+    nombre.textContent = resultado.nombre;
+    marcador.current.bindPopup(nombre);
+  }, [resultado]);
 
   async function buscar(event) {
     event.preventDefault();
@@ -105,6 +174,13 @@ export default function BuscadorUbicacion() {
           </dl>
         )}
       </div>
+      <div
+        ref={contenedorMapa}
+        className="buscador-ubicacion__mapa"
+        hidden={!resultado}
+        role="region"
+        aria-label={resultado ? `Mapa de ${resultado.nombre}` : "Mapa de ubicación"}
+      />
       <p id={`${id}-error`} role="alert" className={error ? "estado error buscador-ubicacion__respuesta" : undefined}>{error}</p>
       <p className="buscador-ubicacion__fuente">
         Datos de <a href="https://www.openstreetmap.org/copyright">© colaboradores de OpenStreetMap</a>.
