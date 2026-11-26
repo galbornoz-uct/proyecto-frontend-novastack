@@ -97,11 +97,9 @@ visita el sitio. Open-Meteo sigue consultándose por HTTPS desde el navegador.
 
 Nominatim necesita publicar su intermediario por separado. Mientras no se
 configure `VITE_NOMINATIM_PROXY_URL`, el aviso y el buscador indican que las
-ubicaciones no están disponibles. No se ha configurado todavía un servicio
-público para ese intermediario; su despliegue y prueba de CORS siguen pendientes.
-Consulta «Segunda API pública externa — Nominatim» para configurar su URL.
-
-La rama `deploy/configuracion` incluye el código y la plantilla de hallazgos en
+ubicaciones no están disponibles. El intermediario ya está publicado en Render y se comprobó su respuesta
+desde GitHub Pages. Consulta «Segunda API pública externa — Nominatim»
+para obtener su URL. La rama `deploy/configuracion` incluye el código y la plantilla de hallazgos en
 `.github/ISSUE_TEMPLATE/hallazgo-qa.md`, pero no los archivos generados. Tras
 aprobar y fusionar todos los cambios, solo el integrador genera `aplicacion/`
 desde `main` actualizado, en `deploy/aplicacion`, y abre el PR de publicación.
@@ -424,39 +422,92 @@ impiden envíos simultáneos. Al salir de la vista se cancela la petición; si
 supera 15 segundos, solo el buscador informa del error. El mapa y sus marcadores
 siguen utilizando las coordenadas de la respuesta, sin consultas adicionales.
 
-#### Configuración para un despliegue
+#### Despliegue del intermediario en Render
 
-Sirve el intermediario detrás de HTTPS y apunta `VITE_NOMINATIM_PROXY_URL` a la URL
-pública completa de `/buscar-ubicacion` al compilar React. Configura
-`ECORUTA_ORIGEN` con el origen exacto del frontend (esquema, host y puerto, sin
-ruta). `NOMINATIM_HOST` y `NOMINATIM_PORT` configuran la escucha del intermediario
-(por defecto `127.0.0.1:3101`). Usa una sola instancia activa para toda EcoRuta
-para mantener el límite global. La URL de búsqueda del proveedor se puede
-cambiar con `NOMINATIM_SEARCH_URL` y reiniciando el intermediario, sin recompilar
-React. Si falta la URL del intermediario al compilar, la búsqueda informa que
-el servicio no está disponible en ese sitio.
+El intermediario se publica en Render como **Web Service Free** con Node.js
+24 y una sola instancia. Se configuró desde el repositorio público en
+`main`, con despliegues manuales. `render.yaml` registra la configuración
+del servicio. Usa la raíz del
+repositorio como directorio de trabajo. El paso de build ejecuta
+`node --check app/servidor/nominatim.mjs` y el de inicio ejecuta
+`node app/servidor/nominatim.mjs`. Si el directorio de trabajo se configura en
+`app/`, usa `node --check servidor/nominatim.mjs` y `node servidor/nominatim.mjs`.
+El intermediario usa módulos nativos de Node.js.
 
-Pasos pendientes para habilitar la búsqueda en GitHub Pages:
+| Variable | Valor en Render |
+|---|---|
+| `ECORUTA_ORIGEN` | `https://galbornoz-uct.github.io`, el origen exacto de GitHub Pages, sin ruta. |
+| `PORT` | Lo asigna Render. El intermediario escucha en `0.0.0.0` al recibir esta variable. |
+| `NOMINATIM_HOST` y `NOMINATIM_PORT` | Se dejan sin definir para usar la interfaz y el puerto anteriores. |
+| `NOMINATIM_SEARCH_URL` | Opcional. Por defecto, `https://nominatim.openstreetmap.org/search`. Acepta proveedores HTTPS. |
+| `NODE_VERSION` | `>=24.0.0 <25.0.0`. |
+| `SKIP_INSTALL_DEPS` | `true`. Evita instalar dependencias de React o ejecutar `json-server`. |
 
-1. Alojar `app/servidor/nominatim.mjs` en un servicio que ejecute Node.js 22 o
-   superior y exponga HTTPS. No necesita instalar dependencias de React.
-   Comando desde la raíz del repositorio: `node app/servidor/nominatim.mjs`.
-2. Configurar allí `ECORUTA_ORIGEN=https://galbornoz-uct.github.io` y mantener
-   una sola instancia. El servidor acepta el puerto `PORT` del alojamiento
-   y escucha en `0.0.0.0` cuando se usa esa variable; `NOMINATIM_PORT` y
-   `NOMINATIM_HOST` permiten configurarlo explícitamente.
-3. Usar `GET /salud` para verificar que el proceso está activo. Ese endpoint
-   no consulta Nominatim. Probar una búsqueda desde el origen permitido y
-   comprobar su respuesta; que `/salud` responda no verifica CORS ni al proveedor.
-4. Copiar `app/.env.example` a `app/.env.production.local` y completar
-   `VITE_NOMINATIM_PROXY_URL` con la URL HTTPS real de `/buscar-ubicacion`.
-   El archivo `.local` está ignorado por Git; no se sube.
-5. Con los cambios de código revisados y fusionados, regenerar `aplicacion/`
-   desde `main` en la rama de publicación. Hacer un PR independiente del build
-   generado y obtener aprobación de otro integrante antes del merge.
-6. En la URL publicada, buscar un lugar, ver sus datos y su marcador, probar
-   el error y recargar `#/proponer-ruta`. Registrar el resultado del celular
-   en Trello. C5 sigue pendiente hasta comprobar estos pasos en internet.
+Gestiona la instancia existente desde el
+[panel del servicio en Render](https://dashboard.render.com/web/srv-dc44vf0u01pc73et16og).
+Mantén un solo servicio para toda EcoRuta y las vistas previas desactivadas.
+
+| Endpoint | URL pública |
+|---|---|
+| `GET /salud` | [Estado del intermediario](https://ecoruta-temuco-nominatim.onrender.com/salud) |
+| `POST /buscar-ubicacion` | [Endpoint de búsqueda](https://ecoruta-temuco-nominatim.onrender.com/buscar-ubicacion) |
+
+Verifica que `GET /salud` entregue HTTP 200 y `{"estado":"ok"}`. Abre
+[la página de EcoRuta en GitHub Pages](https://galbornoz-uct.github.io/proyecto-frontend-novastack/)
+y ejecuta una búsqueda en su consola, usando el endpoint de Render.
+
+```js
+const respuesta = await fetch("https://ecoruta-temuco-nominatim.onrender.com/buscar-ubicacion", {
+  method: "POST",
+  body: new URLSearchParams({ q: "Temuco" }),
+});
+console.log(location.origin, respuesta.status, await respuesta.json());
+```
+
+El 26 de noviembre de 2026, Chrome ejecutó el formulario `q=Temuco` desde
+`https://galbornoz-uct.github.io` y leyó una respuesta CORS HTTP 200 con
+«Temuco, Provincia de Cautín, Región de la Araucanía, Chile», latitud
+`-38.7358908` y longitud `-72.590538`. Ambos extremos usaron HTTPS y Chrome
+registró cero errores de CORS o contenido mixto. En el servicio publicado,
+`/salud` devolvió HTTP 200 con `{"estado":"ok"}`, una búsqueda sin coincidencias
+devolvió HTTP 200 con `null` y otro origen recibió HTTP 403.
+
+Carlos copia `app/.env.example` a `app/.env.production.local`, que Git ignora,
+y configura `VITE_NOMINATIM_PROXY_URL` con la URL HTTPS completa de la búsqueda
+antes de preparar el PR independiente de publicación de React.
+
+Render Free suspende el servicio tras 15 minutos sin tráfico y puede tardar
+alrededor de un minuto en reactivarlo. El buscador de React espera hasta
+15 segundos. Si la primera búsqueda vence, comprueba `/salud` y vuelve a
+intentar cuando esté activo. El espacio de trabajo dispone de 750 horas de
+instancia Free al mes, compartidas. La caché en memoria se vacía cuando
+el proceso se detiene. [Límites de Render Free](https://render.com/docs/free)
+
+Para reiniciar el proceso, abre el servicio en el panel de Render y elige
+**Manual Deploy → Restart service**. Render prepara un proceso de reemplazo
+antes de retirar el anterior y dirige el tráfico nuevo a un solo proceso a
+la vez. Haz los reinicios y actualizaciones en un momento de baja actividad.
+Después, verifica `/salud` y repite la prueba desde GitHub Pages.
+[Reinicios y despliegues de Render](https://render.com/docs/deploys#restarting-a-service)
+
+##### Pruebas locales de despliegue
+
+Con Node.js 24, el puerto asignado por `PORT`, el origen de GitHub Pages y
+un proveedor HTTPS simulado se verificaron estos casos:
+
+| Prueba | Resultado |
+|---|---|
+| Escucha y salud | Escuchó en `0.0.0.0` y `GET /salud` devolvió HTTP 200 con `{"estado":"ok"}`. |
+| Formulario y origen autorizado | `POST` con `application/x-www-form-urlencoded` y `q=Temuco` devolvió HTTP 200, nombre y coordenadas simuladas, con la cabecera CORS del origen exacto. |
+| Sin coincidencias y caché | Se devolvió HTTP 200 con `null`. Las repeticiones, con y sin coincidencias, usaron la caché. |
+| Origen y validaciones | Un origen distinto recibió HTTP 403. Se comprobaron los errores 400, 413 y 415. |
+| Límite global | Cinco solicitudes simultáneas generaron una petición al proveedor y cuatro respuestas HTTP 429. Una consulta nueva dentro del intervalo también recibió HTTP 429. |
+| Proveedor simulado | Se comprobó el `User-Agent` de EcoRuta. Un HTTP 429 activó la pausa de nuevas consultas y los fallos y coordenadas inválidas devolvieron HTTP 502. |
+
+Una consulta adicional al Nominatim público desde el intermediario local
+devolvió HTTP 200, «Temuco, Provincia de Cautín, Región de la Araucanía, Chile»,
+latitud `-38.7358908` y longitud `-72.590538`. La cabecera
+`Access-Control-Allow-Origin` fue `https://galbornoz-uct.github.io`.
 
 #### Comprobaciones del laboratorio
 
@@ -473,9 +524,6 @@ Pasos pendientes para habilitar la búsqueda en GitHub Pages:
 | Diseño y teclado | Se verificaron anchos de 320, 390, 768 y 1440 px, con foco mediante Tab y envío mediante Enter. |
 | Compilación y lint | `npm run build` y `npm run lint` finalizaron correctamente. Se verificó en `main` que las dos advertencias de lint ya existían en `DetalleRuta.jsx` y `FormularioResena.jsx`. |
 
-La verificación del origen y de HTTPS en el despliegue queda pendiente hasta
-que el equipo disponga de una URL pública para el intermediario.
-
 #### Ajustes de código para la rúbrica de Semana 13
 
 - Se conservó el mapa de Salinas y la búsqueda mediante el intermediario de
@@ -487,8 +535,7 @@ que el equipo disponga de una URL pública para el intermediario.
   de espera usan un reloj acortado de QA, sin cambiar los 15 segundos del código.
 - El servidor real respondió a `/salud` usando `PORT`; una búsqueda de Temuco
   devolvió datos reales y la cabecera CORS del origen autorizado. Un origen
-  diferente recibió HTTP 403. Esto comprueba la configuración local, no el
-  alojamiento público pendiente.
+  diferente recibió HTTP 403 en la prueba local.
 - Se unificaron colores, títulos, tarjetas, botones y formularios con el sitio
   HTML. Se revisaron Inicio, catálogo, detalle y propuesta en 320, 390, 768 y
   1440 px. La base original no se modificó durante las pruebas.
