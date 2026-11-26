@@ -57,3 +57,20 @@
   color: inherit;
   text-underline-offset: 3px;
 }
+
+.buscador-ubicacion__mapa {
+  width: 100%;
+  height: clamp(260px, 50vw, 400px);
+  margin-top: 16px;
+  border-radius: 12px;
+  isolation: isolate;
+}
+
+.buscador-ubicacion__mapa[hidden] {
+  display: none;
+}
+
+.buscador-ubicacion__mapa .leaflet-popup-content {
+  max-width: min(240px, 55vw);
+  overflow-wrap: anywhere;
+}
