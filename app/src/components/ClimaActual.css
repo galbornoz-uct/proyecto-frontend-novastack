@@ -1,0 +1,23 @@
+.clima-actual {
+  box-sizing: border-box;
+  width: min(100%, 1060px);
+  margin: 24px auto;
+  padding: 24px;
+  border: 1px solid #ceded2;
+  border-top: 5px solid #087f83;
+  border-radius: 16px;
+  background: #f2f8f4;
+  color: #153d30;
+  text-align: left;
+}
+
+.clima-actual h2 {
+  color: #153d30;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.clima-actual p { margin: 8px 0; }
+.clima-actual .clima-actual__temperatura { font-size: 36px; font-weight: bold; line-height: 1.2; }
+.clima-actual .clima-actual__fuente { margin-top: 16px; font-size: 14px; }
+.clima-actual a { color: #075f62; text-underline-offset: 3px; }
+.clima-actual a:focus-visible { outline: 3px solid #087f83; outline-offset: 3px; }

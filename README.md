@@ -5,7 +5,6 @@
 | Nombre | Rol ágil |
 |---|---|
 | Matias Salinas  | Product Owner |
-| Francisco Larenas | Developers |
 | Gonzalo Albornoz | Scrum Master |
 | Rodrigo Sevilla | Developers |
 | Carlos Nahuelcoy | QA/Tester |
@@ -319,7 +318,7 @@ Desde la raíz: `git diff --check`.
 
 ### API pública externa
 
-El proyecto utiliza Open-Meteo en la vista Lugares, mediante `js/clima-rutas.js`.
+El proyecto utiliza Open-Meteo en Inicio de React, mediante `app/src/components/ClimaActual.jsx`, y en la vista HTML Lugares, mediante `js/clima-rutas.js`.
 
 | Dato | Valor |
 |---|---|
@@ -328,7 +327,13 @@ El proyecto utiliza Open-Meteo en la vista Lugares, mediante `js/clima-rutas.js`
 | Endpoint que usaremos | `GET /v1/forecast`. |
 | Variables utilizadas | `temperature_2m` (temperatura en °C), `wind_speed_10m` (velocidad del viento en km/h) y `weather_code` (código de las condiciones del cielo). |
 | Requiere autenticación | No requiere autenticación ni clave de API para el uso actual, conforme al requisito del curso. |
-| Vista en que aparece | Lugares (`pages/lugares.html`), mediante `js/clima-rutas.js`. |
+| Vista en que aparece | Inicio de React (`app/src/paginas/Inicio.jsx`), mediante `ClimaActual.jsx`; y Lugares (`pages/lugares.html`), mediante `js/clima-rutas.js`. |
 | Para qué le sirve al usuario | Mostrar temperatura, velocidad del viento y condiciones del cielo de lugares turísticos para ayudar a planificar las visitas. |
 
 La consulta envía las coordenadas de cada lugar mediante `latitude` y `longitude`, solicita las tres variables con `current=temperature_2m,wind_speed_10m,weather_code` y utiliza `timezone=America/Santiago`. El código lee los datos desde `current` en la respuesta JSON y traduce `weather_code` a una descripción del cielo.
+
+En Inicio de React se consulta el Cerro Ñielol (latitud -38.71708, longitud -72.58328),
+con viento en km/h. El componente consulta al cargar con `useEffect([])`, muestra
+sus propios estados de carga y error y cita a Open-Meteo en la interfaz. El clima
+es independiente de la API propia: si falla Open-Meteo, las rutas se mantienen;
+si se detiene json-server, el clima puede seguir cargando.
