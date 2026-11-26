@@ -2,8 +2,11 @@ import { createServer } from "node:http";
 import { performance } from "node:perf_hooks";
 
 const origen = new URL(process.env.ECORUTA_ORIGEN || "http://localhost:5173").origin;
-const puerto = Number(process.env.NOMINATIM_PORT || 3101);
-const host = process.env.NOMINATIM_HOST || "127.0.0.1";
+const puerto = Number(process.env.NOMINATIM_PORT || process.env.PORT || 3101);
+const host = process.env.NOMINATIM_HOST || (process.env.PORT ? "0.0.0.0" : "127.0.0.1");
+if (!Number.isInteger(puerto) || puerto < 1 || puerto > 65535) {
+  throw new Error("El puerto de Nominatim debe ser un entero entre 1 y 65535.");
+}
 const proveedor = new URL(
   process.env.NOMINATIM_SEARCH_URL || "https://nominatim.openstreetmap.org/search",
 );
@@ -25,6 +28,10 @@ function responder(respuesta, estado, datos) {
 }
 
 const servidor = createServer(async (peticion, respuesta) => {
+  // Comprobación del alojamiento: no consulta al proveedor ni consume su cuota.
+  if (peticion.method === "GET" && peticion.url === "/salud") {
+    return responder(respuesta, 200, { estado: "ok" });
+  }
   respuesta.setHeader("Vary", "Origin");
   if (peticion.headers.origin !== origen) return responder(respuesta, 403, null);
   respuesta.setHeader("Access-Control-Allow-Origin", origen);

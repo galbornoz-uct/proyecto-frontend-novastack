@@ -61,6 +61,16 @@
   color: var(--dorado);
 }
 
+.banner-principal h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 4px;
+  background: var(--dorado);
+}
+
 .banner-subtitulo {
   margin: 0 0 18px;
   color: white;

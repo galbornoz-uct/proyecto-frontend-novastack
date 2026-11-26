@@ -5,11 +5,11 @@
   margin: 32px auto;
   padding: clamp(20px, 4vw, 40px);
   color: #153d30;
-  background-color: #fff9ef;
+  background-color: var(--blanco);
   border: 1px solid #ceded2;
   border-top: 5px solid #f2be62;
   border-radius: 16px;
-  box-shadow: 0 4px 18px rgba(21, 61, 48, 0.08);
+  box-shadow: var(--sombra);
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.6;
   text-align: left;

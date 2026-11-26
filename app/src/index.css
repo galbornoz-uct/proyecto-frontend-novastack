@@ -1,24 +1,35 @@
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
+  --verde: #21533f;
+  --verde-oscuro: #153d30;
+  --verde-claro: #e4f1e6;
+  --turquesa: #087f83;
+  --dorado: #f2be62;
+  --cafe: #92591f;
+  --crema: #fff9ef;
+  --blanco: #fff;
+  --texto: #24382f;
+  --texto-suave: #52665d;
+  --borde: #e7e5dd;
+  --sombra: 0 8px 24px rgba(21, 61, 48, .12);
+  --text: var(--texto);
+  --text-h: var(--verde-oscuro);
+  --bg: var(--crema);
+  --border: var(--borde);
   --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
+  --accent: var(--turquesa);
+  --accent-bg: var(--verde-claro);
+  --accent-border: #bed8ce;
   --social-bg: rgba(244, 243, 236, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --sans: Arial, Helvetica, sans-serif;
+  --heading: Georgia, "Times New Roman", serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  font: 16px/1.6 var(--sans);
+  color-scheme: light;
   color: var(--text);
   background: var(--bg);
   font-synthesis: none;
@@ -28,27 +39,6 @@
 
   @media (max-width: 1024px) {
     font-size: 16px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
-      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
@@ -69,13 +59,14 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 700;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+  letter-spacing: -0.5px;
   margin: 32px 0;
 
   @media (max-width: 1024px) {
@@ -97,6 +88,68 @@ h2 {
 
 p {
   margin: 0;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+main { flex: 1; min-width: 0; padding-bottom: 40px; }
+img { max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+a { color: var(--turquesa); text-underline-offset: 3px; }
+a:hover { color: var(--verde-oscuro); }
+:focus-visible { outline: 3px solid var(--turquesa); outline-offset: 4px; }
+
+main > .boton,
+.pagina-propuesta > a {
+  display: table;
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  margin: 24px auto;
+  padding: 12px 24px;
+  border-radius: 9px;
+  background: var(--cafe);
+  color: var(--blanco);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+main > .boton:hover,
+.pagina-propuesta > a:hover { background: var(--verde); }
+
+.inicio-complementos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  width: calc(100% - 32px);
+  max-width: 1160px;
+  margin: 32px auto;
+  text-align: left;
+}
+
+.inicio-complementos > .clima-actual,
+.inicio-complementos > .sugerencias { width: 100%; max-width: none; margin: 0; }
+
+.pagina-propuesta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+  width: calc(100% - 32px);
+  max-width: 1160px;
+  margin: 32px auto;
+  text-align: left;
+}
+
+.pagina-propuesta > h1 { margin: 0; }
+.pagina-propuesta > .buscador-ubicacion,
+.pagina-propuesta > .sugerencias { width: 100%; max-width: none; margin: 0; }
+.pagina-propuesta > a { margin: 0; }
+
+@media (min-width: 900px) {
+  .inicio-complementos { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .pagina-propuesta { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pagina-propuesta > h1, .pagina-propuesta > a { grid-column: 1 / -1; }
 }
 
 code,
@@ -122,11 +175,16 @@ code {
   --catalogo-dorado: #f2be62;
 
   box-sizing: border-box;
-  max-width: 1060px;
-  margin-inline: auto;
+  width: calc(100% - 32px);
+  max-width: 1160px;
+  margin: 32px auto;
   padding: clamp(24px, 5vw, 48px) clamp(16px, 4vw, 32px);
   color: var(--catalogo-verde);
-  background: #f2f8f4;
+  background: var(--blanco);
+  border: 1px solid var(--borde);
+  border-top: 5px solid var(--turquesa);
+  border-radius: 18px;
+  box-shadow: var(--sombra);
   text-align: left;
 }
 
@@ -255,6 +313,19 @@ code {
   font-weight: 700;
 }
 
+main > .estado {
+  width: calc(100% - 32px);
+  max-width: 1160px;
+  margin: 24px auto;
+  padding: 16px 20px;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--blanco);
+  text-align: left;
+}
+
+main > .estado.error { border-color: #e8c7bd; background: #fff3ee; }
+
 .tarjeta.detalle {
   max-width: 640px;
 }
@@ -274,6 +345,7 @@ code {
   list-style: none;
   display: grid;
   gap: 10px;
+  padding: 0;
   margin-bottom: 20px;
 }
 
@@ -281,6 +353,7 @@ code {
   padding: 12px 14px;
   border: 1px solid #e3e8e3;
   border-radius: 10px;
+  background: var(--blanco);
 }
 
 .resena span {
@@ -300,8 +373,9 @@ code {
 
 .formulario {
   display: grid;
-  gap: 6px;
-  padding: 16px;
+  gap: 10px;
+  padding: clamp(16px, 3vw, 24px);
+  margin-top: 20px;
   border-radius: 10px;
   background: #f2f7f3;
 }
@@ -323,7 +397,16 @@ code {
   border: 1px solid #b9c7bc;
   border-radius: 8px;
   font: inherit;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  color: var(--texto);
+  background: var(--blanco);
 }
+
+.formulario textarea { min-height: 120px; resize: vertical; }
+.formulario h3 { margin: 0 0 8px; font-family: var(--heading); font-size: 22px; }
+.formulario p { color: var(--texto-suave); font-size: 14px; }
 
 .formulario .boton {
   display: inline-flex;
@@ -376,7 +459,8 @@ code {
 /* ---------- API externa y publicación (semana 13) ---------- */
 .aviso-publicacion {
   box-sizing: border-box;
-  width: min(100%, 1060px);
+  width: calc(100% - 32px);
+  max-width: 1160px;
   margin: 16px auto;
   padding: 16px 20px;
   border: 1px solid #d2a326;
